@@ -3,11 +3,31 @@
 @tailwind utilities;
 
 body {
-  background-color: #ffffff;
+  @apply text-dark bg-white;
 }
 
 @layer components {
   .container-block {
     @apply mx-auto max-w-[1112px] px-4;
+  }
+
+  .container-block-header {
+    @apply container-block max-w-[1412px];
+  }
+
+  .bg-preview {
+    background-image: url("../shared/assets/preview_image.webp");
+  }
+
+  .flex-container {
+    @apply flex gap-2;
+  }
+
+  .flex-container > * {
+    @apply w-full;
+  }
+
+  .input-theme {
+    @apply h-ui text-dark border-gray placeholder:text-gray w-full rounded-3xl border-[1px] px-4 py-2 text-sm focus:outline-0;
   }
 }
