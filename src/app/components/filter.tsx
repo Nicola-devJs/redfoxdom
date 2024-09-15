@@ -7,10 +7,7 @@ import { Input } from "@/shared/UI/input";
 import { Select } from "@/shared/UI/select";
 import { cn } from "@/shared/utils/cn";
 import React, { useState } from "react";
-import { HouseIcon } from "../icons/house";
-import { VillaIcon } from "../icons/villa";
-import { OfficeIcon } from "../icons/office";
-import { ApartmentIcon } from "../icons/apartment";
+import { PropertyTag } from "@/shared/components/propertyTag";
 
 // TODO Temp mock options
 const mockOptions: OptionType[] = [
@@ -28,12 +25,12 @@ export const FilterHome = () => {
   const [currentTab, setCurrentTab] = useState<OptionType>(mockTabs[0]);
 
   return (
-    <div className="w-full max-w-[70%] justify-self-end">
-      <div className="inline-flex h-10 overflow-hidden rounded-t-lg">
+    <div className="w-full max-w-[70%] justify-self-end max-lg:max-w-full">
+      <div className="inline-flex h-10 overflow-hidden rounded-t-lg max-md:rounded-none max-md:rounded-tr-lg">
         {mockTabs.map((tab) => (
           <div
             className={cn(
-              "text-dark bg-gray flex h-full cursor-pointer items-center justify-center px-8 text-base font-semibold uppercase",
+              "flex h-full cursor-pointer items-center justify-center bg-gray px-8 text-base font-semibold uppercase text-dark",
               {
                 "bg-primary text-white": currentTab.value === tab.value,
               },
@@ -45,7 +42,7 @@ export const FilterHome = () => {
           </div>
         ))}
       </div>
-      <div className="flex w-full flex-col gap-3 rounded-lg rounded-tl-none bg-white p-4">
+      <div className="flex w-full flex-col gap-3 rounded-lg rounded-tl-none bg-white p-4 max-md:rounded-none">
         <Input placeholder="Type keyword..." />
         <Select
           options={mockOptions}
@@ -67,31 +64,11 @@ export const FilterHome = () => {
           </Button>
         </div>
       </div>
-      <div className="mt-5 flex justify-between px-2">
-        <div className="flex items-center gap-1">
-          <div className="bg-gray/60 flex h-6 w-6 items-center justify-center rounded-full">
-            <HouseIcon className="h-[18px] w-[18px] fill-white" />
-          </div>
-          <span className="text-xs font-normal text-white">Houses</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="bg-gray/60 flex h-6 w-6 items-center justify-center rounded-full">
-            <VillaIcon className="h-[18px] w-[18px] fill-white" />
-          </div>
-          <span className="text-xs font-normal text-white">Vills</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="bg-gray/60 flex h-6 w-6 items-center justify-center rounded-full">
-            <OfficeIcon className="h-[18px] w-[18px] fill-white" />
-          </div>
-          <span className="text-xs font-normal text-white">Office</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="bg-gray/60 flex h-6 w-6 items-center justify-center rounded-full">
-            <ApartmentIcon className="h-[18px] w-[18px] fill-white" />
-          </div>
-          <span className="text-xs font-normal text-white">Apartments</span>
-        </div>
+      <div className="mt-5 flex justify-between px-2 max-md:hidden">
+        <PropertyTag iconName="house" name="Houses" variant="small" />
+        <PropertyTag iconName="villa" name="Vills" variant="small" />
+        <PropertyTag iconName="office" name="Office" variant="small" />
+        <PropertyTag iconName="apartment" name="Apartments" variant="small" />
       </div>
     </div>
   );

@@ -56,7 +56,7 @@ export const Select = ({
   }, []);
 
   return (
-    <div className={cn("h-ui relative w-full", className)} ref={selectRef}>
+    <div className={cn("relative h-ui w-full", className)} ref={selectRef}>
       <label
         className="cursor-pointer"
         onClick={() => setShowOptions(!showOptions)}
@@ -76,13 +76,13 @@ export const Select = ({
 
       <ul
         className={cn(
-          "text-dark border-gray pointer-events-none absolute left-0 right-0 top-[56px] w-full translate-y-4 overflow-hidden rounded-xl border-[1px] bg-white text-sm opacity-0 transition",
+          "border-1 pointer-events-none absolute left-0 right-0 top-[56px] w-full translate-y-4 overflow-hidden rounded-xl border-gray bg-white text-sm text-dark opacity-0 transition",
           { "opacity-1 pointer-events-auto translate-y-0": showOptions },
         )}
       >
         {getOptions().map((opt) => (
           <li
-            className={cn("hover:bg-gray cursor-pointer p-3 transition", {
+            className={cn("cursor-pointer p-3 transition hover:bg-gray", {
               "bg-gray": selectValue.value === opt.value,
             })}
             key={opt.value}

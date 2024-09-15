@@ -8,11 +8,11 @@ interface IProps {
 
 export const HeadingSection = ({ children, title, supTitle }: IProps) => {
   return (
-    <section className="container-block mt-[100px]">
-      <h3 className="text-primary mb-2 text-center text-sm font-medium uppercase">
+    <section className="container-block mt-[80px]">
+      <h3 className="mb-2 text-center text-sm font-medium uppercase text-primary">
         {supTitle}
       </h3>
-      <h2 className="mb-10 text-center text-4xl font-bold capitalize">
+      <h2 className="mb-8 text-center text-4xl font-bold capitalize max-md:text-3xl">
         {title}
       </h2>
       {children}

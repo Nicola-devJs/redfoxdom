@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { LightModeIcon } from "../icons/lightMode";
-import { DarkModeIcon } from "../icons/darkMode";
-import { Button } from "../UI/button";
-import { setCookie } from "../utils/cookies";
-import { THEME } from "../constants";
+import { LightModeIcon } from "../../shared/icons/lightMode";
+import { DarkModeIcon } from "../../shared/icons/darkMode";
+import { Button } from "../../shared/UI/button";
+import { setCookie } from "../../shared/utils/cookies";
+import { THEME } from "../../shared/constants";
 
 interface IProps {
   theme: string | undefined;

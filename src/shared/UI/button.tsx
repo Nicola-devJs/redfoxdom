@@ -1,9 +1,10 @@
 import React, { ReactNode } from "react";
 import { cn } from "../utils/cn";
+import { ArrowRightIcon } from "../icons/arrowRight";
 
 interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: "outlined" | "primary";
+  variant?: "outlined" | "primary" | "secondary";
   isCircle?: boolean;
 }
 
@@ -15,18 +16,28 @@ export const Button = ({
   ...props
 }: IProps) => {
   const isPrimary = variant === "primary";
+  const isSecondary = variant === "secondary";
 
   return (
     <button
       className={cn(
-        "border-primary h-ui text-dark flex items-center justify-center gap-2 whitespace-nowrap rounded-3xl border-2 bg-transparent px-6 py-2 text-sm font-medium",
-        className,
+        "flex h-ui items-center justify-center gap-2 whitespace-nowrap rounded-3xl border-2 border-primary bg-transparent px-6 py-2 text-sm font-medium text-dark",
         { "bg-primary text-white": isPrimary },
+        { "border-gray bg-gray text-dark": isSecondary },
         { "px-3": isCircle },
+        className,
       )}
       {...props}
     >
       {children}
     </button>
+  );
+};
+
+export const MoreButton = ({ className, children, ...props }: IProps) => {
+  return (
+    <Button className={cn("px-10", className)} {...props}>
+      {children} <ArrowRightIcon className="h-5 w-5 fill-white" />
+    </Button>
   );
 };

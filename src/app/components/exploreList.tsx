@@ -1,63 +1,67 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
-import burgasImage from "@/shared/assets/burgas.jpg";
-import melenikoImage from "@/shared/assets/Meleniko.jpg";
-import obzorImage from "@/shared/assets/Obzor.jpg";
-import nesebrImage from "@/shared/assets/nesebr.jpg";
-import plovdivImage from "@/shared/assets/plovdiv.webp";
-import sofiaImage from "@/shared/assets/sofia.jpg";
-import varnaImage from "@/shared/assets/varna.jpg";
 
 import Link from "next/link";
 import { ArrowRightIcon } from "@/shared/icons/arrowRight";
-
-type CityPropertiesType = {
-  img: string | StaticImageData;
-  city: string;
-  countProperties: number;
-};
+import { mockTestImages } from "@/shared/constants";
+import { List } from "@/shared/components/list";
 
 // TODO temp mock data
 
-const citiesMock: CityPropertiesType[] = [
-  { img: burgasImage, city: "Burgas", countProperties: 567 },
-  { img: melenikoImage, city: "Meleniko", countProperties: 234 },
-  { img: obzorImage, city: "Obzor", countProperties: 444 },
-  { img: nesebrImage, city: "Nesebr", countProperties: 345 },
-  { img: plovdivImage, city: "Plovdiv", countProperties: 456 },
-  { img: sofiaImage, city: "Sofia", countProperties: 890 },
-  { img: varnaImage, city: "Varna", countProperties: 234 },
-  { img: nesebrImage, city: "Nesebr", countProperties: 345 },
-  { img: plovdivImage, city: "Plovdiv", countProperties: 456 },
+const citiesMock: IProps[] = [
+  { img: mockTestImages.burgas, city: "Burgas", countProperties: 567 },
+  { img: mockTestImages.meleniko, city: "Meleniko", countProperties: 234 },
+  { img: mockTestImages.obzor, city: "Obzor", countProperties: 444 },
+  { img: mockTestImages.nesebr, city: "Nesebr", countProperties: 345 },
+  { img: mockTestImages.plovdiv, city: "Plovdiv", countProperties: 456 },
+  { img: mockTestImages.sofia, city: "Sofia", countProperties: 890 },
+  { img: mockTestImages.varna, city: "Varna", countProperties: 234 },
+  { img: mockTestImages.nesebr, city: "Nesebr", countProperties: 345 },
+  { img: mockTestImages.plovdiv, city: "Plovdiv", countProperties: 456 },
 ];
+
+interface IProps {
+  img: string | StaticImageData;
+  city: string;
+  countProperties: number;
+}
+
+const ExploreItem = ({ city, countProperties, img }: IProps) => {
+  return (
+    <div className="flex h-[130px]" key={city}>
+      <Image
+        src={img}
+        alt={city}
+        className="w-[45%] min-w-[45%] max-w-full rounded-s-2xl object-cover"
+      />
+      <div className="dark:border-dark-second w-full rounded-e-2xl border-1 border-l-0 border-gray p-3">
+        <span className="mb-1 block text-lg font-semibold text-dark dark:text-white">
+          {city}
+        </span>
+        <span className="mb-4 block text-sm text-dark/50 dark:text-white/50">
+          {countProperties} properties
+        </span>
+        <Link
+          href="#"
+          className="flex items-center gap-1 text-sm font-semibold capitalize text-dark dark:text-white"
+        >
+          Explore now
+          <ArrowRightIcon className="h-4 w-4 fill-primary" />
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+// TODO удалить абстракцию ExploreList после получения реальных данных, оставить только ExploreItem
 
 export const ExploreList = () => {
   return (
-    <div className="grid w-full grid-cols-3 gap-6">
-      {citiesMock.map((city) => (
-        <div className="flex h-[130px]" key={city.city}>
-          <Image
-            src={city.img}
-            alt={city.city}
-            className="w-[45%] rounded-s-2xl object-cover"
-          />
-          <div className="border-gray w-full rounded-e-2xl border-[1px] p-3">
-            <span className="text-dark mb-1 block text-lg font-semibold">
-              {city.city}
-            </span>
-            <span className="text-dark/50 mb-4 block text-sm">
-              {city.countProperties} properties
-            </span>
-            <Link
-              href="#"
-              className="text-dark flex items-center gap-1 text-sm font-semibold capitalize"
-            >
-              Explore now
-              <ArrowRightIcon className="fill-primary h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      ))}
-    </div>
+    <List
+      className="mb-8"
+      ItemList={ExploreItem}
+      list={citiesMock}
+      keyProp="city"
+    />
   );
 };

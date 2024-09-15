@@ -1,5 +1,4 @@
 import { cookies } from "next/headers";
-import { THEME } from "../constants";
 
 export const getTheme = () => {
   const cookieStore = cookies();
