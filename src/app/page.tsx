@@ -32,15 +32,15 @@ export default function Home() {
         <ExploreList />
         <MoreButton className="mx-auto">View all cities</MoreButton>
       </HeadingSection>
-      <HeadingSection supTitle="Fetured properties" title="Recommended for you">
-        <RecommendedProperties />
-        <MoreButton className="mx-auto mt-8">View all properties</MoreButton>
-      </HeadingSection>
       <div className="mt-[80px] bg-light pb-[80px] pt-1 dark:bg-dark-second">
         <HeadingSection supTitle="latest new" title="from our blog">
           <PostList />
         </HeadingSection>
       </div>
+      <HeadingSection supTitle="Fetured properties" title="Recommended for you">
+        <RecommendedProperties />
+        <MoreButton className="mx-auto mt-8">View all properties</MoreButton>
+      </HeadingSection>
     </>
   );
 }

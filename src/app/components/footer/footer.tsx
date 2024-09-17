@@ -10,7 +10,7 @@ import { SendMail } from "./sendMail";
 
 export const Footer = () => {
   return (
-    <div className="w-full border-t-1 border-dark-second bg-dark text-white dark:bg-dark-second">
+    <div className="mt-[80px] w-full border-t-1 border-dark-second bg-dark text-white dark:bg-dark-second">
       <div className="container-block">
         <div className="flex items-center justify-between py-12">
           <Logo className="border-white text-white" />

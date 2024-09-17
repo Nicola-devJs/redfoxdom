@@ -8,13 +8,15 @@ export const HeaderMenu = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
+  const handleChangeShowMobileMenu = () => setShowMobileMenu(false);
+
   const handleCloseMobileMenu = (event: MouseEvent) => {
     const res = navRef.current
       ?.closest("#header")
       ?.contains(event.target as Node);
 
     if (!res) {
-      setShowMobileMenu(false);
+      handleChangeShowMobileMenu();
     }
   };
 
@@ -43,13 +45,19 @@ export const HeaderMenu = () => {
       >
         <ul className="flex items-center gap-6 text-dark max-md:flex-col max-md:text-3xl dark:text-white">
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/" onClick={handleChangeShowMobileMenu}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link href="/properties">Propeties</Link>
+            <Link href="/properties" onClick={handleChangeShowMobileMenu}>
+              Propeties
+            </Link>
           </li>
           <li>
-            <Link href="#">Blog</Link>
+            <Link href="#" onClick={handleChangeShowMobileMenu}>
+              Blog
+            </Link>
           </li>
         </ul>
       </nav>
