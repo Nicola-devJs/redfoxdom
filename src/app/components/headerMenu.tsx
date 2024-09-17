@@ -1,6 +1,7 @@
 "use client";
 import { MenuIcon } from "@/shared/icons/menu";
 import { cn } from "@/shared/utils/cn";
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
 export const HeaderMenu = () => {
@@ -32,7 +33,7 @@ export const HeaderMenu = () => {
       />
       <nav
         className={cn(
-          "max-md:dark:border-dark-second ml-10 transition max-md:pointer-events-none max-md:absolute max-md:bottom-full max-md:left-0 max-md:ml-0 max-md:w-full max-md:translate-y-4 max-md:border-y-1 max-md:border-gray max-md:bg-white max-md:p-6 max-md:opacity-0 max-md:dark:bg-dark",
+          "ml-10 transition max-md:pointer-events-none max-md:absolute max-md:bottom-full max-md:left-0 max-md:ml-0 max-md:w-full max-md:translate-y-4 max-md:border-y-1 max-md:border-gray max-md:bg-white max-md:p-6 max-md:opacity-0 max-md:dark:border-dark-second max-md:dark:bg-dark",
           {
             "max-md:opacity-1 max-md:pointer-events-auto max-md:translate-y-0":
               showMobileMenu,
@@ -42,13 +43,13 @@ export const HeaderMenu = () => {
       >
         <ul className="flex items-center gap-6 text-dark max-md:flex-col max-md:text-3xl dark:text-white">
           <li>
-            <a href="#">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a href="#">Propeties</a>
+            <Link href="/properties">Propeties</Link>
           </li>
           <li>
-            <a href="#">Blog</a>
+            <Link href="#">Blog</Link>
           </li>
         </ul>
       </nav>

@@ -22,7 +22,7 @@ export const List = <T extends Record<string, any>>({
       )}
     >
       {list.map((props, id) => (
-        <ItemList key={keyProp ? props[keyProp] : id} {...props} />
+        <ItemList key={keyProp ? `${props[keyProp]}_${id}` : id} {...props} />
       ))}
     </div>
   );

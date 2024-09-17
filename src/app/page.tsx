@@ -7,7 +7,7 @@ import { RecommendedProperties } from "./components/recommended";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <div
         className={`bg-preview relative flex h-[640px] w-full items-center bg-cover after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:bg-dark/30 max-md:h-max max-md:pt-6 max-md:shadow-lg`}
       >
@@ -35,6 +35,6 @@ export default function Home() {
         <RecommendedProperties />
         <MoreButton className="mx-auto mt-8">View all properties</MoreButton>
       </HeadingSection>
-    </main>
+    </>
   );
 }

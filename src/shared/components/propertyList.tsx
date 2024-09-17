@@ -68,7 +68,7 @@ const PropertyCard = ({ img, params, price, name, property }: IProps) => {
           <LocationIcon className="h-4 w-4 fill-white" /> 123 Chekalova, Burgase
         </div>
       </div>
-      <div className="dark:border-dark-second rounded-b-xl border-1 border-gray p-4">
+      <div className="rounded-b-xl border-1 border-gray p-4 dark:border-dark-second">
         <span className="mb-2 inline-block text-base font-bold capitalize text-dark dark:text-white">
           {name}
         </span>
@@ -82,7 +82,7 @@ const PropertyCard = ({ img, params, price, name, property }: IProps) => {
             />
           ))}
         </div>
-        <div className="dark:border-dark-second flex items-center justify-between border-t-1 border-gray pt-3">
+        <div className="flex items-center justify-between border-t-1 border-gray pt-3 dark:border-dark-second">
           <PropertyTag
             iconName={property.type}
             name={property.name}
