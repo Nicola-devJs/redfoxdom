@@ -34,7 +34,7 @@ const ExploreItem = ({ city, countProperties, img }: IProps) => {
         alt={city}
         className="w-[45%] min-w-[45%] max-w-full rounded-s-2xl object-cover"
       />
-      <div className="dark:border-dark-second w-full rounded-e-2xl border-1 border-l-0 border-gray p-3">
+      <div className="w-full rounded-e-2xl border-1 border-l-0 border-gray p-3 dark:border-dark-second">
         <span className="mb-1 block text-lg font-semibold text-dark dark:text-white">
           {city}
         </span>

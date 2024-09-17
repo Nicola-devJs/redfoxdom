@@ -3,6 +3,7 @@ import { Button } from "../../shared/UI/button";
 import { PropertyIcon, PersonIcon } from "../../shared/icons";
 import { ThemeMode } from "./themeMode";
 import { HeaderMenu } from "./headerMenu";
+import { Logo } from "./logo";
 
 interface IProps {
   theme: string | undefined;
@@ -12,14 +13,12 @@ export const HeaderLayout = ({ theme }: IProps) => {
   return (
     <header
       id="header"
-      className="bg-white py-4 max-md:fixed max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:z-50 max-md:border-t-1 max-md:border-gray dark:bg-dark max-md:dark:border-dark-second"
+      className="bg-white py-4 shadow-lg max-md:fixed max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:z-50 max-md:border-t-1 max-md:border-gray dark:bg-dark max-md:dark:border-dark-second"
     >
       <div className="container-block-header flex items-center gap-4">
-        <div className="max-phone:hidden rounded-lg border-2 border-dark px-4 py-2 text-dark dark:border-white dark:text-white">
-          LOGO
-        </div>
+        <Logo />
         <HeaderMenu />
-        <div className="max-phone:justify-between max-phone:ml-[13%] max-phone:w-full ml-auto flex items-center gap-4">
+        <div className="ml-auto flex items-center gap-4 max-phone:ml-[13%] max-phone:w-full max-phone:justify-between">
           <Button variant="outlined" className="max-md:px-3 dark:text-white">
             <PersonIcon className="fill-dark dark:fill-white" />{" "}
             <span className="max-md:hidden">Sign in</span>
