@@ -42,8 +42,8 @@ export const FilterHome = () => {
           </div>
         ))}
       </div>
-      <div className="flex w-full flex-col gap-3 rounded-lg rounded-tl-none bg-white p-4 max-md:rounded-none">
-        <Input placeholder="Type keyword..." />
+      <div className="flex w-full flex-col gap-3 rounded-lg rounded-tl-none bg-white p-4 max-md:rounded-none dark:bg-dark-second">
+        <Input placeholder="Type keyword..." className="dark:text-white" />
         <Select
           options={mockOptions}
           placeholder="Property type"
@@ -56,8 +56,8 @@ export const FilterHome = () => {
         />
 
         <div className="flex-container">
-          <Button variant="outlined">
-            Filters <SettingsIcon className="fill-dark" />
+          <Button variant="outlined" className="dark:text-white">
+            Filters <SettingsIcon className="fill-dark dark:fill-white" />
           </Button>
           <Button>
             Search <SearchIcon className="fill-white" />

@@ -64,27 +64,35 @@ export const Select = ({
         <input
           type="text"
           readOnly
-          className={cn("input-theme", "cursor-pointer pr-12")}
+          className={cn("input-theme cursor-pointer pr-12", {
+            "text-white": false,
+          })}
           value={selectValue.label}
         />
         <DownIcon
           className={cn("absolute right-4 top-1/2 -translate-y-1/2", {
             "rotate-180": showOptions,
+            "fill-white": false,
           })}
         />
       </label>
 
       <ul
         className={cn(
-          "border-1 pointer-events-none absolute left-0 right-0 top-[56px] w-full translate-y-4 overflow-hidden rounded-xl border-gray bg-white text-sm text-dark opacity-0 transition",
+          "pointer-events-none absolute left-0 right-0 top-[56px] w-full translate-y-4 overflow-hidden rounded-xl border-1 border-gray bg-white text-sm text-dark opacity-0 transition",
           { "opacity-1 pointer-events-auto translate-y-0": showOptions },
+          { "border-dark-second bg-dark text-white": false },
         )}
       >
         {getOptions().map((opt) => (
           <li
-            className={cn("cursor-pointer p-3 transition hover:bg-gray", {
-              "bg-gray": selectValue.value === opt.value,
-            })}
+            className={cn(
+              "cursor-pointer p-3 transition hover:bg-gray",
+              {
+                "bg-gray": selectValue.value === opt.value,
+              },
+              { "bg-dark-second": false && selectValue.value === opt.value },
+            )}
             key={opt.value}
             onClick={() => onSelectOption(opt)}
           >

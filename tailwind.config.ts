@@ -5,6 +5,9 @@ const config: Config = {
   darkMode: ["selector", '[data-mode="dark"]'],
   theme: {
     extend: {
+      screens: {
+        phone: "450px",
+      },
       height: {
         ui: "48px",
       },
@@ -24,6 +27,7 @@ const config: Config = {
           DEFAULT: "rgb(228, 228, 228)",
           second: "rgb(164, 171, 177)",
         },
+        light: "rgb(244, 247, 254)",
       },
       borderWidth: {
         "1": "1px",

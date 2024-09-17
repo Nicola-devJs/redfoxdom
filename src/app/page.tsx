@@ -4,6 +4,7 @@ import { FilterHome } from "./components/filter";
 import { HeadingSection } from "@/shared/components/headingSection";
 import { ExploreList } from "./components/exploreList";
 import { RecommendedProperties } from "./components/recommended";
+import { PostList } from "@/shared/components/postList";
 
 export default function Home() {
   return (
@@ -35,6 +36,11 @@ export default function Home() {
         <RecommendedProperties />
         <MoreButton className="mx-auto mt-8">View all properties</MoreButton>
       </HeadingSection>
+      <div className="mt-[80px] bg-light pb-[80px] pt-1 dark:bg-dark-second">
+        <HeadingSection supTitle="latest new" title="from our blog">
+          <PostList />
+        </HeadingSection>
+      </div>
     </main>
   );
 }
