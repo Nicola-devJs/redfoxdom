@@ -1,10 +1,11 @@
-import { ArrowRightIcon } from "@/shared/icons/arrowRight";
-import { Button, MoreButton } from "@/shared/UI/button";
+import { MoreButton } from "@/shared/UI/button";
 import { FilterHome } from "./components/filter";
 import { HeadingSection } from "@/shared/components/headingSection";
 import { ExploreList } from "./components/exploreList";
 import { RecommendedProperties } from "./components/recommended";
 import { PostList } from "@/shared/components/postList";
+import { Benifit } from "./components/benifit/benifit";
+import { TestimonialList } from "@/shared/components/testimonial";
 
 export default function Home() {
   return (
@@ -30,16 +31,25 @@ export default function Home() {
       </div>
       <HeadingSection supTitle="Explore cities" title="Properties by cities">
         <ExploreList />
-        <MoreButton className="mx-auto">View all cities</MoreButton>
+      </HeadingSection>
+      <Benifit />
+      <HeadingSection supTitle="Fetured properties" title="Recommended for you">
+        <RecommendedProperties />
+        <MoreButton className="mx-auto mt-8">View all properties</MoreButton>
       </HeadingSection>
       <div className="mt-[80px] bg-light pb-[80px] pt-1 dark:bg-dark-second">
         <HeadingSection supTitle="latest new" title="from our blog">
           <PostList />
         </HeadingSection>
       </div>
-      <HeadingSection supTitle="Fetured properties" title="Recommended for you">
-        <RecommendedProperties />
-        <MoreButton className="mx-auto mt-8">View all properties</MoreButton>
+      <HeadingSection supTitle="Explore cities" title="Properties by cities">
+        <div className="-mt-6">
+          <span className="mb-10 block text-center text-dark/50 dark:text-gray-second">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque rem
+            tempora, aperiam soluta impedit ipsum?
+          </span>
+          <TestimonialList />
+        </div>
       </HeadingSection>
     </>
   );

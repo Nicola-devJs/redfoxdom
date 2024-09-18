@@ -15,7 +15,7 @@ export const HeaderLayout = ({ theme }: IProps) => {
       id="header"
       className="bg-white py-4 shadow-lg max-md:fixed max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:z-50 max-md:border-t-1 max-md:border-gray dark:bg-dark max-md:dark:border-dark-second"
     >
-      <div className="container-block-header flex items-center gap-4">
+      <div className="container-block-large flex items-center gap-4">
         <Logo className="max-phone:hidden" />
         <HeaderMenu />
         <div className="ml-auto flex items-center gap-4 max-phone:ml-[13%] max-phone:w-full max-phone:justify-between">

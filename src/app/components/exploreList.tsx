@@ -15,9 +15,6 @@ const citiesMock: IProps[] = [
   { img: mockTestImages.nesebr, city: "Nesebr", countProperties: 345 },
   { img: mockTestImages.plovdiv, city: "Plovdiv", countProperties: 456 },
   { img: mockTestImages.sofia, city: "Sofia", countProperties: 890 },
-  { img: mockTestImages.varna, city: "Varna", countProperties: 234 },
-  { img: mockTestImages.nesebr, city: "Nesebr", countProperties: 345 },
-  { img: mockTestImages.plovdiv, city: "Plovdiv", countProperties: 456 },
 ];
 
 interface IProps {
@@ -25,6 +22,8 @@ interface IProps {
   city: string;
   countProperties: number;
 }
+
+// Второй вариант отображение городов с ссылкой
 
 const ExploreItem = ({ city, countProperties, img }: IProps) => {
   return (
@@ -53,15 +52,34 @@ const ExploreItem = ({ city, countProperties, img }: IProps) => {
   );
 };
 
+const ExploreItemWithoutLink = ({ img, city, countProperties }: IProps) => {
+  return (
+    <div className="w-full">
+      <div className="mb-4 h-[240px] w-full overflow-hidden rounded-xl">
+        <Image className="h-full w-full object-cover" src={img} alt={city} />
+      </div>
+      <div className="">
+        <span className="mb-1 block text-lg font-semibold text-dark dark:text-white">
+          {city}
+        </span>
+        <span className="block text-sm font-light text-dark/50 dark:text-white/50">
+          {countProperties} properties
+        </span>
+      </div>
+    </div>
+  );
+};
+
 // TODO удалить абстракцию ExploreList после получения реальных данных, оставить только ExploreItem
 
 export const ExploreList = () => {
   return (
     <List
-      className="mb-8"
-      ItemList={ExploreItem}
+      className="mb-8 grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-phone:grid-cols-1"
+      ItemList={ExploreItemWithoutLink}
       list={citiesMock}
       keyProp="city"
+      colSpanItems={{ startId: 4, span: 2 }}
     />
   );
 };

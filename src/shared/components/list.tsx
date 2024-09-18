@@ -6,6 +6,11 @@ interface IProps<T extends Record<string, any>> {
   list: T[];
   ItemList: React.ComponentType<T>;
   keyProp?: keyof T;
+  colSpanItems?: {
+    startId: number;
+    span: number;
+    endId?: number;
+  };
 }
 
 export const List = <T extends Record<string, any>>({
@@ -13,7 +18,18 @@ export const List = <T extends Record<string, any>>({
   ItemList,
   list,
   keyProp,
+  colSpanItems,
 }: IProps<T>) => {
+  const getConditionColSpan = (id: number) => {
+    if (!colSpanItems) {
+      return false;
+    }
+    if (!colSpanItems.endId) {
+      return id >= colSpanItems.startId;
+    }
+    return id >= colSpanItems.startId && id < colSpanItems.endId;
+  };
+
   return (
     <div
       className={cn(
@@ -22,7 +38,18 @@ export const List = <T extends Record<string, any>>({
       )}
     >
       {list.map((props, id) => (
-        <ItemList key={keyProp ? `${props[keyProp]}_${id}` : id} {...props} />
+        <div
+          key={keyProp ? `${props[keyProp]}_${id}` : id}
+          className={cn(
+            "col-auto",
+            colSpanItems && {
+              [`col-span-${colSpanItems.span} max-lg:col-auto`]:
+                getConditionColSpan(id),
+            },
+          )}
+        >
+          <ItemList {...props} />
+        </div>
       ))}
     </div>
   );
