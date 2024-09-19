@@ -4,6 +4,13 @@ const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   darkMode: ["selector", '[data-mode="dark"]'],
   theme: {
+    colors: (theme) => ({
+      ...theme.colors,
+      yellow: {
+        ...theme.colors.yellow,
+        DEFAULT: "rgb(255, 171, 9)",
+      },
+    }),
     extend: {
       screens: {
         phone: "450px",

@@ -43,8 +43,12 @@ export const List = <T extends Record<string, any>>({
           className={cn(
             "col-auto",
             colSpanItems && {
-              [`col-span-${colSpanItems.span} max-lg:col-auto`]:
-                getConditionColSpan(id),
+              "col-span-2 max-lg:col-auto":
+                getConditionColSpan(id) && colSpanItems.span === 2,
+              "col-span-3 max-lg:col-auto":
+                getConditionColSpan(id) && colSpanItems.span === 3,
+              "col-span-4 max-lg:col-auto":
+                getConditionColSpan(id) && colSpanItems.span === 4,
             },
           )}
         >
