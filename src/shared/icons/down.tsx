@@ -4,13 +4,13 @@ export const DownIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="24px"
-      viewBox="0 -960 960 960"
+      viewBox="0 0 512 512"
       width="24px"
+      height="24px"
       fill="#000000"
       {...props}
     >
-      <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+      <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
     </svg>
   );
 };

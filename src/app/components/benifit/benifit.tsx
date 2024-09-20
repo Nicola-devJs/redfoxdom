@@ -29,7 +29,7 @@ export const Benifit = () => {
             text="transparent partnerships"
             className="right-[0px] top-[50%]"
           />
-          <div className="absolute right-0 top-0 size-[260px] overflow-hidden rounded-3xl max-md:size-[33.854vw]">
+          <div className="absolute right-0 top-0 size-[260px] overflow-hidden rounded-3xl shadow-lg max-md:size-[33.854vw]">
             <Image
               src={mockTestImages.meleniko}
               alt="benifit"
@@ -43,7 +43,7 @@ export const Benifit = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="absolute bottom-0 left-0 size-[200px] overflow-hidden rounded-3xl max-md:size-[26.042vw]">
+          <div className="absolute bottom-0 left-0 size-[200px] overflow-hidden rounded-3xl shadow-lg max-md:size-[26.042vw]">
             <Image
               src={mockTestImages.plovdiv}
               alt="benifit"

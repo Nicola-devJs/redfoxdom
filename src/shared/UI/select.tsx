@@ -11,6 +11,9 @@ interface IProps {
   handleSelectOptions?: (option: OptionType) => void;
   hideSelectOption?: boolean;
   className?: string;
+  variant?: "default" | "secondary";
+  prefix?: string;
+  postfix?: string;
 }
 
 export const Select = ({
@@ -20,12 +23,17 @@ export const Select = ({
   handleSelectOptions,
   hideSelectOption,
   className,
+  variant = "default",
+  prefix,
+  postfix,
 }: IProps) => {
   const [showOptions, setShowOptions] = useState(false);
   const [selectValue, setSelectValue] = useState<OptionType>({
     label: defaultValue?.label || placeholder || "Выбрать пункт",
     value: defaultValue?.value || "",
   });
+  const isSecondary = variant === "secondary";
+  const isDefault = variant === "default";
   const selectRef = useRef<HTMLDivElement>(null);
 
   const onSelectOption = (option: OptionType) => {
@@ -56,7 +64,15 @@ export const Select = ({
   }, []);
 
   return (
-    <div className={cn("relative h-ui w-full", className)} ref={selectRef}>
+    <div
+      className={cn(
+        "relative z-[1] w-full",
+        { "h-9": isSecondary },
+        { "h-ui": isDefault },
+        className,
+      )}
+      ref={selectRef}
+    >
       <label
         className="cursor-pointer"
         onClick={() => setShowOptions(!showOptions)}
@@ -64,16 +80,19 @@ export const Select = ({
         <input
           type="text"
           readOnly
-          className={"input-theme cursor-pointer pr-12 dark:text-white"}
-          value={selectValue.label}
+          className={cn("input-theme cursor-pointer pr-12", {
+            "h-9 rounded-lg": isSecondary,
+          })}
+          value={`${prefix || ""}${selectValue.label}${postfix || ""}`}
         />
         <DownIcon
           className={cn(
-            "absolute right-4 top-1/2 -translate-y-1/2 dark:fill-white",
+            "absolute right-4 top-1/2 size-3 -translate-y-1/2 fill-dark/80 dark:fill-white",
             {
               "rotate-180": showOptions,
             },
           )}
+          onClick={(e) => e.stopPropagation()}
         />
       </label>
 
@@ -81,13 +100,17 @@ export const Select = ({
         className={cn(
           "pointer-events-none absolute left-0 right-0 top-[56px] w-full translate-y-4 overflow-hidden rounded-xl border-1 border-gray bg-white text-sm text-dark opacity-0 transition dark:border-dark-second dark:bg-dark dark:text-white",
           { "opacity-1 pointer-events-auto translate-y-0": showOptions },
+          { "top-[46px] rounded-lg": isSecondary },
         )}
       >
         {getOptions().map((opt) => (
           <li
-            className={cn("cursor-pointer p-3 transition hover:bg-gray", {
-              "bg-gray dark:bg-dark-second": selectValue.value === opt.value,
-            })}
+            className={cn(
+              "cursor-pointer p-3 transition hover:bg-gray dark:hover:bg-gray-second",
+              {
+                "bg-gray dark:bg-dark-second": selectValue.value === opt.value,
+              },
+            )}
             key={opt.value}
             onClick={() => onSelectOption(opt)}
           >

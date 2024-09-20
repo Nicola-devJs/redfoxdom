@@ -28,6 +28,10 @@ body {
   }
 
   .input-theme {
-    @apply h-ui w-full rounded-3xl border-1 border-gray bg-transparent px-4 py-2 text-sm text-dark placeholder:text-gray focus:outline-0;
+    @apply h-ui w-full rounded-3xl border-1 border-gray bg-transparent px-4 py-2 text-sm placeholder:text-gray focus:outline-0 dark:border-gray-second dark:placeholder:text-gray-second;
   }
+}
+
+.gm-style-iw-chr {
+  height: 17px;
 }

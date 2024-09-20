@@ -57,10 +57,11 @@ export const FilterHome = () => {
 
         <div className="flex-container">
           <Button variant="outlined" className="dark:text-white">
-            Filters <SettingsIcon className="fill-dark dark:fill-white" />
+            Filters{" "}
+            <SettingsIcon className="size-4 fill-dark dark:fill-white" />
           </Button>
           <Button>
-            Search <SearchIcon className="fill-white" />
+            Search <SearchIcon className="size-4 fill-white" />
           </Button>
         </div>
       </div>

@@ -21,6 +21,7 @@ interface IProps {
   iconName: PropertyType;
   variant?: "default" | "small";
   color?: "white" | "gray";
+  isNotDark?: boolean;
 }
 
 export const PropertyTag = ({
@@ -28,6 +29,7 @@ export const PropertyTag = ({
   name,
   variant = "default",
   color = "white",
+  isNotDark,
 }: IProps) => {
   const PropertyIcon = mockPropertyIcons[iconName];
 
@@ -36,8 +38,9 @@ export const PropertyTag = ({
       <div
         className={cn(
           "mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-gray/60",
-          { "bg-dark/80 dark:bg-gray": color === "gray" },
+          { "bg-dark/80": color === "gray" },
           { "mr-1 h-6 w-6": variant === "small" },
+          { "dark:bg-gray": !isNotDark && color === "gray" },
         )}
       >
         <PropertyIcon
@@ -46,7 +49,7 @@ export const PropertyTag = ({
             {
               "h-[18px] w-[18px]": variant === "small",
             },
-            { "dark:fill-dark": color === "gray" },
+            { "dark:fill-dark": !isNotDark && color === "gray" },
           )}
         />
       </div>
@@ -54,9 +57,10 @@ export const PropertyTag = ({
         className={cn(
           "font-mediaum text-sm text-white",
           {
-            "text-dark/80 dark:text-gray": color === "gray",
+            "text-dark/80": color === "gray",
           },
           { "text-xs font-normal": variant === "small" },
+          { "dark:text-gray": !isNotDark && color === "gray" },
         )}
       >
         {name}

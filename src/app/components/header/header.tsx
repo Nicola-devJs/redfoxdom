@@ -19,8 +19,8 @@ export const HeaderLayout = ({ theme }: IProps) => {
         <Logo className="max-phone:hidden" />
         <HeaderMenu />
         <div className="ml-auto flex items-center gap-4 max-phone:ml-[13%] max-phone:w-full max-phone:justify-between">
-          <Button variant="outlined" className="max-md:px-3 dark:text-white">
-            <PersonIcon className="fill-dark dark:fill-white" />{" "}
+          <Button variant="outlined" className="max-md:px-3">
+            <PersonIcon className="size-4 fill-dark dark:fill-white" />{" "}
             <span className="max-md:hidden">Sign in</span>
           </Button>
           <Button className="max-md:px-3">
