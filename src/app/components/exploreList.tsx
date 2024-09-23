@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@/shared/icons/arrowRight";
 import { mockTestImages } from "@/shared/constants";
 import { List } from "@/shared/components/list";
+import { NextImage } from "@/shared/components/NextImage";
 
 // TODO temp mock data
 
@@ -28,10 +29,10 @@ interface IProps {
 const ExploreItem = ({ city, countProperties, img }: IProps) => {
   return (
     <div className="flex h-[130px]" key={city}>
-      <Image
+      <NextImage
         src={img}
         alt={city}
-        className="w-[45%] min-w-[45%] max-w-full rounded-s-2xl object-cover"
+        className="w-[45%] min-w-[45%] max-w-full rounded-s-2xl"
       />
       <div className="w-full rounded-e-2xl border-1 border-l-0 border-gray p-3 dark:border-dark-second">
         <span className="mb-1 block text-lg font-semibold text-dark dark:text-white">
@@ -55,9 +56,7 @@ const ExploreItem = ({ city, countProperties, img }: IProps) => {
 const ExploreItemWithoutLink = ({ img, city, countProperties }: IProps) => {
   return (
     <div className="w-full">
-      <div className="mb-4 h-[240px] w-full overflow-hidden rounded-xl">
-        <Image className="h-full w-full object-cover" src={img} alt={city} />
-      </div>
+      <NextImage src={img} alt={city} className="mb-4 h-[240px]" />
       <div className="">
         <span className="mb-1 block text-lg font-semibold text-dark dark:text-white">
           {city}

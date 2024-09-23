@@ -12,5 +12,5 @@ export interface IPropertyCard {
     name: string;
   };
   property: { type: PropertyType; name: string };
-  params: { type: PropertyParamsType; value: number; name: string }[];
+  params: { type: PropertyParamsType; value: number | string; name: string }[];
 }

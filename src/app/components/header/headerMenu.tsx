@@ -51,7 +51,15 @@ export const HeaderMenu = () => {
           </li>
           <li>
             <Link href="/properties" onClick={handleChangeShowMobileMenu}>
-              Propeties
+              Properties
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/properties/:property"
+              onClick={handleChangeShowMobileMenu}
+            >
+              Property one
             </Link>
           </li>
           <li>

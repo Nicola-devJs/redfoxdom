@@ -1,11 +1,12 @@
 import React from "react";
 import { IPropertyCard } from "../../types.ts/property";
 import Image from "next/image";
-import { LocationIcon } from "../../icons/property/location";
+import { LocationIcon } from "../../icons/location";
 import { PropertyParametr } from "../propertyParametr";
 import { PropertyTag } from "../propertyTag";
 import { Inter } from "next/font/google";
 import { cn } from "../../utils/cn";
+import { NextImage } from "../NextImage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,13 +17,11 @@ interface IProps {
 export const MapInfoBlock = ({ property }: IProps) => {
   return (
     <div className={cn("flex items-center gap-4", inter.className)}>
-      <div className="size-[200px] min-w-[200px] overflow-hidden rounded-xl">
-        <Image
-          src={property.img}
-          alt={property.name}
-          className="h-full w-full object-cover"
-        />
-      </div>
+      <NextImage
+        src={property.img}
+        alt={property.name}
+        className="size-[200px] min-w-[200px]"
+      />
       <div className="">
         <div className="mb-3 flex items-center gap-1 text-sm capitalize text-dark">
           <LocationIcon className="h-6 w-6 fill-dark/50" />

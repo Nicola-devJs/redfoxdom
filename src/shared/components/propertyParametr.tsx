@@ -16,7 +16,7 @@ const mockPropertyParametrIcons: Record<
 
 interface IProps {
   param: PropertyParamsType;
-  value: number;
+  value: number | string;
   name: string;
   isNotDark?: boolean;
 }
@@ -27,7 +27,7 @@ export const PropertyParametr = ({ name, param, value, isNotDark }: IProps) => {
   return (
     <div className="flex items-center gap-1">
       <PropertyParametrIcon
-        className={cn("h-5 w-5 fill-dark/50", {
+        className={cn("size-4 fill-dark/50", {
           "dark:fill-gray-second": !isNotDark,
         })}
       />

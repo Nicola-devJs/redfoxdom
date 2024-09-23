@@ -11,6 +11,7 @@ interface IProps {
   options: OptionType[];
   defaultValue?: OptionType;
   classNameIcon?: string;
+  className?: string;
 }
 
 export const SelectFilter = ({
@@ -20,6 +21,7 @@ export const SelectFilter = ({
   defaultValue,
   options,
   classNameIcon,
+  className,
 }: IProps) => {
   const [showOptions, setShowOptions] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState<OptionType>({
@@ -58,7 +60,10 @@ export const SelectFilter = ({
   return (
     <div
       ref={selectRef}
-      className="relative z-[1] h-full w-full border-r-1 border-gray pr-4 last:border-none last:pr-0 dark:border-dark"
+      className={cn(
+        "relative z-[1] h-full w-full border-gray max-md:border-b-1 max-md:pb-4 md:border-r-1 md:pr-4 md:last:border-none md:last:pr-0 dark:border-dark",
+        className,
+      )}
     >
       <span className="text-sm capitalize text-dark/50 dark:text-gray-second">
         {title}
@@ -87,7 +92,7 @@ export const SelectFilter = ({
       </div>
       <ul
         className={cn(
-          "pointer-events-none absolute -left-2 right-0 top-[80px] min-w-full translate-y-4 overflow-hidden rounded-lg bg-white text-sm text-dark opacity-0 shadow-lg transition dark:bg-dark-second dark:text-white",
+          "pointer-events-none absolute -left-2 right-0 top-[80px] min-w-full translate-y-4 overflow-hidden rounded-lg border-1 border-gray bg-white text-sm text-dark opacity-0 shadow-lg transition dark:border-dark dark:bg-dark-second dark:text-white",
           { "opacity-1 pointer-events-auto translate-y-0": showOptions },
         )}
       >

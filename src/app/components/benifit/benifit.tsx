@@ -2,11 +2,12 @@ import { HeadingSection } from "@/shared/components/headingSection";
 import { mockTestImages } from "@/shared/constants";
 import { PropertyIcon } from "@/shared/icons";
 import { KeyIcon } from "@/shared/icons/key";
-import { LocationIcon } from "@/shared/icons/property/location";
+import { LocationIcon } from "@/shared/icons/location";
 import Image from "next/image";
 import React from "react";
 import { BenifitDesctiptionItem } from "./benifitDescriptionItem";
 import { BenifitTag } from "./benifitTag";
+import { NextImage } from "@/shared/components/NextImage";
 
 export const Benifit = () => {
   return (
@@ -29,27 +30,24 @@ export const Benifit = () => {
             text="transparent partnerships"
             className="right-[0px] top-[50%]"
           />
-          <div className="absolute right-0 top-0 size-[260px] overflow-hidden rounded-3xl shadow-lg max-md:size-[33.854vw]">
-            <Image
-              src={mockTestImages.meleniko}
-              alt="benifit"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="h-[560px] w-[520px] overflow-hidden rounded-3xl max-md:h-[72.917vw] max-md:w-[67.708vw]">
-            <Image
-              src={mockTestImages.plovdiv}
-              alt="benifit"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="absolute bottom-0 left-0 size-[200px] overflow-hidden rounded-3xl shadow-lg max-md:size-[26.042vw]">
-            <Image
-              src={mockTestImages.plovdiv}
-              alt="benifit"
-              className="h-full w-full object-cover"
-            />
-          </div>
+
+          <NextImage
+            src={mockTestImages.meleniko}
+            alt="benifit"
+            className="absolute right-0 top-0 size-[260px] rounded-3xl shadow-lg max-md:size-[33.854vw]"
+          />
+
+          <NextImage
+            src={mockTestImages.plovdiv}
+            alt="benifit"
+            className="h-[560px] w-[520px] rounded-3xl max-md:h-[72.917vw] max-md:w-[67.708vw]"
+          />
+
+          <NextImage
+            src={mockTestImages.varna}
+            alt="benifit"
+            className="absolute bottom-0 left-0 size-[200px] rounded-3xl shadow-lg max-md:size-[26.042vw]"
+          />
         </div>
         <HeadingSection
           supTitle="our benifit"

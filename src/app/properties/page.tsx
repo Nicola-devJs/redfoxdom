@@ -16,10 +16,11 @@ export default function Properties() {
         defaultCenter={{ lat: 42.503701480508234, lng: 27.470214576721176 }}
         initialMarkerProperties={mockPropertyCards}
       />
+
+      <Filter />
       <div className="container-block">
-        <Filter />
         <Toolbar />
-        <PropertyListRow />
+        <PropertyList />
         <Pagination />
       </div>
     </div>

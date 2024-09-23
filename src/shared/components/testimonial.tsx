@@ -6,6 +6,7 @@ import { mockTestImages } from "../constants";
 import { FullStarIcon } from "../icons/stars/fullStar";
 import { PartStarIcon } from "../icons/stars/partStar";
 import { EmptyStarIcon } from "../icons/stars/emptyStar";
+import { NextImage } from "./NextImage";
 
 interface IProps {
   author: string;
@@ -42,13 +43,11 @@ const Testimonial = ({ author, rating, testimonial }: IProps) => {
         {testimonial}
       </span>
       <div className="flex items-start gap-3">
-        <div className="size-12 overflow-hidden rounded-full">
-          <Image
-            src={mockTestImages.sofia}
-            alt="test"
-            className="h-full w-full object-cover"
-          />
-        </div>
+        <NextImage
+          src={mockTestImages.sofia}
+          alt="test"
+          className="size-12 rounded-full"
+        />
         <div className="flex flex-col">
           <span className="font-semibold capitalize">{author}</span>
           <span className="text-xs capitalize text-dark/50">
@@ -58,10 +57,10 @@ const Testimonial = ({ author, rating, testimonial }: IProps) => {
             {Array(rating)
               .fill(" ")
               .map((_, id) => (
-                <FullStarIcon key={id} className="fill-yellow size-4" />
+                <FullStarIcon key={id} className="size-4 fill-yellow" />
               ))}
-            <PartStarIcon className="fill-yellow size-4" />
-            <EmptyStarIcon className="fill-yellow size-4" />
+            <PartStarIcon className="size-4 fill-yellow" />
+            <EmptyStarIcon className="size-4 fill-yellow" />
           </div>
         </div>
       </div>

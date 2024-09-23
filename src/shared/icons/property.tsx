@@ -4,8 +4,8 @@ export const PropertyIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="24px"
       viewBox="0 -960 960 960"
+      height="24px"
       width="24px"
       fill="#ffffff"
       {...props}

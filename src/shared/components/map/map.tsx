@@ -11,15 +11,25 @@ import { IPropertyCard } from "../../types.ts/property";
 import { MapInfoBlock } from "./mapInfoBlock";
 import marker from "@/shared/assets/map/marker.png";
 import cluster from "@/shared/assets/map/cluster.png";
+import { cn } from "@/shared/utils/cn";
 
 interface IProps {
-  defaultCenter: google.maps.LatLngLiteral;
+  defaultCenter?: google.maps.LatLngLiteral;
   initialMarkerProperties?: IPropertyCard[];
+  className?: string;
+  handlerSetPosition?: (coords: google.maps.LatLngLiteral) => void;
+  isViewMarkerAfterSetPosition?: boolean;
 }
 
 const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAP_API || "";
 
-export const Map = ({ defaultCenter, initialMarkerProperties }: IProps) => {
+export const Map = ({
+  defaultCenter,
+  initialMarkerProperties,
+  className,
+  isViewMarkerAfterSetPosition,
+  handlerSetPosition,
+}: IProps) => {
   const isZoomedAfterInitializationMap = useRef<boolean>(false);
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [positionMarker, setPositionMarker] =
@@ -42,14 +52,14 @@ export const Map = ({ defaultCenter, initialMarkerProperties }: IProps) => {
   }, []);
 
   //   TODO Задает зум после загрузки карты
-  //   const onIdle = useCallback(() => {
-  //     if (map) {
-  //       if (!isZoomedAfterInitializationMap.current) {
-  //           map.setZoom(15);
-  //       }
-  //       isZoomedAfterInitializationMap.current = true;
-  //     }
-  //   }, [map]);
+  const onIdle = useCallback(() => {
+    if (map) {
+      if (!isZoomedAfterInitializationMap.current) {
+        map.setZoom(15);
+      }
+      isZoomedAfterInitializationMap.current = true;
+    }
+  }, [map]);
 
   const onUnmount = useCallback(() => {
     setMap(null);
@@ -64,11 +74,6 @@ export const Map = ({ defaultCenter, initialMarkerProperties }: IProps) => {
         handler(latLng);
       }
     };
-  };
-
-  const handleChangeMarkerPosition = (latLng: google.maps.LatLngLiteral) => {
-    setPositionMarker(latLng);
-    map?.panTo(latLng);
   };
 
   const getInfoPosition = async (
@@ -92,18 +97,34 @@ export const Map = ({ defaultCenter, initialMarkerProperties }: IProps) => {
   const handleChangePropertyMarker = (latLng: google.maps.LatLngLiteral) => {
     map?.panTo(latLng);
     setActivePropertyMarker(latLng);
+    map?.setZoom(17);
+  };
+
+  const handleSetMarkerPosition = (latLng: google.maps.LatLngLiteral) => {
+    if (handlerSetPosition) {
+      map?.panTo(latLng);
+      handlerSetPosition(latLng);
+    }
+    if (isViewMarkerAfterSetPosition) {
+      setPositionMarker(latLng);
+    }
   };
 
   return (
-    <>
+    <div
+      className={cn(
+        "flex h-[700px] w-full items-center justify-center bg-light text-3xl max-md:h-[600px] dark:bg-gray-second",
+        className,
+      )}
+    >
       {isLoaded ? (
         <GoogleMap
-          mapContainerStyle={{ width: "100%", height: "700px" }}
+          mapContainerStyle={{ width: "100%", height: "100%" }}
           center={defaultCenter}
           onLoad={onLoad}
           onUnmount={onUnmount}
-          //  onIdle={onIdle}
-          // onClick={generateLatLngPosition(handleChangeMarkerPosition)}
+          onIdle={onIdle}
+          onClick={generateLatLngPosition(handleSetMarkerPosition)}
         >
           {positionMarker && (
             <Marker
@@ -164,10 +185,8 @@ export const Map = ({ defaultCenter, initialMarkerProperties }: IProps) => {
           )}
         </GoogleMap>
       ) : (
-        <div className="flex h-[700px] w-full items-center justify-center bg-light text-3xl">
-          Loading map...
-        </div>
+        <>Loading map...</>
       )}
-    </>
+    </div>
   );
 };

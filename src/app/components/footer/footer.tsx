@@ -37,7 +37,7 @@ export const Footer = () => {
             </span>
             <ul className="flex flex-col gap-3">
               <li className="flex items-center gap-2">
-                <LocationIcon className="h-6 w-6 fill-gray-second" />
+                <LocationIcon className="size-4 fill-gray-second" />
                 <a
                   href="geo:37.7749,-122.4194"
                   className="text-sm font-light text-gray"
@@ -46,7 +46,7 @@ export const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <PhoneIcon className="h-6 w-6 fill-gray-second" />
+                <PhoneIcon className="size-4 fill-gray-second" />
                 <a
                   href="tel:+37388451235"
                   className="text-sm font-light text-gray"
@@ -55,7 +55,7 @@ export const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MailIcon className="h-6 w-6 fill-gray-second" />
+                <MailIcon className="size-4 fill-gray-second" />
                 <a
                   href="mailto:themeison@gmail.com"
                   className="text-sm font-light text-gray"

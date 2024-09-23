@@ -34,7 +34,10 @@ const config: Config = {
           DEFAULT: "rgb(228, 228, 228)",
           second: "rgb(164, 171, 177)",
         },
-        light: "rgb(244, 247, 254)",
+        light: {
+          DEFAULT: "rgb(244, 247, 254)",
+          second: "rgb(247, 247, 247)",
+        },
       },
       borderWidth: {
         "1": "1px",

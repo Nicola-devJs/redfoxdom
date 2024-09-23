@@ -5,7 +5,7 @@ import { PropertyTag } from "./propertyTag";
 import { IPropertyCard } from "../types.ts/property";
 import { PropertyParametr } from "./propertyParametr";
 import { List } from "./list";
-import { LocationIcon } from "../icons/property/location";
+import { LocationIcon } from "../icons/location";
 import { Marker } from "./marker";
 
 const PropertyCard = ({
@@ -34,7 +34,7 @@ const PropertyCard = ({
         <span className="mb-2 inline-block text-base font-bold capitalize text-dark dark:text-white">
           {name}
         </span>
-        <div className="mb-3 flex items-center gap-3">
+        <div className="mb-3 flex flex-wrap items-center gap-3">
           {params.map((param) => (
             <PropertyParametr
               key={param.name}
@@ -70,7 +70,7 @@ const PropertyCardRow = ({
 }: IPropertyCard) => {
   return (
     <div className="flex w-full">
-      <div className="relative size-[210px] min-w-[210px] overflow-hidden rounded-l-xl">
+      <div className="relative h-auto w-[210px] min-w-[210px] overflow-hidden rounded-l-xl">
         <Marker
           items={[
             ["primary", "featured"],
@@ -83,7 +83,7 @@ const PropertyCardRow = ({
         <span className="mb-2 inline-block text-base font-bold capitalize text-dark dark:text-white">
           {name}
         </span>
-        <div className="mb-3 flex items-center gap-3">
+        <div className="mb-3 flex flex-wrap items-center gap-2">
           {params.map((param) => (
             <PropertyParametr
               key={param.name}
@@ -125,7 +125,7 @@ export const PropertyListRow = () => {
       list={mockPropertyCards}
       ItemList={PropertyCardRow}
       keyProp="name"
-      className="grid-cols-2"
+      className="grid-cols-2 max-[900px]:grid-cols-1"
     />
   );
 };
