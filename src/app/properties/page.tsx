@@ -5,9 +5,9 @@ import {
   PropertyListRow,
 } from "@/shared/components/propertyList";
 import { mockPropertyCards } from "@/shared/constants";
-import { Toolbar } from "./components/toolbar";
 import { Filter } from "./components/filter/filter";
 import { Pagination } from "@/shared/components/pagination";
+import { Toolbar } from "@/shared/components/toolbar";
 
 export default function Properties() {
   return (
@@ -16,7 +16,6 @@ export default function Properties() {
         defaultCenter={{ lat: 42.503701480508234, lng: 27.470214576721176 }}
         initialMarkerProperties={mockPropertyCards}
       />
-
       <Filter />
       <div className="container-block">
         <Toolbar />

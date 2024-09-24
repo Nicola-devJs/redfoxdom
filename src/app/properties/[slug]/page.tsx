@@ -16,6 +16,9 @@ import { PropertyCollapse } from "./components/collapse";
 import Image from "next/image";
 import { NextImage } from "@/shared/components/NextImage";
 import { HeadBlock } from "./components/headBlock";
+import { FileAttachments } from "./components/fileAttachments";
+import { ContactSellers } from "./components/contact/contact";
+import { FindPanel } from "@/shared/components/findPanel/findPanel";
 
 export default function Property() {
   const { img, location, name, params, price, property } = mockPropertyCards[0];
@@ -29,7 +32,7 @@ export default function Property() {
         price={price}
       />
       <PropertyGallery images={Object.values(mockTestImages)} />
-      <div className="container-block mt-2 grid grid-cols-[75%_25%]">
+      <div className="container-block mt-2 grid grid-cols-[65%_35%]">
         <div className="mr-[50px]">
           <PropertySection
             heading="Description"
@@ -73,7 +76,7 @@ export default function Property() {
           <PropertySection heading="Map location">
             <Map
               initialMarkerProperties={[mockPropertyCards[0]]}
-              className="mb-4 h-[500px] overflow-hidden rounded-3xl"
+              className="mb-4 h-[450px] overflow-hidden rounded-3xl"
             />
             <PropertyDetails
               details={[
@@ -85,25 +88,66 @@ export default function Property() {
           </PropertySection>
           <PropertySection
             heading="Floor plans"
-            secondBlock={{ heading: "File attachments", body: <>you</> }}
+            secondBlock={{
+              heading: "File attachments",
+              body: <FileAttachments />,
+            }}
           >
-            <div className="flex flex-col gap-4">
-              <PropertyCollapse name="First floor" optional={<>wait</>}>
-                <NextImage
-                  src={mockPropertyCards[0].img}
-                  alt={mockPropertyCards[0].name}
-                  className="h-[450px]"
-                />
-              </PropertyCollapse>
-              <PropertyCollapse name="Second floor" optional={<>wait</>}>
-                <NextImage
-                  src={mockPropertyCards[0].img}
-                  alt={mockPropertyCards[0].name}
-                  className="h-[450px]"
-                />
-              </PropertyCollapse>
-            </div>
+            <PropertyCollapse
+              collapses={[
+                {
+                  id: "first",
+                  name: "First room",
+                  body: (
+                    <NextImage
+                      src={mockPropertyCards[0].img}
+                      alt={mockPropertyCards[0].name}
+                      className="h-[400px]"
+                    />
+                  ),
+                  optional: (
+                    <div className="flex items-center gap-3">
+                      {params.map((param) => (
+                        <PropertyParametr
+                          key={param.type}
+                          name={param.name}
+                          param={param.type}
+                          value={param.value}
+                        />
+                      ))}
+                    </div>
+                  ),
+                },
+                {
+                  id: "second",
+                  name: "Second room",
+                  body: (
+                    <NextImage
+                      src={mockPropertyCards[2].img}
+                      alt={mockPropertyCards[2].name}
+                      className="h-[400px]"
+                    />
+                  ),
+                  optional: (
+                    <div className="flex items-center gap-3">
+                      {params.map((param) => (
+                        <PropertyParametr
+                          key={param.type}
+                          name={param.name}
+                          param={param.type}
+                          value={param.value}
+                        />
+                      ))}
+                    </div>
+                  ),
+                },
+              ]}
+            />
           </PropertySection>
+        </div>
+        <div className="mt-8 flex flex-col gap-10">
+          <ContactSellers />
+          <FindPanel />
         </div>
       </div>
     </div>

@@ -14,6 +14,8 @@ interface IProps {
   variant?: "default" | "secondary";
   prefix?: string;
   postfix?: string;
+  CustomIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>> | null;
+  classNameIcon?: string;
 }
 
 export const Select = ({
@@ -26,6 +28,8 @@ export const Select = ({
   variant = "default",
   prefix,
   postfix,
+  CustomIcon,
+  classNameIcon,
 }: IProps) => {
   const [showOptions, setShowOptions] = useState(false);
   const [selectValue, setSelectValue] = useState<OptionType>({
@@ -35,6 +39,18 @@ export const Select = ({
   const isSecondary = variant === "secondary";
   const isDefault = variant === "default";
   const selectRef = useRef<HTMLDivElement>(null);
+
+  const getInputIcon = () => {
+    if (CustomIcon) {
+      return CustomIcon;
+    }
+    if (CustomIcon !== null) {
+      return DownIcon;
+    }
+    return null;
+  };
+
+  const InputIcon = getInputIcon();
 
   const onSelectOption = (option: OptionType) => {
     if (option.value !== selectValue.value) {
@@ -48,6 +64,12 @@ export const Select = ({
     const res = selectRef.current?.contains(event.target as Node);
     if (!res) {
       setShowOptions(false);
+    }
+  };
+
+  const handleShowOptions = () => {
+    if (options.length > 0) {
+      setShowOptions(!showOptions);
     }
   };
 
@@ -73,27 +95,28 @@ export const Select = ({
       )}
       ref={selectRef}
     >
-      <label
-        className="cursor-pointer"
-        onClick={() => setShowOptions(!showOptions)}
-      >
+      <label className="cursor-pointer" onClick={handleShowOptions}>
         <input
           type="text"
           readOnly
           className={cn("input-theme cursor-pointer pr-12", {
             "h-9 rounded-lg": isSecondary,
+            "pr-4": !InputIcon,
           })}
           value={`${prefix || ""}${selectValue.label}${postfix || ""}`}
         />
-        <DownIcon
-          className={cn(
-            "absolute right-4 top-1/2 size-3 -translate-y-1/2 fill-dark/80 dark:fill-white",
-            {
-              "rotate-180": showOptions,
-            },
-          )}
-          onClick={(e) => e.stopPropagation()}
-        />
+        {InputIcon && (
+          <InputIcon
+            className={cn(
+              "absolute right-4 top-1/2 size-3 -translate-y-1/2 fill-dark/80 dark:fill-white",
+              {
+                "rotate-180": showOptions,
+              },
+              classNameIcon,
+            )}
+            onClick={(e) => e.stopPropagation()}
+          />
+        )}
       </label>
 
       <ul
