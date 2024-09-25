@@ -16,14 +16,14 @@ interface IProps {
 export const HeadBlock = ({ location, name, params, price }: IProps) => {
   return (
     <div className="container-block">
-      <div className="flex items-center justify-between border-b-1 border-gray py-6 dark:border-dark-second">
+      <div className="flex items-center justify-between gap-4 border-b-1 border-gray py-6 max-md:py-4 dark:border-dark-second">
         <h1 className="text-3xl font-bold">{name}</h1>
         <div className="flex items-end">
           <span className="text-3xl font-bold">${price}</span>
           <span className="text-gray-second">/month</span>
         </div>
       </div>
-      <div className="grid grid-cols-[auto_auto_1fr] items-end gap-10 py-6">
+      <div className="relative grid grid-cols-[auto_auto_1fr] items-end gap-10 py-6 max-md:grid-cols-1 max-md:items-start max-md:gap-y-4">
         <div className="">
           <span className="mb-2 inline-block font-medium text-dark/80 dark:text-gray">
             Features
@@ -51,7 +51,7 @@ export const HeadBlock = ({ location, name, params, price }: IProps) => {
             </span>
           </div>
         </div>
-        <div className="flex gap-2 justify-self-end">
+        <div className="flex gap-2 justify-self-end max-md:absolute max-md:right-3 max-md:top-3 max-md:justify-self-start">
           <WrapperBlock className="w-9 cursor-pointer">
             <HeartEmptyIcon className="size-4 fill-gray-second" />
           </WrapperBlock>

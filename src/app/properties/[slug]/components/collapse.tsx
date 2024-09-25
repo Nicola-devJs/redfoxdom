@@ -28,35 +28,35 @@ export const PropertyCollapse = ({ collapses }: IProps) => {
   return (
     <div className="flex flex-col gap-4">
       {collapses.map((coll) => (
-        <div key={coll.id} className="w-full rounded-xl bg-light-second">
+        <div
+          key={coll.id}
+          className="w-full rounded-xl bg-light-second dark:bg-dark-second"
+        >
           <div
-            className="flex items-center px-5 py-4"
+            className="flex items-center justify-between gap-4 px-5 py-4 max-phone:flex-col max-phone:items-start"
             onClick={handleClickCollapse(coll.id)}
           >
             <div className="flex items-center gap-2">
               <DownIcon
-                className={cn("size-3 fill-dark/80 transition", {
+                className={cn("size-3 fill-dark/80 transition dark:fill-gray", {
                   "rotate-180": checkIdentity(coll.id),
                 })}
               />
-              <span>{coll.name}</span>
+              <span className="whitespace-nowrap">{coll.name}</span>
             </div>
-            {coll.optional && (
-              <div className="ml-auto flex items-center gap-4">
-                {coll.optional}
-              </div>
-            )}
+            {coll.optional}
           </div>
 
           <div
             className={cn(
               "max-h-0 overflow-hidden p-0 transition-all duration-300 ease-out",
               {
-                "max-h-[500px] px-5 pb-4": checkIdentity(coll.id),
+                "max-h-[500px] px-5 pb-4 max-phone:max-h-[400px]":
+                  checkIdentity(coll.id),
               },
             )}
           >
-            <div className="mb-4 h-[1px] w-full bg-gray"></div>
+            <div className="mb-4 h-[1px] w-full bg-gray dark:bg-dark"></div>
             {coll.body}
           </div>
         </div>

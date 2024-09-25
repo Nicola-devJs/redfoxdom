@@ -24,7 +24,7 @@ export const Button = ({
         "flex h-ui items-center justify-center gap-2 whitespace-nowrap rounded-3xl border-2 border-primary bg-transparent px-6 py-2 text-sm font-semibold text-dark dark:text-white",
         { "bg-primary text-white": isPrimary },
         {
-          "border-gray bg-gray text-dark dark:border-gray-second dark:bg-gray-second":
+          "border-gray bg-gray text-dark dark:border-gray-second/0 dark:bg-gray-second/30":
             isSecondary,
         },
         { "px-3": isCircle },

@@ -26,7 +26,7 @@ export const NextImage = ({ src, className, variant, alt }: IProps) => {
       <Image
         src={src}
         alt={getImageAlt(src, alt)}
-        className={cn("h-full w-full object-cover", {
+        className={cn("h-full w-full object-cover object-center", {
           "object-contain": variant === "contain",
         })}
       />

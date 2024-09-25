@@ -48,6 +48,7 @@ export const ThemeMode = ({ theme }: IProps) => {
       variant={isLightTheme ? "primary" : "outlined"}
       onClick={handleChangeTheme}
       isCircle
+      className="w-[48px]"
     >
       {isLightTheme ? (
         <DarkModeIcon className="fill-white" />

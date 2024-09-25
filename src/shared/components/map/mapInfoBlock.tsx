@@ -16,13 +16,18 @@ interface IProps {
 
 export const MapInfoBlock = ({ property }: IProps) => {
   return (
-    <div className={cn("flex items-center gap-4", inter.className)}>
+    <div
+      className={cn(
+        "flex items-center gap-4 max-phone:flex-col",
+        inter.className,
+      )}
+    >
       <NextImage
         src={property.img}
         alt={property.name}
-        className="size-[200px] min-w-[200px]"
+        className="size-[200px] min-w-[200px] max-phone:mb-2 max-phone:w-full"
       />
-      <div className="">
+      <div className="max-phone:max-w-[250px]">
         <div className="mb-3 flex items-center gap-1 text-sm capitalize text-dark">
           <LocationIcon className="h-6 w-6 fill-dark/50" />
           <span>{property.location.name}</span>
@@ -30,7 +35,7 @@ export const MapInfoBlock = ({ property }: IProps) => {
         <span className="mb-2 inline-block text-base font-bold capitalize text-dark">
           {property.name}
         </span>
-        <div className="mb-3 flex items-center gap-3">
+        <div className="mb-3 flex items-center gap-3 max-phone:flex-wrap">
           {property.params.map((param) => (
             <PropertyParametr
               key={param.name}

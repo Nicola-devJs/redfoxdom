@@ -26,10 +26,10 @@ export const PropertyOverview = ({ name, type, value }: IProps) => {
   return (
     <div className="flex items-start gap-2">
       <WrapperBlock className="size-12">
-        <PropertyParametrIcon className="size-5 fill-dark" />
+        <PropertyParametrIcon className="size-5 fill-dark dark:fill-white" />
       </WrapperBlock>
       <div className="flex flex-col">
-        <span className="text-sm capitalize text-dark/50 after:content-[':']">
+        <span className="text-sm capitalize text-dark/50 after:content-[':'] dark:text-gray-second">
           {name}
         </span>
         <span className="text-sm font-semibold capitalize">{value}</span>

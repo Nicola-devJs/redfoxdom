@@ -1,9 +1,5 @@
 import { PropertyParametr } from "@/shared/components/propertyParametr";
-import { WrapperBlock } from "@/shared/components/wrapperBlock";
 import { mockPropertyCards, mockTestImages } from "@/shared/constants";
-import { HeartEmptyIcon } from "@/shared/icons/heart/heartEmpty";
-import { LocationIcon } from "@/shared/icons/location";
-import { ShareIcon } from "@/shared/icons/share";
 import React from "react";
 import { PropertyGallery } from "./components/gallery";
 import { PropertySection } from "./components/propertySection";
@@ -13,18 +9,18 @@ import { PropertyDetails } from "./components/details";
 import { PropertyFeatures } from "./components/features";
 import { Map } from "@/shared/components/map/map";
 import { PropertyCollapse } from "./components/collapse";
-import Image from "next/image";
 import { NextImage } from "@/shared/components/NextImage";
 import { HeadBlock } from "./components/headBlock";
-import { FileAttachments } from "./components/fileAttachments";
-import { ContactSellers } from "./components/contact/contact";
-import { FindPanel } from "@/shared/components/findPanel/findPanel";
+
+import { Video } from "@/shared/components/video";
+import { Sidebar } from "./components/sidebar/sidebar";
+import { FileAttachment } from "./components/fileAttachment";
 
 export default function Property() {
   const { img, location, name, params, price, property } = mockPropertyCards[0];
 
   return (
-    <div className="mt-3">
+    <div className="mt-3 max-md:mt-0">
       <HeadBlock
         location={location.name}
         name={name}
@@ -32,8 +28,8 @@ export default function Property() {
         price={price}
       />
       <PropertyGallery images={Object.values(mockTestImages)} />
-      <div className="container-block mt-2 grid grid-cols-[65%_35%]">
-        <div className="mr-[50px]">
+      <div className="container-block relative mt-2 grid grid-cols-[65%_35%] overflow-hidden max-lg:grid-cols-1">
+        <div className="mr-[50px] max-lg:mr-0">
           <PropertySection
             heading="Description"
             secondBlock={{
@@ -42,22 +38,27 @@ export default function Property() {
                 <List
                   list={params}
                   ItemList={PropertyOverview}
-                  className="grid-cols-4"
+                  className="grid-cols-4 max-lg:grid-cols-4 max-md:grid-cols-3"
                 />
               ),
             }}
           >
-            <span className="text-sm text-dark/60">
+            <span className="text-sm text-dark/60 dark:text-gray-second">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
               laudantium enim atque dolores inventore tempore odio molestias
               nemo minus voluptas omnis, repellendus cumque dolore culpa, natus
               ipsam quis architecto harum.
             </span>
-            <span className="mt-3 inline-block cursor-pointer font-medium capitalize underline hover:no-underline">
+            <span className="mt-3 block cursor-pointer font-medium capitalize underline hover:no-underline">
               view more
             </span>
           </PropertySection>
-
+          <PropertySection heading="Video">
+            <Video
+              src="/videos/spartak.mp4"
+              className="h-[400px] max-md:h-[300px] max-phone:h-[60vw]"
+            />
+          </PropertySection>
           <PropertySection heading="Property details">
             <PropertyDetails details={[{ name: "ID", value: "#1234" }]} />
           </PropertySection>
@@ -70,13 +71,13 @@ export default function Property() {
                 { featured: "Architecto harum" },
               ]}
               ItemList={PropertyFeatures}
-              className="grid-cols-3 gap-3"
+              className="grid-cols-3 gap-3 max-lg:grid-cols-3 max-md:grid-cols-2 max-phone:grid-cols-1"
             />
           </PropertySection>
           <PropertySection heading="Map location">
             <Map
               initialMarkerProperties={[mockPropertyCards[0]]}
-              className="mb-4 h-[450px] overflow-hidden rounded-3xl"
+              className="mb-4 h-[450px] overflow-hidden rounded-3xl max-md:h-[450px]"
             />
             <PropertyDetails
               details={[
@@ -90,7 +91,22 @@ export default function Property() {
             heading="Floor plans"
             secondBlock={{
               heading: "File attachments",
-              body: <FileAttachments />,
+              body: (
+                <List
+                  className="grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-1"
+                  ItemList={FileAttachment}
+                  list={[
+                    {
+                      name: "Villa-Document.pdf",
+                      path: "Villa-Document.pdf",
+                    },
+                    {
+                      name: "Villa-Document.doc",
+                      path: "Villa-Document.doc",
+                    },
+                  ]}
+                />
+              ),
             }}
           >
             <PropertyCollapse
@@ -102,11 +118,11 @@ export default function Property() {
                     <NextImage
                       src={mockPropertyCards[0].img}
                       alt={mockPropertyCards[0].name}
-                      className="h-[400px]"
+                      className="max-h-[400px] max-phone:max-h-[300px]"
                     />
                   ),
                   optional: (
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                       {params.map((param) => (
                         <PropertyParametr
                           key={param.type}
@@ -125,11 +141,11 @@ export default function Property() {
                     <NextImage
                       src={mockPropertyCards[2].img}
                       alt={mockPropertyCards[2].name}
-                      className="h-[400px]"
+                      className="max-h-[400px] max-phone:max-h-[300px]"
                     />
                   ),
                   optional: (
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                       {params.map((param) => (
                         <PropertyParametr
                           key={param.type}
@@ -145,10 +161,7 @@ export default function Property() {
             />
           </PropertySection>
         </div>
-        <div className="mt-8 flex flex-col gap-10">
-          <ContactSellers />
-          <FindPanel />
-        </div>
+        <Sidebar />
       </div>
     </div>
   );

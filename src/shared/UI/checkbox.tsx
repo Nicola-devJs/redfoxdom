@@ -19,8 +19,8 @@ export const Checkbox = ({ value }: IProps) => {
       >
         <span
           className={cn(
-            "mr-2 inline-flex size-5 items-center justify-center rounded-md border-1 border-gray transition-colors",
-            { "border-primary bg-primary": check },
+            "mr-2 inline-flex size-5 items-center justify-center rounded-md border-1 border-gray transition-colors dark:border-gray-second",
+            { "border-primary bg-primary dark:border-primary": check },
           )}
         >
           <CheckIcon

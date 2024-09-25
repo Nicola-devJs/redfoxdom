@@ -30,9 +30,10 @@ export const FilterHome = () => {
         {mockTabs.map((tab) => (
           <div
             className={cn(
-              "flex h-full cursor-pointer items-center justify-center bg-gray px-8 text-base font-semibold uppercase text-dark",
+              "flex h-full cursor-pointer items-center justify-center bg-gray px-8 text-base font-semibold uppercase text-dark dark:bg-dark dark:text-white",
               {
-                "bg-primary text-white": currentTab.value === tab.value,
+                "bg-primary text-white dark:bg-primary":
+                  currentTab.value === tab.value,
               },
             )}
             key={tab.value}
@@ -43,7 +44,7 @@ export const FilterHome = () => {
         ))}
       </div>
       <div className="flex w-full flex-col gap-3 rounded-lg rounded-tl-none bg-white p-4 max-md:rounded-none dark:bg-dark-second">
-        <Input placeholder="Type keyword..." className="dark:text-white" />
+        <Input placeholder="Type keyword..." />
         <Select
           options={mockOptions}
           placeholder="Property type"

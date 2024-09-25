@@ -1,63 +1,101 @@
 "use client";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
 import { cn } from "@/shared/utils/cn";
 
 interface IProps {
-  min: number;
   max: number;
+  rangeInfo: string;
+  prefixRange?: string;
+  postfixRange?: string;
+  initialRange?: { min: number; max: number };
+  className?: string;
 }
 
-const min = 0;
-const max = 10000;
-const quotStep = 0.01;
+export const InputRange = ({
+  max,
+  rangeInfo,
+  postfixRange,
+  prefixRange,
+  initialRange,
+  className,
+}: IProps) => {
+  const min = 0;
+  const { initMin, initMax } = getInitialRange(
+    initialRange?.min ?? min,
+    initialRange?.max ?? max,
+  );
+  const [minRange, setMinRange] = useState(initMin);
+  const [maxRange, setMaxRange] = useState(initMax);
+  const gapRange = max * 0.1;
+  const step = max * 0.01;
 
-export const RangeApp = () => {
-  const inputFirstRef = useRef<HTMLInputElement>(null);
-  const inputSecondRef = useRef<HTMLInputElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
-  const priceGap = 1000;
+  function getInitialRange(initialMinRange: number, initialMaxRange: number) {
+    const gapInitRange = max * 0.1;
+    const initMin =
+      initialMinRange < min || initialMinRange >= max ? min : initialMinRange;
+    const initMax =
+      initialMaxRange > max || initialMaxRange <= min ? max : initialMaxRange;
 
-  const changeValuesRange = (className: string) => {
-    if (
-      !inputFirstRef.current ||
-      !inputSecondRef.current ||
-      !progressRef.current
-    ) {
-      return;
+    if (initMin > initMax) {
+      return {
+        initMin: initMin,
+        initMax: initMin + gapInitRange,
+      };
+    }
+    if (initMax - initMin < gapInitRange) {
+      return {
+        initMin: initMin,
+        initMax: initMin + gapInitRange,
+      };
     }
 
-    let minVal = parseInt(inputFirstRef.current.value),
-      maxVal = parseInt(inputSecondRef.current.value);
+    return { initMin, initMax };
+  }
 
-    if (maxVal - minVal < priceGap) {
-      if (className === "range-min") {
-        inputFirstRef.current.value = (maxVal - priceGap).toString();
-      } else {
-        inputSecondRef.current.value = (minVal + priceGap).toString();
+  const changeValuesRange = (className: string, value: number) => {
+    let minVal = minRange;
+    let maxVal = maxRange;
+
+    if (className === "range-min") {
+      minVal = value;
+      if (maxVal - minVal < gapRange) {
+        minVal = maxVal - gapRange;
       }
+      setMinRange(minVal);
     } else {
-      progressRef.current.style.left =
-        (minVal / +inputFirstRef.current.max) * 100 + "%";
-      progressRef.current.style.right =
-        100 - (maxVal / +inputSecondRef.current.max) * 100 + "%";
+      maxVal = value;
+      if (maxVal - minVal < gapRange) {
+        maxVal = minVal + gapRange;
+      }
+      setMaxRange(maxVal);
     }
   };
 
-  const handleRangeInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    changeValuesRange(e.target.className);
+  const handleRangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value);
+    changeValuesRange(e.target.className, value);
   };
+
+  const getProcentLeft = (range: number) => (range / max) * 100 + "%";
+  const getProcentRight = (range: number) => 100 - (range / max) * 100 + "%";
 
   return (
-    <div>
+    <div className={cn("w-full", className)}>
       <span className="mb-2 inline-block font-medium">
-        Price: ${inputFirstRef.current?.value} - $
-        {inputSecondRef.current?.value}
+        {rangeInfo}: {prefixRange}
+        {minRange}
+        {postfixRange} - {prefixRange}
+        {maxRange}
+        {postfixRange}
       </span>
-      <div className="relative h-1 rounded-sm bg-light">
+      <div className="relative h-1 rounded-sm bg-light dark:bg-gray-second">
         <div
-          ref={progressRef}
           className={cn("absolute h-full rounded-sm bg-primary")}
+          style={{
+            left: getProcentLeft(minRange),
+            right: getProcentRight(maxRange),
+          }}
         ></div>
       </div>
       <div className="relative">
@@ -66,9 +104,8 @@ export const RangeApp = () => {
           className="range-min"
           min={min}
           max={max}
-          value={inputFirstRef.current?.value}
-          step={max * quotStep}
-          ref={inputFirstRef}
+          value={minRange}
+          step={step}
           onChange={handleRangeInput}
         />
         <input
@@ -76,9 +113,8 @@ export const RangeApp = () => {
           className="range-max"
           min={min}
           max={max}
-          value={inputSecondRef.current?.value}
-          step={max * quotStep}
-          ref={inputSecondRef}
+          value={maxRange}
+          step={step}
           onChange={handleRangeInput}
         />
       </div>
