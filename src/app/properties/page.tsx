@@ -1,9 +1,6 @@
 import React from "react";
 import { Map } from "@/shared/components/map/map";
-import {
-  PropertyList,
-  PropertyListRow,
-} from "@/shared/components/propertyList";
+import { PropertyList } from "@/shared/components/propertyList";
 import { mockPropertyCards } from "@/shared/constants";
 import { Filter } from "./components/filter/filter";
 import { Pagination } from "@/shared/components/pagination";

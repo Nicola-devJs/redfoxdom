@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+@layer base {
   input[type="range"] {
     position: absolute;
     width: 100%;

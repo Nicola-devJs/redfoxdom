@@ -15,6 +15,7 @@ import { HeadBlock } from "./components/headBlock";
 import { Video } from "@/shared/components/video";
 import { Sidebar } from "./components/sidebar/sidebar";
 import { FileAttachment } from "./components/fileAttachment";
+import { Slider } from "@/shared/UI/slider/slider";
 
 export default function Property() {
   const { img, location, name, params, price, property } = mockPropertyCards[0];
@@ -27,6 +28,7 @@ export default function Property() {
         params={params}
         price={price}
       />
+      <Slider />
       <PropertyGallery images={Object.values(mockTestImages)} />
       <div className="container-block relative mt-2 grid grid-cols-[65%_35%] overflow-hidden max-lg:grid-cols-1">
         <div className="mr-[50px] max-lg:mr-0">

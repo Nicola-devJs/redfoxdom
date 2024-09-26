@@ -1,0 +1,42 @@
+.slick-slider .slick-arrow {
+  fill: rgb(22, 29, 45);
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+}
+
+.slick-slider .slick-arrow.slick-prev {
+  transform: rotate(90deg) translateX(-50%);
+  left: -60px;
+}
+
+.slick-slider .slick-arrow.slick-next {
+  transform: rotate(-90deg) translateX(50%);
+  right: -60px;
+}
+
+.slick-slider .slick-dots li {
+  padding: 5px;
+}
+
+.slick-slider .slick-dots button {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(164, 171, 177);
+  border-radius: 50%;
+}
+
+.slick-slider .slick-dots button:hover {
+  outline: 1px solid rgb(21, 99, 223);
+  outline-offset: 2px;
+}
+
+.slick-slider .slick-dots .slick-active button {
+  background-color: rgb(21, 99, 223);
+  outline: 1px solid rgb(21, 99, 223);
+  outline-offset: 2px;
+}
+
+.slick-slider .slick-dots button::before {
+  display: none;
+}
