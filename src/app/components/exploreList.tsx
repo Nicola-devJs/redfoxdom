@@ -3,7 +3,7 @@ import React from "react";
 
 import Link from "next/link";
 import { ArrowRightIcon } from "@/shared/icons/arrowRight";
-import { mockTestImages } from "@/shared/constants";
+import { mockTestImages } from "@/shared/constants/property";
 import { List } from "@/shared/components/list";
 import { NextImage } from "@/shared/components/NextImage";
 

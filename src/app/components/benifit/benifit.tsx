@@ -1,5 +1,5 @@
 import { HeadingSection } from "@/shared/components/headingSection";
-import { mockTestImages } from "@/shared/constants";
+import { mockTestImages } from "@/shared/constants/property";
 import { PropertyIcon } from "@/shared/icons";
 import { KeyIcon } from "@/shared/icons/key";
 import { LocationIcon } from "@/shared/icons/location";

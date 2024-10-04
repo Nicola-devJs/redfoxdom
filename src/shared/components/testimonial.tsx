@@ -1,8 +1,7 @@
 import React from "react";
 import { List } from "./list";
 import { QuoteIcon } from "../icons/quote";
-import Image from "next/image";
-import { mockTestImages } from "../constants";
+import { mockTestImages } from "../constants/property";
 import { FullStarIcon } from "../icons/stars/fullStar";
 import { PartStarIcon } from "../icons/stars/partStar";
 import { EmptyStarIcon } from "../icons/stars/emptyStar";

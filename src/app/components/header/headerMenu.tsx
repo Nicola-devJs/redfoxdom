@@ -1,4 +1,5 @@
 "use client";
+import { menuNavigation } from "@/shared/constants/menu";
 import { MenuIcon } from "@/shared/icons/menu";
 import { cn } from "@/shared/utils/cn";
 import Link from "next/link";
@@ -44,21 +45,13 @@ export const HeaderMenu = () => {
         ref={navRef}
       >
         <ul className="flex items-center gap-6 text-dark max-md:flex-col max-md:text-3xl dark:text-white">
-          <li>
-            <Link href="/" onClick={handleChangeShowMobileMenu}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/properties" onClick={handleChangeShowMobileMenu}>
-              Properties
-            </Link>
-          </li>
-          <li>
-            <Link href="#" onClick={handleChangeShowMobileMenu}>
-              Blog
-            </Link>
-          </li>
+          {menuNavigation.map(({ label, path }) => (
+            <li key={path}>
+              <Link href={path} onClick={handleChangeShowMobileMenu}>
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </>

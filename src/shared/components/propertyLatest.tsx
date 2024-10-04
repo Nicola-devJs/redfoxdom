@@ -1,6 +1,6 @@
 import React from "react";
 import { NextImage } from "./NextImage";
-import { mockPropertyCards } from "../constants";
+import { mockPropertyCards } from "../constants/property";
 import { PropertyParametr } from "./propertyParametr";
 
 export const PropertyLatest = () => {

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import SlickSlider, { Settings } from "react-slick";
-import { mockTestImages } from "../../constants";
+import { mockTestImages } from "../../constants/property";
 import { NextImage } from "../../components/NextImage";
 import { DownIcon } from "@/shared/icons/down";
 import "./slider.style.css";

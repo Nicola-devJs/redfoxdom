@@ -1,7 +1,7 @@
 import React from "react";
 import { Map } from "@/shared/components/map/map";
 import { PropertyList } from "@/shared/components/propertyList";
-import { mockPropertyCards } from "@/shared/constants";
+import { mockPropertyCards } from "@/shared/constants/property";
 import { Filter } from "./components/filter/filter";
 import { Pagination } from "@/shared/components/pagination";
 import { Toolbar } from "@/shared/components/toolbar";

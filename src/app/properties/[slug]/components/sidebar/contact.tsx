@@ -1,6 +1,6 @@
 import { BlockContent } from "@/shared/components/blockContent";
 import { NextImage } from "@/shared/components/NextImage";
-import { mockTestImages } from "@/shared/constants";
+import { mockTestImages } from "@/shared/constants/property";
 import { MailIcon } from "@/shared/icons/mail";
 import { PhoneIcon } from "@/shared/icons/phone";
 import React from "react";

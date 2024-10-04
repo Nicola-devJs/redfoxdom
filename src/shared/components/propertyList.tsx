@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { mockPropertyCards } from "../constants";
+import { mockPropertyCards } from "../constants/property";
 import { PropertyTag } from "./propertyTag";
 import { IPropertyCard } from "../types.ts/property";
 import { PropertyParametr } from "./propertyParametr";

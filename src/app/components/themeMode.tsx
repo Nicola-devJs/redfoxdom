@@ -4,7 +4,7 @@ import { LightModeIcon } from "../../shared/icons/lightMode";
 import { DarkModeIcon } from "../../shared/icons/darkMode";
 import { Button } from "../../shared/UI/button";
 import { setCookie } from "../../shared/utils/cookies";
-import { THEME } from "../../shared/constants";
+import { THEME } from "../../shared/constants/property";
 
 interface IProps {
   theme: string | undefined;

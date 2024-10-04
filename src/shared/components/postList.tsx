@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { Marker } from "./marker";
-import { mockTestImages } from "../constants";
+import { mockTestImages } from "../constants/property";
 import { List } from "./list";
 
 const mockPosts: IProps[] = [
