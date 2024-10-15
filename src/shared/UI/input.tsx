@@ -6,6 +6,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   postIcon?: ReactNode;
   handlerPrev?: () => void;
   handlerPost?: () => void;
+  label?: string;
 }
 
 export const Input = ({
@@ -14,30 +15,47 @@ export const Input = ({
   handlerPrev,
   handlerPost,
   className,
+  label,
   ...props
 }: IProps) => {
   return (
-    <div className="relative">
-      {prevIcon && (
-        <div className="absolute left-4 top-2 h-6 w-6">{prevIcon}</div>
-      )}
-
-      <input
-        type="text"
-        placeholder="Enter text..."
-        {...props}
-        className={cn(
-          "input-theme",
-          { "pl-12": !!prevIcon },
-          { "pr-12": !!postIcon },
-          className,
+    <>
+      <label
+        htmlFor={props.id}
+        className="mb-2 inline-block text-sm font-semibold"
+      >
+        {label}
+      </label>
+      <div className="relative">
+        {prevIcon && (
+          <div
+            className="absolute bottom-1/2 left-4 translate-y-1/2"
+            onClick={handlerPrev}
+          >
+            {prevIcon}
+          </div>
         )}
-      />
-      {postIcon && (
-        <div className="absolute right-4 top-2 h-6 w-6" onClick={handlerPost}>
-          {postIcon}
-        </div>
-      )}
-    </div>
+
+        <input
+          type="text"
+          placeholder="Enter text..."
+          {...props}
+          className={cn(
+            "input-theme",
+            { "pl-12": !!prevIcon },
+            { "pr-12": !!postIcon },
+            className,
+          )}
+        />
+        {postIcon && (
+          <div
+            className="absolute bottom-1/2 right-4 translate-y-1/2"
+            onClick={handlerPost}
+          >
+            {postIcon}
+          </div>
+        )}
+      </div>
+    </>
   );
 };

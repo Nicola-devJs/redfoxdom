@@ -1,9 +1,10 @@
 import React from "react";
 import { Button } from "../../../shared/UI/button";
-import { PropertyIcon, PersonIcon } from "../../../shared/icons";
+import { PropertyIcon } from "../../../shared/icons";
 import { ThemeMode } from "../themeMode";
 import { HeaderMenu } from "./headerMenu";
 import { Logo } from "../logo";
+import { HeaderPerson } from "./headerPerson";
 
 interface IProps {
   theme: string | undefined;
@@ -19,10 +20,7 @@ export const HeaderLayout = ({ theme }: IProps) => {
         <Logo className="max-phone:hidden" />
         <HeaderMenu />
         <div className="ml-auto flex items-center gap-4 max-phone:ml-[13%] max-phone:w-full max-phone:justify-between">
-          <Button variant="outlined" className="max-md:w-[48px] max-md:px-3">
-            <PersonIcon className="size-4 fill-dark dark:fill-white" />{" "}
-            <span className="max-md:hidden">Sign in</span>
-          </Button>
+          <HeaderPerson />
           <Button className="max-md:w-[48px] max-md:px-3">
             <PropertyIcon className="fill-white" />{" "}
             <span className="max-md:hidden">Submit property</span>

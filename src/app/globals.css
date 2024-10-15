@@ -6,6 +6,16 @@ body {
   @apply bg-white text-dark dark:bg-dark dark:text-white;
 }
 
+body.fixed-window {
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  body.fixed-window {
+    margin-right: 0px !important;
+  }
+}
+
 @layer components {
   .container-block {
     @apply mx-auto max-w-[1112px] px-4;

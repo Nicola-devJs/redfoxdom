@@ -31,7 +31,7 @@ export const HeaderMenu = () => {
   return (
     <>
       <MenuIcon
-        className="hidden h-10 w-10 fill-dark max-md:block dark:fill-white"
+        className="h-10 w-10 fill-dark md:hidden dark:fill-white"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       />
       <nav

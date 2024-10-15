@@ -6,9 +6,10 @@ import React from "react";
 
 interface IProps {
   images: StaticImageData[];
+  onOpenGalleryDetails: () => void;
 }
 
-export const PropertyGallery = ({ images }: IProps) => {
+export const PropertyGallery = ({ images, onOpenGalleryDetails }: IProps) => {
   return (
     <div className="container-block-large">
       <div className="grid h-[26.042vw] grid-cols-4 grid-rows-2 gap-4 max-2xl:h-[31.25vw] max-xl:h-[39.063vw] max-lg:h-[58.594vw] max-lg:grid-rows-3 max-md:h-[65.104vw] max-phone:h-[400px]">
@@ -18,7 +19,10 @@ export const PropertyGallery = ({ images }: IProps) => {
             alt={images[0].src}
             className="h-full w-full object-cover"
           />
-          <Button className="absolute bottom-4 right-4 font-normal capitalize">
+          <Button
+            className="absolute bottom-4 right-4 font-normal capitalize"
+            onClick={onOpenGalleryDetails}
+          >
             <PictureIcon className="size-4 fill-white" />
             view all photos
           </Button>

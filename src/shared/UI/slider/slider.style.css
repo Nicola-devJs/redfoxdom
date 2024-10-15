@@ -1,3 +1,8 @@
+.slick-slider .slick-track {
+  display: flex;
+  align-items: center;
+}
+
 .slick-slider .slick-arrow {
   width: 50px;
   height: 50px;
@@ -7,6 +12,12 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.slick-slider:hover .slick-arrow {
+  opacity: 1;
 }
 
 .slick-slider .slick-arrow:hover {
@@ -25,6 +36,15 @@
 .slick-slider .slick-arrow.slick-next {
   transform: rotate(-90deg) translateX(50%);
   right: 30px;
+}
+
+.slick-slider .slick-dots {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.slick-slider:hover .slick-dots {
+  opacity: 1;
 }
 
 .slick-slider .slick-dots li {
@@ -51,4 +71,23 @@
 
 .slick-slider .slick-dots button::before {
   display: none;
+}
+
+@media (max-width: 1024px) {
+  .slick-slider .slick-arrow.slick-next,
+  .slick-slider .slick-arrow.slick-prev {
+    opacity: 0.5;
+  }
+
+  .slick-slider .slick-arrow,
+  .slick-slider .slick-dots {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .slick-slider .slick-arrow {
+    width: 35px;
+    height: 35px;
+  }
 }

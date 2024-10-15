@@ -3,9 +3,9 @@ import { FilterHome } from "./components/filter";
 import { HeadingSection } from "@/shared/components/headingSection";
 import { ExploreList } from "./components/exploreList";
 import { RecommendedProperties } from "./components/recommended";
-import { PostList } from "@/shared/components/postList";
+import { PostList } from "@/shared/components/post/postList";
 import { Benifit } from "./components/benifit/benifit";
-import { TestimonialList } from "@/shared/components/testimonial";
+import { TestimonialList } from "@/shared/components/testimonial/testimonialList";
 
 export default function Home() {
   return (

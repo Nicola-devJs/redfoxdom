@@ -1,7 +1,6 @@
 import { PropertyParametr } from "@/shared/components/propertyParametr";
-import { mockPropertyCards, mockTestImages } from "@/shared/constants/property";
+import { mockPropertyCards } from "@/shared/constants/property";
 import React from "react";
-import { PropertyGallery } from "./components/gallery";
 import { PropertySection } from "./components/propertySection";
 import { List } from "@/shared/components/list";
 import { PropertyOverview } from "./components/overview";
@@ -11,11 +10,10 @@ import { Map } from "@/shared/components/map/map";
 import { PropertyCollapse } from "./components/collapse";
 import { NextImage } from "@/shared/components/NextImage";
 import { HeadBlock } from "./components/headBlock";
-
 import { Video } from "@/shared/components/video";
-import { Sidebar } from "./components/sidebar/sidebar";
 import { FileAttachment } from "./components/fileAttachment";
-import { Slider } from "@/shared/UI/slider/slider";
+import { GalleryAndSlider } from "./components/gallery";
+import { SidebarProperty } from "./components/sidebarProperty";
 
 export default function Property() {
   const { img, location, name, params, price, property } = mockPropertyCards[0];
@@ -28,10 +26,9 @@ export default function Property() {
         params={params}
         price={price}
       />
-      <Slider />
-      <PropertyGallery images={Object.values(mockTestImages)} />
+      <GalleryAndSlider />
       <div className="container-block relative mt-2 grid grid-cols-[65%_35%] overflow-hidden max-lg:grid-cols-1">
-        <div className="mr-[50px] max-lg:mr-0">
+        <div className="mr-[50px] max-lg:order-2 max-lg:mr-0">
           <PropertySection
             heading="Description"
             secondBlock={{
@@ -163,7 +160,7 @@ export default function Property() {
             />
           </PropertySection>
         </div>
-        <Sidebar />
+        <SidebarProperty className="mt-8 max-lg:order-1 max-lg:mt-0" />
       </div>
     </div>
   );

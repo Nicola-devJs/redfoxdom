@@ -1,5 +1,5 @@
 "use client";
-import { PropertyList } from "@/shared/components/propertyList";
+import { PropertyList } from "@/shared/components/property/propertyList";
 import { OptionType } from "@/shared/types.ts/ui";
 import { Button } from "@/shared/UI/button";
 import React, { useState } from "react";
