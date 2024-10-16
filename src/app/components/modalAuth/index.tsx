@@ -25,7 +25,7 @@ export const AuthModal = ({
   title,
 }: IProps) => {
   return (
-    <div className="grid w-[900px] grid-cols-[40%_60%] overflow-hidden rounded-2xl bg-white dark:bg-dark-second">
+    <div className="grid w-[900px] grid-cols-[40%_60%] overflow-hidden rounded-2xl bg-white shadow-[4px_4px_10px_0px_rgb(0_0_0_/_0.1),_4px_4px_10px_0px_rgb(0_0_0_/_0.1)] dark:bg-dark">
       <NextImage src={img} className="rounded-r-none" />
       <div className="p-10">
         <div className="flex items-start justify-between">
@@ -46,13 +46,13 @@ export const AuthModal = ({
             {sublink.pageName}
           </Link>
         </div>
-        <hr className="mb-8 overflow-visible border-gray text-center after:relative after:-top-[14px] after:bg-white after:px-4 after:text-sm after:text-dark/70 after:content-['or_login_with'] dark:border-gray-second dark:after:bg-dark-second dark:after:text-gray-second" />
+        <hr className="mb-8 overflow-visible border-gray text-center after:relative after:-top-[14px] after:bg-white after:px-4 after:text-sm after:text-dark/70 after:content-['or_login_with'] dark:border-dark-second dark:after:bg-dark dark:after:text-gray-second" />
         <div className="flex gap-3">
-          <SocialButton className="dark:border-dark">
+          <SocialButton className="dark:bg-dark-second">
             <GoogleIcon className="size-6" />
             <span>Google</span>
           </SocialButton>
-          <SocialButton className="dark:border-dark">
+          <SocialButton className="dark:bg-dark-second">
             <FacebookIcon className="size-6" />
             <span>Facebook</span>
           </SocialButton>

@@ -18,7 +18,7 @@ export const Modal = ({ children, isOpen, onClose }: IProps) => {
       {isOpen
         ? createPortal(
             <div
-              className="fixed bottom-0 left-0 right-0 top-0 z-50 grid h-full w-full place-content-center bg-dark/50 backdrop-blur-sm"
+              className="fixed bottom-0 left-0 right-0 top-0 z-50 grid h-full w-full place-content-center bg-dark/50 backdrop-blur-sm dark:bg-dark-second/50"
               onClick={onClose}
             >
               <div

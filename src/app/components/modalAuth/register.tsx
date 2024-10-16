@@ -19,7 +19,7 @@ export const RegisterModal = ({ onClose }: IProps) => {
       sublink={{
         text: "Do you already have an account?",
         pageName: "Login",
-        link: "/",
+        link: "/login",
       }}
       onClose={onClose}
       title="Register"

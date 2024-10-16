@@ -18,7 +18,7 @@ export const LoginModal = ({ onClose }: IProps) => {
       sublink={{
         text: "Don`t you have an account?",
         pageName: "Register",
-        link: "/",
+        link: "/register",
       }}
       onClose={onClose}
       title="Login"
@@ -40,7 +40,7 @@ export const LoginModal = ({ onClose }: IProps) => {
         <div className="mb-4 text-end">
           <Link
             href="/"
-            className="text-sm hover:underline hover:underline-offset-2"
+            className="text-sm hover:underline hover:underline-offset-2 dark:text-gray-second"
           >
             Forgot password
           </Link>

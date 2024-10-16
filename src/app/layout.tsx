@@ -15,8 +15,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  loginModal,
+  registerModal,
 }: Readonly<{
   children: React.ReactNode;
+  loginModal: React.ReactNode;
+  registerModal: React.ReactNode;
 }>) {
   const theme = getTheme();
 
@@ -39,6 +43,8 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
         <Footer />
         <div className="max-md:h-[81px]"></div>
+        {loginModal}
+        {registerModal}
       </body>
     </html>
   );
