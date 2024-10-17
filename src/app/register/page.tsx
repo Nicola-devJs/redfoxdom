@@ -1,6 +1,8 @@
 import React from "react";
-import { AuthComponent } from "../components/authComponentsPage/loginComponent";
+
+import { Routes } from "@/shared/constants/routes";
+import { AuthPageComponent } from "../components/auth/authComponentsPage/authPageComponent";
 
 export default function RegisterPage() {
-  return <AuthComponent authPage="register" />;
+  return <AuthPageComponent authPage={Routes.REGISTER} />;
 }

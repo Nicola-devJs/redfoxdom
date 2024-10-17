@@ -1,6 +1,6 @@
 import React from "react";
-import { AuthModalComponent } from "../../components/authComponentsPage/authModalComponent";
+import { LoginModalComponent } from "../../components/auth/authComponentsPage/loginModalComponent";
 
 export default function LoginModalPage() {
-  return <AuthModalComponent authPage="login" />;
+  return <LoginModalComponent />;
 }

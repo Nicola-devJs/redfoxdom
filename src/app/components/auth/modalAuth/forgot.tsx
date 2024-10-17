@@ -6,22 +6,23 @@ import { Input } from "@/shared/UI/input";
 import { LockIcon } from "@/shared/icons/lock";
 import Link from "next/link";
 import { Button } from "@/shared/UI/button";
+import { Routes } from "@/shared/constants/routes";
 
 interface IProps {
   onClose: () => void;
 }
 
-export const LoginModal = ({ onClose }: IProps) => {
+export const ForgotModal = ({ onClose }: IProps) => {
   return (
     <AuthModal
-      img={mockTestImages.obzor}
+      img={mockTestImages.meleniko}
       sublink={{
-        text: "Don`t you have an account?",
-        pageName: "Register",
-        link: "/register",
+        text: "Do you already have an account?",
+        pageName: "Login",
+        link: Routes.LOGIN,
       }}
       onClose={onClose}
-      title="Login"
+      title="Forgot"
     >
       <form action="#" className="mb-4">
         <div className="mb-4">
@@ -30,22 +31,21 @@ export const LoginModal = ({ onClose }: IProps) => {
             label="Account"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-4">
           <Input
             prevIcon={<LockIcon className="size-5 fill-gray-second" />}
             label="Password"
             type="password"
           />
         </div>
-        <div className="mb-4 text-end">
-          <Link
-            href="/"
-            className="text-sm hover:underline hover:underline-offset-2 dark:text-gray-second"
-          >
-            Forgot password
-          </Link>
+        <div className="mb-8">
+          <Input
+            prevIcon={<LockIcon className="size-5 fill-gray-second" />}
+            label="Confirm password"
+            type="password"
+          />
         </div>
-        <Button className="w-full">Login</Button>
+        <Button className="w-full">Change password</Button>
       </form>
     </AuthModal>
   );

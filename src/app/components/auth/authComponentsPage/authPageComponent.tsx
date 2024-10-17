@@ -1,26 +1,30 @@
 "use client";
-import { LoginModal } from "../modalAuth/login";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { Routes } from "@/shared/constants/routes";
+import { LoginModal } from "../modalAuth/login";
 import { RegisterModal } from "../modalAuth/register";
+import { ForgotModal } from "../modalAuth/forgot";
 
 interface IProps {
-  authPage: "login" | "register" | "forgot";
+  authPage: Routes;
 }
 
-export const AuthComponent = ({ authPage }: IProps) => {
+export const AuthPageComponent = ({ authPage }: IProps) => {
   const route = useRouter();
 
   const handleReturnHomePage = () => {
-    route.push("/");
+    route.push(Routes.MAIN);
   };
 
   const renderAuthChildren = () => {
     switch (authPage) {
-      case "login":
+      case Routes.LOGIN:
         return <LoginModal onClose={handleReturnHomePage} />;
-      case "register":
+      case Routes.REGISTER:
         return <RegisterModal onClose={handleReturnHomePage} />;
+      case Routes.FORGOT:
+        return <ForgotModal onClose={handleReturnHomePage} />;
     }
   };
 

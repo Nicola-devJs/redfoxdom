@@ -1,11 +1,13 @@
+import { Routes } from "./routes";
+
 export const menuNavigation = [
   {
     label: "Home",
-    path: "/",
+    path: Routes.MAIN,
   },
   {
     label: "Properties",
-    path: "/properties",
+    path: Routes.PROPERTIES,
   },
   {
     label: "Properties listing",

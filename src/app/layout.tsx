@@ -17,10 +17,12 @@ export default function RootLayout({
   children,
   loginModal,
   registerModal,
+  forgotModal,
 }: Readonly<{
   children: React.ReactNode;
   loginModal: React.ReactNode;
   registerModal: React.ReactNode;
+  forgotModal: React.ReactNode;
 }>) {
   const theme = getTheme();
 
@@ -45,6 +47,7 @@ export default function RootLayout({
         <div className="max-md:h-[81px]"></div>
         {loginModal}
         {registerModal}
+        {forgotModal}
       </body>
     </html>
   );

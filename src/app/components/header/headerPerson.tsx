@@ -3,12 +3,13 @@ import { PersonIcon } from "@/shared/icons";
 import { Button } from "@/shared/UI/button";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { Routes } from "@/shared/constants/routes";
 
 export const HeaderPerson = () => {
   const route = useRouter();
 
   const handleOpenAuthModal = () => {
-    route.push("/login");
+    route.push(Routes.LOGIN);
   };
 
   return (

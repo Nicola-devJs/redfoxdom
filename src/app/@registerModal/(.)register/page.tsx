@@ -1,6 +1,6 @@
 import React from "react";
-import { AuthModalComponent } from "../../components/authComponentsPage/authModalComponent";
+import { RegisterModalComponent } from "../../components/auth/authComponentsPage/registerModalComponent";
 
 export default function RegisterModalPage() {
-  return <AuthModalComponent authPage="register" />;
+  return <RegisterModalComponent />;
 }

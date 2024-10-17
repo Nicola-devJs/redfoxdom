@@ -6,54 +6,47 @@ import { Input } from "@/shared/UI/input";
 import { LockIcon } from "@/shared/icons/lock";
 import Link from "next/link";
 import { Button } from "@/shared/UI/button";
-import { MailIcon } from "@/shared/icons/mail";
+import { Routes } from "@/shared/constants/routes";
 
 interface IProps {
   onClose: () => void;
 }
 
-export const RegisterModal = ({ onClose }: IProps) => {
+export const LoginModal = ({ onClose }: IProps) => {
   return (
     <AuthModal
-      img={mockTestImages.sofia}
+      img={mockTestImages.obzor}
       sublink={{
-        text: "Do you already have an account?",
-        pageName: "Login",
-        link: "/login",
+        text: "Don`t you have an account?",
+        pageName: "Register",
+        link: Routes.REGISTER,
       }}
       onClose={onClose}
-      title="Register"
+      title="Login"
     >
       <form action="#" className="mb-4">
         <div className="mb-4">
           <Input
             prevIcon={<InputUserIcon className="size-5 fill-gray-second" />}
-            label="User name"
+            label="Account"
           />
         </div>
-        <div className="mb-4">
-          <Input
-            prevIcon={<MailIcon className="size-5 fill-gray-second" />}
-            label="Email address"
-            type="email"
-          />
-        </div>
-        <div className="mb-4">
+        <div className="mb-3">
           <Input
             prevIcon={<LockIcon className="size-5 fill-gray-second" />}
             label="Password"
             type="password"
           />
         </div>
-        <div className="mb-8">
-          <Input
-            prevIcon={<LockIcon className="size-5 fill-gray-second" />}
-            label="Confirm password"
-            type="password"
-          />
+        <div className="mb-4 text-end">
+          <Link
+            href={Routes.FORGOT}
+            className="text-sm hover:underline hover:underline-offset-2 dark:text-gray-second"
+          >
+            Forgot password
+          </Link>
         </div>
-
-        <Button className="w-full">Register</Button>
+        <Button className="w-full">Login</Button>
       </form>
     </AuthModal>
   );
