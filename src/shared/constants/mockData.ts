@@ -71,3 +71,7 @@ export const mockPropertyCards: IPropertyCard[] = [
     property: { name: "House", type: "house" },
   },
 ];
+
+export const users = [
+  { email: "test@age.com", password: "12345", username: "Danil Nicolaev" },
+];

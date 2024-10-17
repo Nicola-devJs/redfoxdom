@@ -1,10 +1,9 @@
-import { mockTestImages } from "@/shared/constants/property";
+import { mockTestImages } from "@/shared/constants/mockData";
 import React from "react";
 import { AuthModal } from ".";
 import { InputUserIcon } from "@/shared/icons/inputUser";
 import { Input } from "@/shared/UI/input";
 import { LockIcon } from "@/shared/icons/lock";
-import Link from "next/link";
 import { Button } from "@/shared/UI/button";
 import { Routes } from "@/shared/constants/routes";
 

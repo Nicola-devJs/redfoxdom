@@ -1,5 +1,4 @@
 "use client";
-
 import { Routes } from "@/shared/constants/routes";
 import { Modal } from "@/shared/UI/modal/modal";
 import { usePathname, useRouter } from "next/navigation";

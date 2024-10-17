@@ -5,6 +5,7 @@ import { HeaderLayout } from "@/app/components/header/header";
 import { getTheme } from "@/shared/utils/theme";
 import { Footer } from "./components/footer/footer";
 import { cn } from "@/shared/utils/cn";
+import { Providers } from "@/shared/components/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,13 +42,15 @@ export default function RootLayout({
         />
       </head>
       <body className={cn("flex min-h-screen flex-col", inter.className)}>
-        <HeaderLayout theme={theme} />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <div className="max-md:h-[81px]"></div>
-        {loginModal}
-        {registerModal}
-        {forgotModal}
+        <Providers>
+          <HeaderLayout theme={theme} />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <div className="max-md:h-[81px]"></div>
+          {loginModal}
+          {registerModal}
+          {forgotModal}
+        </Providers>
       </body>
     </html>
   );

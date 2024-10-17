@@ -2,6 +2,7 @@
 import { menuNavigation } from "@/shared/constants/menu";
 import { MenuIcon } from "@/shared/icons/menu";
 import { cn } from "@/shared/utils/cn";
+
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 

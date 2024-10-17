@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { PropertyGallery } from "./gallery";
 import { Slider } from "@/shared/UI/slider/slider";
 import { Modal } from "@/shared/UI/modal/modal";
-import { mockTestImages } from "@/shared/constants/property";
+import { mockTestImages } from "@/shared/constants/mockData";
 import { createPortal } from "react-dom";
 
 export const GalleryAndSlider = () => {

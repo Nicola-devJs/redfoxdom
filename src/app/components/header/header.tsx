@@ -5,12 +5,15 @@ import { ThemeMode } from "../themeMode";
 import { HeaderMenu } from "./headerMenu";
 import { Logo } from "../logo";
 import { HeaderPerson } from "./headerPerson";
+import { auth } from "@/configs/auth";
 
 interface IProps {
   theme: string | undefined;
 }
 
-export const HeaderLayout = ({ theme }: IProps) => {
+export const HeaderLayout = async ({ theme }: IProps) => {
+  const session = await auth();
+
   return (
     <header
       id="header"
@@ -20,7 +23,7 @@ export const HeaderLayout = ({ theme }: IProps) => {
         <Logo className="max-phone:hidden" />
         <HeaderMenu />
         <div className="ml-auto flex items-center gap-4 max-phone:ml-[13%] max-phone:w-full max-phone:justify-between">
-          <HeaderPerson />
+          <HeaderPerson userSession={session} />
           <Button className="max-md:w-[48px] max-md:px-3">
             <PropertyIcon className="fill-white" />{" "}
             <span className="max-md:hidden">Submit property</span>

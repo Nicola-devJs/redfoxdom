@@ -1,10 +1,15 @@
 import { FacebookIcon } from "@/app/icons/facebook";
 import { GoogleIcon } from "@/app/icons/google";
 import { NextImage } from "@/shared/components/NextImage";
+import { Routes } from "@/shared/constants/routes";
+import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 import { CloseIcon } from "@/shared/icons/close";
 import { SocialButton } from "@/shared/UI/button";
+import { signIn } from "next-auth/react";
+
 import { StaticImageData } from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import React, { ReactNode } from "react";
 
 type SubLinkType = { text: string; link: string; pageName: string };
@@ -24,6 +29,12 @@ export const AuthModal = ({
   sublink,
   title,
 }: IProps) => {
+  const callbackUrl = useGetQueryCallbackUrl();
+
+  const handleLoginWithGoogleProvider = async () => {
+    await signIn("google", { redirectTo: callbackUrl });
+  };
+
   return (
     <div className="grid w-[900px] grid-cols-[40%_60%] overflow-hidden rounded-2xl bg-white shadow-[4px_4px_10px_0px_rgb(0_0_0_/_0.1),_4px_4px_10px_0px_rgb(0_0_0_/_0.1)] dark:bg-dark">
       <NextImage src={img} className="rounded-r-none" />
@@ -48,7 +59,10 @@ export const AuthModal = ({
         </div>
         <hr className="mb-8 overflow-visible border-gray text-center after:relative after:-top-[14px] after:bg-white after:px-4 after:text-sm after:text-dark/70 after:content-['or_login_with'] dark:border-dark-second dark:after:bg-dark dark:after:text-gray-second" />
         <div className="flex gap-3">
-          <SocialButton className="dark:bg-dark-second">
+          <SocialButton
+            className="dark:bg-dark-second"
+            onClick={handleLoginWithGoogleProvider}
+          >
             <GoogleIcon className="size-6" />
             <span>Google</span>
           </SocialButton>

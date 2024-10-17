@@ -1,5 +1,5 @@
 import { PropertyParametr } from "@/shared/components/propertyParametr";
-import { mockPropertyCards } from "@/shared/constants/property";
+import { mockPropertyCards } from "@/shared/constants/mockData";
 import React from "react";
 import { PropertySection } from "./components/propertySection";
 import { List } from "@/shared/components/list";

@@ -1,5 +1,5 @@
 import React from "react";
-import { mockTestImages } from "../../constants/property";
+import { mockTestImages } from "../../constants/mockData";
 import { List } from "../list";
 import { Post } from "./post";
 

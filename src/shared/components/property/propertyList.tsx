@@ -1,5 +1,5 @@
 import React from "react";
-import { mockPropertyCards } from "../../constants/property";
+import { mockPropertyCards } from "../../constants/mockData";
 import { List } from "../list";
 import { cn } from "../../utils/cn";
 import { PropertyCard } from "./property";
