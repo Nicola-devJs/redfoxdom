@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { HeaderLayout } from "@/app/components/header/header";
 import { getTheme } from "@/shared/utils/theme";
-import { Footer } from "./components/footer/footer";
 import { cn } from "@/shared/utils/cn";
 import { Providers } from "@/shared/components/providers";
 
@@ -16,14 +14,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  loginModal,
-  registerModal,
-  forgotModal,
 }: Readonly<{
   children: React.ReactNode;
-  loginModal: React.ReactNode;
-  registerModal: React.ReactNode;
-  forgotModal: React.ReactNode;
 }>) {
   const theme = getTheme();
 
@@ -42,15 +34,7 @@ export default function RootLayout({
         />
       </head>
       <body className={cn("flex min-h-screen flex-col", inter.className)}>
-        <Providers>
-          <HeaderLayout theme={theme} />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <div className="max-md:h-[81px]"></div>
-          {loginModal}
-          {registerModal}
-          {forgotModal}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

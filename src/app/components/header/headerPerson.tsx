@@ -5,10 +5,12 @@ import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Routes } from "@/shared/constants/routes";
 import type { Session } from "next-auth";
-import { signOut } from "next-auth/react";
+import { signOut, SignOutParams } from "next-auth/react";
 import { Select } from "@/shared/UI/select";
 import { DownIcon } from "@/shared/icons/down";
 import { cn } from "@/shared/utils/cn";
+import { Person } from "../person";
+import { LOGOUT, menuAdminNavigation } from "@/shared/constants/menu";
 
 interface IProps {
   userSession: Session | null;
@@ -18,6 +20,11 @@ export const HeaderPerson = ({ userSession }: IProps) => {
   const route = useRouter();
   const [invertedArrow, setInvertedArrow] = useState(false);
   const pathname = usePathname();
+
+  const personOptions = menuAdminNavigation.map((menu) => ({
+    label: menu.label,
+    value: menu.path,
+  }));
 
   const handleOpenAuthModal = () => {
     switch (pathname) {
@@ -35,7 +42,11 @@ export const HeaderPerson = ({ userSession }: IProps) => {
   };
 
   const handleSignOut = () => {
-    signOut();
+    const options: SignOutParams | undefined = pathname.includes(Routes.ADMIN)
+      ? { redirectTo: Routes.MAIN }
+      : undefined;
+
+    signOut(options);
   };
 
   return (
@@ -43,23 +54,20 @@ export const HeaderPerson = ({ userSession }: IProps) => {
       {userSession ? (
         <div className="flex items-center gap-3">
           <div className="grid size-8 min-w-8 place-items-center rounded-full bg-gray-second">
-            {userSession.user?.image ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={userSession.user?.image}
-                alt={userSession.user?.name || "user"}
-                className="size-8 min-w-8 rounded-full"
-              />
-            ) : (
-              <PersonIcon className="size-4 fill-white" />
-            )}
+            <Person
+              alt={userSession.user?.name}
+              img={userSession.user?.image}
+            />
           </div>
 
           <Select
-            options={[{ label: "Logout", value: "logout" }]}
+            variant="secondary"
+            options={personOptions}
             handleSelectOptions={(option) => {
-              if (option.value === "logout") {
+              if (option.value === LOGOUT) {
                 handleSignOut();
+              } else {
+                route.push(option.value as string);
               }
             }}
             onShowOptions={setInvertedArrow}
@@ -75,6 +83,7 @@ export const HeaderPerson = ({ userSession }: IProps) => {
                 />
               </div>
             )}
+            className="z-10 min-w-[140px]"
           />
         </div>
       ) : (

@@ -7,7 +7,10 @@ export const useHideScrollWindow = (isHide: boolean) => {
 
   const toggleViewMainScroll = (mode: "add" | "remove") => {
     const widthScroll = widthWindowWithScroll.current - widthBody.current;
-    if (mode === "add") {
+    const isHeigthBodyMoreWindow =
+      document.body.offsetHeight > window.innerHeight;
+
+    if (mode === "add" && isHeigthBodyMoreWindow) {
       document.body.style.marginRight = `${widthScroll}px`;
     } else {
       document.body.style.marginRight = "0px";
