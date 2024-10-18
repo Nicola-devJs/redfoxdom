@@ -33,7 +33,7 @@ export const Slider = () => {
       <SlickSlider {...settings}>
         {Object.values(mockTestImages).map((img) => (
           <div key={img.src} className="p-2">
-            <NextImage src={img} className="h-full" />
+            <NextImage src={img} className="h-full" alt="slide" />
           </div>
         ))}
       </SlickSlider>

@@ -37,7 +37,7 @@ export const AuthModal = ({
 
   return (
     <div className="grid w-[900px] grid-cols-[40%_60%] overflow-hidden rounded-2xl bg-white shadow-[4px_4px_10px_0px_rgb(0_0_0_/_0.1),_4px_4px_10px_0px_rgb(0_0_0_/_0.1)] dark:bg-dark">
-      <NextImage src={img} className="rounded-r-none" />
+      <NextImage src={img} className="rounded-r-none" alt="image" />
       <div className="p-10">
         <div className="flex items-start justify-between">
           <h4 className="mb-8 text-3xl font-semibold">{title}</h4>

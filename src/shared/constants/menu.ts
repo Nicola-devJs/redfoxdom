@@ -11,6 +11,6 @@ export const menuNavigation = [
   },
   {
     label: "Properties listing",
-    path: "/properties/listing",
+    path: Routes.LISTING,
   },
 ];

@@ -8,7 +8,6 @@ import Link from "next/link";
 import { Button } from "@/shared/UI/button";
 import { Routes } from "@/shared/constants/routes";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 
 interface IProps {
@@ -16,7 +15,6 @@ interface IProps {
 }
 
 export const LoginModal = ({ onClose }: IProps) => {
-  const router = useRouter();
   const callbackUrl = useGetQueryCallbackUrl();
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (
@@ -29,13 +27,10 @@ export const LoginModal = ({ onClose }: IProps) => {
     const res = await signIn("credentials", {
       email: formData.get("email"),
       password: formData.get("password"),
-      redirect: false,
+      redirectTo: callbackUrl,
     });
 
-    if (res && !res.error) {
-      router.push(callbackUrl);
-      router.refresh();
-    } else {
+    if (res?.error) {
       console.error(res);
     }
   };

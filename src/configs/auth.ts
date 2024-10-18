@@ -13,6 +13,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn: "/login",
     newUser: "/register",
   },
+  logger: {
+    debug(message, metadata) {
+      console.log("debug", message, metadata);
+    },
+    error(error) {
+      console.log("error", error);
+    },
+    warn(code) {
+      console.log("code", code);
+    },
+  },
+
   providers: [
     Google({
       clientId: process.env.AUTH_GOOGLE_ID,

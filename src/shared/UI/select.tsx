@@ -1,5 +1,11 @@
 "use client";
-import React, { createRef, useEffect, useRef, useState } from "react";
+import React, {
+  createRef,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { DownIcon } from "../icons/down";
 import { cn } from "../utils/cn";
 import { OptionType } from "../types.ts/ui";
@@ -16,6 +22,8 @@ interface IProps {
   postfix?: string;
   CustomIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>> | null;
   classNameIcon?: string;
+  renderCustomInput?: (selectedValue: string) => ReactNode;
+  onShowOptions?: (isShow: boolean) => void;
 }
 
 export const Select = ({
@@ -30,6 +38,8 @@ export const Select = ({
   postfix,
   CustomIcon,
   classNameIcon,
+  renderCustomInput,
+  onShowOptions,
 }: IProps) => {
   const [showOptions, setShowOptions] = useState(false);
   const [selectValue, setSelectValue] = useState<OptionType>({
@@ -72,6 +82,8 @@ export const Select = ({
       setShowOptions(!showOptions);
     }
   };
+  const generateSelectedValue = () =>
+    `${prefix || ""}${selectValue.label}${postfix || ""}`;
 
   const getOptions = () =>
     hideSelectOption
@@ -85,37 +97,39 @@ export const Select = ({
     };
   }, []);
 
+  useEffect(() => {
+    onShowOptions?.(showOptions);
+  }, [showOptions]);
+
   return (
-    <div
-      className={cn(
-        "relative z-[1] w-full",
-        { "h-9": isSecondary },
-        { "h-ui": isDefault },
-        className,
-      )}
-      ref={selectRef}
-    >
+    <div className={cn("relative z-[1] w-full", className)} ref={selectRef}>
       <label className="cursor-pointer" onClick={handleShowOptions}>
-        <input
-          type="text"
-          readOnly
-          className={cn("input-theme cursor-pointer pr-12", {
-            "h-9 rounded-lg": isSecondary,
-            "pr-4": !InputIcon,
-          })}
-          value={`${prefix || ""}${selectValue.label}${postfix || ""}`}
-        />
-        {InputIcon && (
-          <InputIcon
-            className={cn(
-              "absolute right-4 top-1/2 size-3 -translate-y-1/2 fill-dark/80 dark:fill-white",
-              {
-                "rotate-180": showOptions,
-              },
-              classNameIcon,
+        {renderCustomInput ? (
+          renderCustomInput(generateSelectedValue())
+        ) : (
+          <>
+            <input
+              type="text"
+              readOnly
+              className={cn("input-theme cursor-pointer pr-12", {
+                "h-9 rounded-lg": isSecondary,
+                "pr-4": !InputIcon,
+              })}
+              value={generateSelectedValue()}
+            />
+            {InputIcon && (
+              <InputIcon
+                className={cn(
+                  "absolute right-4 top-1/2 size-3 -translate-y-1/2 fill-dark/80 dark:fill-white",
+                  {
+                    "rotate-180": showOptions,
+                  },
+                  classNameIcon,
+                )}
+                onClick={(e) => e.stopPropagation()}
+              />
             )}
-            onClick={(e) => e.stopPropagation()}
-          />
+          </>
         )}
       </label>
 

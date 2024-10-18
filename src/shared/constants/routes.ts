@@ -4,4 +4,5 @@ export enum Routes {
   REGISTER = "/register",
   FORGOT = "/forgot",
   PROPERTIES = "/properties",
+  LISTING = "/properties/listing",
 }

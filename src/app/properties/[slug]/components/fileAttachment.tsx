@@ -19,7 +19,12 @@ export const FileAttachment = ({ name, path }: IProps) => {
     <div>
       <a href={path} download={name} className="inline-flex items-center gap-2">
         <div className="flex size-[60px] items-center justify-center rounded-lg bg-light-second dark:bg-dark-second">
-          <NextImage src={iconFile} className="size-10" variant="contain" />
+          <NextImage
+            src={iconFile}
+            className="size-10"
+            variant="contain"
+            alt="file"
+          />
         </div>
         <span className="text-sm">{name}</span>
         <DownloadIcon className="size-6 fill-dark/80 dark:fill-gray" />
