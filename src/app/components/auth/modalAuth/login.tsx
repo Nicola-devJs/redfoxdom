@@ -9,6 +9,7 @@ import { Button } from "@/shared/UI/button";
 import { Routes } from "@/shared/constants/routes";
 import { signIn } from "next-auth/react";
 import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
+import { signInAction } from "@/actions/auth";
 
 interface IProps {
   onClose: () => void;
@@ -16,24 +17,6 @@ interface IProps {
 
 export const LoginModal = ({ onClose }: IProps) => {
   const callbackUrl = useGetQueryCallbackUrl();
-
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (
-    event,
-  ) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-
-    const res = await signIn("credentials", {
-      email: formData.get("email"),
-      password: formData.get("password"),
-      redirectTo: callbackUrl,
-    });
-
-    if (res?.error) {
-      console.error(res);
-    }
-  };
 
   return (
     <AuthModal
@@ -46,7 +29,7 @@ export const LoginModal = ({ onClose }: IProps) => {
       onClose={onClose}
       title="Login"
     >
-      <form action="#" className="mb-4" onSubmit={handleSubmit}>
+      <form action={signInAction.bind(null, callbackUrl)} className="mb-4">
         <div className="mb-4">
           <Input
             prevIcon={<InputUserIcon className="size-5 fill-gray-second" />}

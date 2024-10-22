@@ -3,7 +3,7 @@ import { LOGOUT, menuAdminNavigation } from "@/shared/constants/menu";
 import { cn } from "@/shared/utils/cn";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { ModalLogout } from "./modalLogout";
+import { ModalLogout } from "@/shared/components/modalLogout";
 
 export const AdminMenu = () => {
   const [showModal, setShowModal] = useState(false);
@@ -47,7 +47,11 @@ export const AdminMenu = () => {
         })}
       </ul>
 
-      <ModalLogout isOpen={showModal} onClose={() => setShowModal(false)} />
+      <ModalLogout
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        pathname={pathname}
+      />
     </>
   );
 };

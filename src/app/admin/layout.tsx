@@ -16,8 +16,8 @@ export default async function AdminLayout({
       <div className="flex min-h-full w-full flex-col">
         <HeaderAdmin theme={theme} session={session} />
 
-        <main className="h-full flex-grow bg-[#F7F7F7] p-6">
-          <div className="container-block">{children}</div>
+        <main className="h-full flex-grow bg-[#F7F7F7] p-12 dark:bg-dark-second/50">
+          {children}
         </main>
       </div>
     </div>

@@ -29,6 +29,7 @@ const config: Config = {
         dark: {
           DEFAULT: "rgb(22, 29, 45)",
           second: "rgb(38, 46, 59)",
+          blue: "rgb(25, 40, 63)",
         },
         gray: {
           DEFAULT: "rgb(228, 228, 228)",

@@ -5,18 +5,18 @@ import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Routes } from "@/shared/constants/routes";
 import type { Session } from "next-auth";
-import { signOut, SignOutParams } from "next-auth/react";
 import { Select } from "@/shared/UI/select";
 import { DownIcon } from "@/shared/icons/down";
 import { cn } from "@/shared/utils/cn";
 import { Person } from "../person";
 import { LOGOUT, menuAdminNavigation } from "@/shared/constants/menu";
-
+import { ModalLogout } from "@/shared/components/modalLogout";
 interface IProps {
   userSession: Session | null;
 }
 
 export const HeaderPerson = ({ userSession }: IProps) => {
+  const [showModal, setShowModal] = useState(false);
   const route = useRouter();
   const [invertedArrow, setInvertedArrow] = useState(false);
   const pathname = usePathname();
@@ -41,14 +41,6 @@ export const HeaderPerson = ({ userSession }: IProps) => {
     }
   };
 
-  const handleSignOut = () => {
-    const options: SignOutParams | undefined = pathname.includes(Routes.ADMIN)
-      ? { redirectTo: Routes.MAIN }
-      : undefined;
-
-    signOut(options);
-  };
-
   return (
     <>
       {userSession ? (
@@ -63,9 +55,10 @@ export const HeaderPerson = ({ userSession }: IProps) => {
           <Select
             variant="secondary"
             options={personOptions}
+            isDropMenu
             handleSelectOptions={(option) => {
               if (option.value === LOGOUT) {
-                handleSignOut();
+                setShowModal(true);
               } else {
                 route.push(option.value as string);
               }
@@ -77,7 +70,7 @@ export const HeaderPerson = ({ userSession }: IProps) => {
                   {userSession.user?.name}
                 </span>
                 <DownIcon
-                  className={cn("size-3 fill-dark transition", {
+                  className={cn("size-3 fill-dark transition dark:fill-white", {
                     "rotate-180": invertedArrow,
                   })}
                 />
@@ -96,6 +89,12 @@ export const HeaderPerson = ({ userSession }: IProps) => {
           <span className="max-md:hidden">Sign in</span>
         </Button>
       )}
+
+      <ModalLogout
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        pathname={pathname}
+      />
     </>
   );
 };

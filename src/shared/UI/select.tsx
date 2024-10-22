@@ -24,6 +24,7 @@ interface IProps {
   classNameIcon?: string;
   renderCustomInput?: (selectedValue: string) => ReactNode;
   onShowOptions?: (isShow: boolean) => void;
+  isDropMenu?: boolean;
 }
 
 export const Select = ({
@@ -40,6 +41,7 @@ export const Select = ({
   classNameIcon,
   renderCustomInput,
   onShowOptions,
+  isDropMenu,
 }: IProps) => {
   const [showOptions, setShowOptions] = useState(false);
   const [selectValue, setSelectValue] = useState<OptionType>({
@@ -63,7 +65,7 @@ export const Select = ({
   const InputIcon = getInputIcon();
 
   const onSelectOption = (option: OptionType) => {
-    if (option.value !== selectValue.value) {
+    if (option.value !== selectValue.value || isDropMenu) {
       setSelectValue(option);
       setShowOptions(false);
       handleSelectOptions?.(option);
@@ -145,7 +147,8 @@ export const Select = ({
             className={cn(
               "cursor-pointer p-3 transition hover:bg-gray dark:hover:bg-gray-second",
               {
-                "bg-gray dark:bg-dark-second": selectValue.value === opt.value,
+                "bg-gray dark:bg-dark-second":
+                  selectValue.value === opt.value && !isDropMenu,
               },
             )}
             key={opt.value}

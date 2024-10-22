@@ -2,8 +2,14 @@ import { users } from "@/shared/constants/mockData";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
+import Facebook from "next-auth/providers/facebook";
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const {
+  handlers,
+  auth,
+  signIn: signInServer,
+  signOut: signOutServer,
+} = NextAuth({
   callbacks: {
     authorized: async ({ auth }) => {
       return !!auth;
@@ -29,6 +35,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     Google({
       clientId: process.env.AUTH_GOOGLE_ID,
       clientSecret: process.env.AUTH_GOOGLE_SECRET,
+    }),
+    Facebook({
+      clientId: process.env.AUTH_FACEBOOK_ID,
+      clientSecret: process.env.AUTH_FACEBOOK_SECRET,
     }),
     Credentials({
       credentials: {

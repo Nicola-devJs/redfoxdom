@@ -2,17 +2,22 @@ import { Routes } from "@/shared/constants/routes";
 import { CloseIcon } from "@/shared/icons/close";
 import { Button } from "@/shared/UI/button";
 import { Modal } from "@/shared/UI/modal/modal";
-import { signOut } from "next-auth/react";
+import { signOut, SignOutParams } from "next-auth/react";
 import React from "react";
 
 interface IProps {
   isOpen: boolean;
   onClose: () => void;
+  pathname: string;
 }
 
-export const ModalLogout = ({ isOpen, onClose }: IProps) => {
+export const ModalLogout = ({ isOpen, onClose, pathname }: IProps) => {
   const handleLogout = () => {
-    signOut({ redirectTo: Routes.MAIN });
+    const options: SignOutParams | undefined = pathname.includes(Routes.ADMIN)
+      ? { redirectTo: Routes.MAIN }
+      : undefined;
+
+    signOut(options);
   };
 
   return (
@@ -27,10 +32,10 @@ export const ModalLogout = ({ isOpen, onClose }: IProps) => {
         </h4>
         <div className="mx-auto mb-12 h-[2px] w-[100px] rounded-[1px] bg-primary"></div>
         <div className="flex items-center justify-center gap-4">
-          <Button onClick={onClose}>Cancel</Button>
-          <Button variant="secondary" onClick={handleLogout}>
-            Logout
+          <Button variant="outlined" onClick={onClose}>
+            Cancel
           </Button>
+          <Button onClick={handleLogout}>Logout</Button>
         </div>
       </div>
     </Modal>

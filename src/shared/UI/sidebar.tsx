@@ -22,6 +22,7 @@ export const Sidebar = ({
   isHideClose,
 }: IProps) => {
   useHideScrollWindow(isOpen);
+
   return (
     <div
       className={cn(

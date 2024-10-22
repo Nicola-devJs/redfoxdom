@@ -27,7 +27,7 @@ export const AdminNavigatePanel = ({ session }: IProps) => {
           <div className="flex w-full flex-col overflow-hidden">
             <span className="text-xs font-light text-gray-second">Account</span>
             <span className="text overflow-hidden text-ellipsis whitespace-nowrap text-sm text-white">
-              {session?.user?.email}
+              {session?.user?.email || session?.user?.name}
             </span>
           </div>
         </div>
