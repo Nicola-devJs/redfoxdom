@@ -1,4 +1,4 @@
-import { PersonIcon } from "../icons";
+import { PersonIcon, LogoutIcon, EditIcon } from "../icons";
 import { Routes } from "./routes";
 
 export const LOGOUT = "logout";
@@ -13,8 +13,8 @@ export const menuNavigation = [
     path: Routes.PROPERTIES,
   },
   {
-    label: "Properties listing",
-    path: Routes.LISTING,
+    label: "List properties",
+    path: Routes.LIST_PROPERTIES,
   },
 ];
 
@@ -27,11 +27,11 @@ export const menuAdminNavigation = [
   {
     label: "My properties",
     path: Routes.ADMIN_PROPERTIES,
-    icon: PersonIcon,
+    icon: EditIcon,
   },
   {
     label: "Logout",
     path: LOGOUT,
-    icon: PersonIcon,
+    icon: LogoutIcon,
   },
 ];

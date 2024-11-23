@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
-import { HeaderAdmin } from "../components/header/headerAdmin";
-import { getTheme } from "@/shared/utils/theme";
-import { AdminNavigatePanel } from "../components/admin/adminNavigatePanel";
+import { HeaderAdmin } from "@/widgets/header/headerAdmin";
+import { getTheme } from "@/shared/helpers/theme";
 import { auth } from "@/configs/auth";
+import { AdminNavigatePanel } from "@/widgets/adminSidebar";
 
 export default async function AdminLayout({
   children,
@@ -16,7 +16,7 @@ export default async function AdminLayout({
       <div className="flex min-h-full w-full flex-col">
         <HeaderAdmin theme={theme} session={session} />
 
-        <main className="h-full flex-grow bg-[#F7F7F7] p-12 dark:bg-dark-second/50">
+        <main className="h-full flex-grow bg-[#F7F7F7] p-8 dark:bg-dark-second/50">
           {children}
         </main>
       </div>

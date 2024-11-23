@@ -5,7 +5,7 @@ import nesebrImage from "@/shared/assets/nesebr.jpg";
 import plovdivImage from "@/shared/assets/plovdiv.webp";
 import sofiaImage from "@/shared/assets/sofia.jpg";
 import varnaImage from "@/shared/assets/varna.jpg";
-import { IPropertyCard } from "../types.ts/property";
+import { IPropertyCard } from "../types/property";
 
 export enum THEME {
   LIGHT = "light",

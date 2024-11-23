@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CheckIcon } from "../icons/check";
-import { cn } from "../utils/cn";
+import { cn } from "../helpers/cn";
 
 interface IProps {
   value: { value: string; label: string };

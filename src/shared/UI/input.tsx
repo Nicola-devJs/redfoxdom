@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, ReactNode } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../helpers/cn";
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   prevIcon?: ReactNode;
@@ -16,16 +16,20 @@ export const Input = ({
   handlerPost,
   className,
   label,
+  required,
   ...props
 }: IProps) => {
   return (
     <>
-      <label
-        htmlFor={props.id}
-        className="mb-2 inline-block text-sm font-semibold"
-      >
-        {label}
-      </label>
+      {label && (
+        <label
+          htmlFor={props.id}
+          className="mb-2 inline-block text-sm font-semibold"
+        >
+          {label + (required ? "*" : "")}
+        </label>
+      )}
+
       <div className="relative">
         {prevIcon && (
           <div

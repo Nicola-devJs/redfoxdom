@@ -1,6 +1,6 @@
 "use client";
 import { useHideScrollWindow } from "@/shared/hooks/useHideScrollWindow";
-import { cn } from "@/shared/utils/cn";
+import { cn } from "@/shared/helpers/cn";
 import React, { ReactNode } from "react";
 import { createPortal } from "react-dom";
 

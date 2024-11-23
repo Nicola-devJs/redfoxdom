@@ -7,8 +7,8 @@ import React, {
   useState,
 } from "react";
 import { DownIcon } from "../icons/down";
-import { cn } from "../utils/cn";
-import { OptionType } from "../types.ts/ui";
+import { cn } from "../helpers/cn";
+import { OptionType } from "../types/ui";
 
 interface IProps {
   defaultValue?: OptionType;

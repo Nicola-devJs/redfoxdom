@@ -2,7 +2,7 @@
 import React from "react";
 import SlickSlider, { Settings } from "react-slick";
 import { mockTestImages } from "../../constants/mockData";
-import { NextImage } from "../../components/NextImage";
+import { NextImage } from "../nextImage";
 import { DownIcon } from "@/shared/icons/down";
 import "./slider.style.css";
 

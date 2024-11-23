@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import "./style.css";
-import { cn } from "@/shared/utils/cn";
+import "./range.style.css";
+import { cn } from "@/shared/helpers/cn";
 
 interface IProps {
   max: number;

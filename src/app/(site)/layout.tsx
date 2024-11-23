@@ -1,9 +1,9 @@
-import { getTheme } from "@/shared/utils/theme";
+import { getTheme } from "@/shared/helpers/theme";
 import React, { ReactNode } from "react";
-import { HeaderSite } from "../components/header/headerSite";
-import { Footer } from "../components/footer/footer";
+import { HeaderSite } from "@/widgets/header/headerSite";
+import { Footer } from "@/widgets/footer/footer";
 
-export default function SiteLayout({
+export default async function SiteLayout({
   children,
   forgotModal,
   loginModal,

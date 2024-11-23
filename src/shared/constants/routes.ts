@@ -4,7 +4,7 @@ export enum Routes {
   REGISTER = "/register",
   FORGOT = "/forgot",
   PROPERTIES = "/properties",
-  LISTING = "/properties/listing",
+  LIST_PROPERTIES = "/properties/list",
   ADMIN = "/admin",
   ADMIN_PROFILE = "/admin/profile",
   ADMIN_DASHBOARD = "/admin/dashboard",

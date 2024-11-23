@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../helpers/cn";
 import { ArrowRightIcon } from "../icons/arrowRight";
 
 interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

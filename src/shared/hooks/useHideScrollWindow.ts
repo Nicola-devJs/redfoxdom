@@ -2,13 +2,15 @@
 import { useRef, useEffect } from "react";
 
 export const useHideScrollWindow = (isHide: boolean) => {
-  const widthWindowWithScroll = useRef(window.innerWidth);
+  const clientGlobalThis = window || {};
+  const widthWindowWithScroll = useRef(clientGlobalThis.innerWidth);
+
   const widthBody = useRef(document.body.offsetWidth);
 
   const toggleViewMainScroll = (mode: "add" | "remove") => {
     const widthScroll = widthWindowWithScroll.current - widthBody.current;
     const isHeigthBodyMoreWindow =
-      document.body.offsetHeight > window.innerHeight;
+      document.body.offsetHeight > clientGlobalThis.innerHeight;
 
     if (mode === "add" && isHeigthBodyMoreWindow) {
       document.body.style.marginRight = `${widthScroll}px`;

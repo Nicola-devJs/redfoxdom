@@ -1,5 +1,5 @@
 import React from "react";
-import { ForgotModalComponent } from "../../../components/auth/authComponentsPage/forgotModalComponent";
+import { ForgotModalComponent } from "../../../../features/auth/ui/authComponentsPage/forgotModalComponent";
 
 export default function ForgotModalPage() {
   return <ForgotModalComponent />;
