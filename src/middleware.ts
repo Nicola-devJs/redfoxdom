@@ -1,5 +1,4 @@
-import { auth } from "@/configs/auth";
-import NextAuth from "next-auth";
+import { auth } from "@/features/auth/model/config";
 import { NextResponse, type NextRequest } from "next/server";
 import { Routes } from "./shared/constants/routes";
 

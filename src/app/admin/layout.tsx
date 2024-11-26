@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { HeaderAdmin } from "@/widgets/header/headerAdmin";
 import { getTheme } from "@/shared/helpers/theme";
-import { auth } from "@/configs/auth";
+import { auth } from "@/features/auth/model/config";
 import { AdminNavigatePanel } from "@/widgets/adminSidebar";
 
 export default async function AdminLayout({

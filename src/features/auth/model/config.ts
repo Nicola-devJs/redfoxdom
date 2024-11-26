@@ -1,8 +1,8 @@
-import { users } from "@/shared/constants/mockData";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import Facebook from "next-auth/providers/facebook";
+import { handleAuthUser } from "./api/authUser";
 
 export const {
   handlers,
@@ -45,20 +45,15 @@ export const {
         email: { label: "email", type: "email", required: true },
         password: { label: "password", type: "password", required: true },
       },
-      authorize: async (credatial) => {
-        if (credatial.email && credatial.password) {
-          const currentUser = users.find(
-            (user) => user.email === credatial.email,
-          );
 
-          if (currentUser && currentUser.password === credatial.password) {
-            return {
-              email: currentUser.email,
-              name: currentUser.username,
-              id: `${Date.now()}`,
-            };
-          }
+      authorize: async (credentials) => {
+        if (credentials.email && credentials.password) {
+          return await handleAuthUser({
+            email: credentials.email as string,
+            password: credentials.password as string,
+          });
         }
+
         return null;
       },
     }),

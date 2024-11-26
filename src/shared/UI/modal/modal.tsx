@@ -11,7 +11,7 @@ interface IProps {
 }
 
 export const Modal = ({ children, isOpen, onClose }: IProps) => {
-  useHideScrollWindow(isOpen);
+  // useHideScrollWindow(isOpen);
 
   return (
     <>

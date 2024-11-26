@@ -21,7 +21,7 @@ export const Sidebar = ({
   onClose,
   isHideClose,
 }: IProps) => {
-  useHideScrollWindow(isOpen);
+  // useHideScrollWindow(isOpen);
 
   return (
     <div

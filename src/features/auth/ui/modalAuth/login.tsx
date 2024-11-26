@@ -8,7 +8,8 @@ import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { Routes } from "@/shared/constants/routes";
 import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
-import { signInAction } from "@/features/auth/model/api/signInAction";
+import { signInWithCredentials } from "@/features/auth/model/actions/signInActions";
+import { useRouter } from "next/navigation";
 
 interface IProps {
   onClose: () => void;
@@ -16,6 +17,16 @@ interface IProps {
 
 export const LoginModal = ({ onClose }: IProps) => {
   const callbackUrl = useGetQueryCallbackUrl();
+  const router = useRouter();
+
+  const handleAuthAction = async (data: FormData) => {
+    try {
+      await signInWithCredentials(data);
+      router.push(callbackUrl);
+    } finally {
+      console.log("loaded");
+    }
+  };
 
   return (
     <AuthModal
@@ -28,7 +39,7 @@ export const LoginModal = ({ onClose }: IProps) => {
       onClose={onClose}
       title="Login"
     >
-      <form action={signInAction.bind(null, callbackUrl)} className="mb-4">
+      <form action={handleAuthAction} className="mb-4">
         <div className="mb-4">
           <Input
             prevIcon={<InputUserIcon className="size-5 fill-gray-second" />}

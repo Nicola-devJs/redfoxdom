@@ -1,10 +1,8 @@
 import MainPage from "@/appPages/main";
+import { fetchingProperties } from "@/appPages/main/model/api";
 
 export default async function Main() {
-  const response = await fetch(`${process.env.AUTH_URL}/api/properties`);
-  const data = await response.json();
-
-  console.log(data);
+  fetchingProperties();
 
   return <MainPage />;
 }

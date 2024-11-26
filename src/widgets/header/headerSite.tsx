@@ -3,7 +3,7 @@ import { ThemeMode } from "@/features/themeMode/themeMode";
 import { HeaderMenu } from "./ui/headerMenu";
 import { Logo } from "@/shared/ui/logo";
 import { HeaderPerson } from "./ui/headerPerson";
-import { auth } from "@/configs/auth";
+import { auth } from "@/features/auth/model/config";
 import { HeaderProperty } from "./ui/headerProperty";
 
 interface IProps {
