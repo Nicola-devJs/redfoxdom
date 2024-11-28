@@ -1,18 +1,15 @@
 "use client";
 import { Routes } from "@/shared/constants/routes";
 import { Modal } from "@/shared/ui/modal/modal";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { LoginModal } from "../modalAuth/login";
+import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 
 export const LoginModalComponent = () => {
-  const route = useRouter();
+  const redirect = useGetQueryCallbackUrl();
   const pathname = usePathname();
   const [showModal, setShowModal] = useState(false);
-
-  const handleCloseModal = () => {
-    route.push(Routes.MAIN);
-  };
 
   useEffect(() => {
     if (pathname === Routes.LOGIN) {
@@ -23,8 +20,8 @@ export const LoginModalComponent = () => {
   }, [pathname]);
 
   return (
-    <Modal isOpen={showModal} onClose={handleCloseModal}>
-      <LoginModal onClose={handleCloseModal} />
+    <Modal isOpen={showModal} onClose={redirect}>
+      <LoginModal onClose={redirect} />
     </Modal>
   );
 };

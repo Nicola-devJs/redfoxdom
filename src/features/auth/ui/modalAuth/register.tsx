@@ -7,22 +7,19 @@ import { LockIcon } from "@/shared/icons/lock";
 import { Button } from "@/shared/ui/button";
 import { MailIcon } from "@/shared/icons/mail";
 import { Routes } from "@/shared/constants/routes";
-import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 import { registerWithCredentials } from "../../model/actions/registerAction";
-import { useRouter } from "next/navigation";
 
 interface IProps {
   onClose: () => void;
 }
 
 export const RegisterModal = ({ onClose }: IProps) => {
-  const callbackUrl = useGetQueryCallbackUrl();
-  const router = useRouter();
-
   const handleRegisterAction = async (data: FormData) => {
     try {
       await registerWithCredentials(data);
-      router.push(callbackUrl);
+      onClose();
+    } catch (error) {
+      console.error(error);
     } finally {
       console.log("loaded");
     }
@@ -68,6 +65,7 @@ export const RegisterModal = ({ onClose }: IProps) => {
             prevIcon={<LockIcon className="size-5 fill-gray-second" />}
             label="Confirm password"
             type="password"
+            name="password_confirm"
           />
         </div>
 

@@ -6,12 +6,25 @@ import { Input } from "@/shared/ui/input";
 import { LockIcon } from "@/shared/icons/lock";
 import { Button } from "@/shared/ui/button";
 import { Routes } from "@/shared/constants/routes";
+import { forgotWithCredentials } from "../../model/actions/forgotAction";
+import { useRouter } from "next/navigation";
 
 interface IProps {
   onClose: () => void;
 }
 
 export const ForgotModal = ({ onClose }: IProps) => {
+  const router = useRouter();
+  const handleForgotAction = async (data: FormData) => {
+    try {
+      await forgotWithCredentials(data);
+      router.push(Routes.LOGIN);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      console.log("loaded");
+    }
+  };
   return (
     <AuthModal
       img={mockTestImages.meleniko}
@@ -23,11 +36,13 @@ export const ForgotModal = ({ onClose }: IProps) => {
       onClose={onClose}
       title="Forgot"
     >
-      <form action="#" className="mb-4">
+      <form action={handleForgotAction} className="mb-4">
         <div className="mb-4">
           <Input
             prevIcon={<InputUserIcon className="size-5 fill-gray-second" />}
-            label="Account"
+            label="Email address"
+            type="email"
+            name="email"
           />
         </div>
         <div className="mb-4">
@@ -35,6 +50,7 @@ export const ForgotModal = ({ onClose }: IProps) => {
             prevIcon={<LockIcon className="size-5 fill-gray-second" />}
             label="Password"
             type="password"
+            name="password"
           />
         </div>
         <div className="mb-8">
@@ -42,6 +58,7 @@ export const ForgotModal = ({ onClose }: IProps) => {
             prevIcon={<LockIcon className="size-5 fill-gray-second" />}
             label="Confirm password"
             type="password"
+            name="password_confirm"
           />
         </div>
         <Button className="w-full">Change password</Button>

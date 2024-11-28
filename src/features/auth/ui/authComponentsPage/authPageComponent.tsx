@@ -1,30 +1,26 @@
 "use client";
-import { useRouter } from "next/navigation";
 import React from "react";
 import { Routes } from "@/shared/constants/routes";
 import { LoginModal } from "../modalAuth/login";
 import { RegisterModal } from "../modalAuth/register";
 import { ForgotModal } from "../modalAuth/forgot";
+import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 
 interface IProps {
   authPage: Routes;
 }
 
 export const AuthPageComponent = ({ authPage }: IProps) => {
-  const route = useRouter();
-
-  const handleReturnHomePage = () => {
-    route.push(Routes.MAIN);
-  };
+  const redirect = useGetQueryCallbackUrl();
 
   const renderAuthChildren = () => {
     switch (authPage) {
       case Routes.LOGIN:
-        return <LoginModal onClose={handleReturnHomePage} />;
+        return <LoginModal onClose={redirect} />;
       case Routes.REGISTER:
-        return <RegisterModal onClose={handleReturnHomePage} />;
+        return <RegisterModal onClose={redirect} />;
       case Routes.FORGOT:
-        return <ForgotModal onClose={handleReturnHomePage} />;
+        return <ForgotModal onClose={redirect} />;
     }
   };
 

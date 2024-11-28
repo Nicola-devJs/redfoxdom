@@ -2,17 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from "@/shared/ui/modal/modal";
 import { Routes } from "@/shared/constants/routes";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { RegisterModal } from "../modalAuth/register";
+import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 
 export const RegisterModalComponent = () => {
-  const route = useRouter();
+  const redirect = useGetQueryCallbackUrl();
   const pathname = usePathname();
   const [showModal, setShowModal] = useState(false);
-
-  const handleCloseModal = () => {
-    route.push(Routes.MAIN);
-  };
 
   useEffect(() => {
     if (pathname === Routes.REGISTER) {
@@ -23,8 +20,8 @@ export const RegisterModalComponent = () => {
   }, [pathname]);
 
   return (
-    <Modal isOpen={showModal} onClose={handleCloseModal}>
-      <RegisterModal onClose={handleCloseModal} />
+    <Modal isOpen={showModal} onClose={redirect}>
+      <RegisterModal onClose={redirect} />
     </Modal>
   );
 };

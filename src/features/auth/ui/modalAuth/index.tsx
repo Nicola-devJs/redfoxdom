@@ -1,17 +1,13 @@
 import { FacebookIcon } from "@/shared/icons/facebook";
 import { GoogleIcon } from "@/shared/icons/google";
 import { NextImage } from "@/shared/ui/nextImage";
-import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 import { CloseIcon } from "@/shared/icons/close";
 import { SocialButton } from "@/shared/ui/button";
 
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import React, { ReactNode } from "react";
-import {
-  signInWithFacebook,
-  signInWithGoogle,
-} from "../../model/actions/signInActions";
+import { signIn } from "next-auth/react";
 
 type SubLinkType = { text: string; link: string; pageName: string };
 
@@ -30,14 +26,14 @@ export const AuthModal = ({
   sublink,
   title,
 }: IProps) => {
-  const callbackUrl = useGetQueryCallbackUrl();
-
   const handleLoginWithGoogleProvider = async () => {
-    await signInWithGoogle(callbackUrl);
+    await signIn("google", { redirect: false });
+    onClose();
   };
 
   const handleLoginWithFacebookProvider = async () => {
-    await signInWithFacebook(callbackUrl);
+    await signIn("facebook", { redirect: false });
+    onClose();
   };
 
   return (

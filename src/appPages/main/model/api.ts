@@ -6,5 +6,5 @@ export const fetchingProperties = async () => {
   const response = await requsetBaseApi.get<PropertiesDTO>(
     API_ENDPOINTS.PROPERTIES,
   );
-  console.log(response);
+  console.log("KFK", response);
 };

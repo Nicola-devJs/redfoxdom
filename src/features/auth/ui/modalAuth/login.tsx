@@ -7,22 +7,19 @@ import { LockIcon } from "@/shared/icons/lock";
 import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { Routes } from "@/shared/constants/routes";
-import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
-import { signInWithCredentials } from "@/features/auth/model/actions/signInActions";
-import { useRouter } from "next/navigation";
+import { signInWithCredentials } from "@/features/auth/model/actions/signInAction";
 
 interface IProps {
   onClose: () => void;
 }
 
 export const LoginModal = ({ onClose }: IProps) => {
-  const callbackUrl = useGetQueryCallbackUrl();
-  const router = useRouter();
-
   const handleAuthAction = async (data: FormData) => {
     try {
       await signInWithCredentials(data);
-      router.push(callbackUrl);
+      onClose();
+    } catch (error) {
+      console.error(error);
     } finally {
       console.log("loaded");
     }
@@ -43,7 +40,7 @@ export const LoginModal = ({ onClose }: IProps) => {
         <div className="mb-4">
           <Input
             prevIcon={<InputUserIcon className="size-5 fill-gray-second" />}
-            label="Email"
+            label="Email address"
             type="email"
             name="email"
             placeholder="your email"

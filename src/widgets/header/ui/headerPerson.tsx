@@ -11,6 +11,8 @@ import { cn } from "@/shared/helpers/cn";
 import { Person } from "@/shared/ui/person";
 import { LOGOUT, menuAdminNavigation } from "@/shared/constants/menu";
 import { LogoutModal } from "@/widgets/logoutModal/logoutModal";
+import Link from "next/link";
+import { generateCallbackUrl } from "@/shared/helpers/generateCallbackUrl";
 interface IProps {
   userSession: Session | null;
 }
@@ -35,7 +37,7 @@ export const HeaderPerson = ({ userSession }: IProps) => {
         route.push(Routes.LOGIN);
         break;
       default:
-        const routeLoginWithCallbackUrl = `${Routes.LOGIN}?callbackUrl=${encodeURI(pathname)}`;
+        const routeLoginWithCallbackUrl = generateCallbackUrl(pathname);
         route.push(routeLoginWithCallbackUrl);
         break;
     }
@@ -45,12 +47,15 @@ export const HeaderPerson = ({ userSession }: IProps) => {
     <>
       {userSession ? (
         <div className="flex items-center gap-3">
-          <div className="grid size-8 min-w-8 place-items-center rounded-full bg-gray-second">
+          <Link
+            href={Routes.ADMIN_PROFILE}
+            className="grid size-8 min-w-8 place-items-center rounded-full bg-gray-second"
+          >
             <Person
               alt={userSession.user?.name}
               img={userSession.user?.image}
             />
-          </div>
+          </Link>
 
           <Select
             variant="secondary"

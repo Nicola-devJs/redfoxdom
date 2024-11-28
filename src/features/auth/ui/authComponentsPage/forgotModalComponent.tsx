@@ -1,18 +1,15 @@
 "use client";
 import { Routes } from "@/shared/constants/routes";
 import { Modal } from "@/shared/ui/modal/modal";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { ForgotModal } from "../modalAuth/forgot";
+import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 
 export const ForgotModalComponent = () => {
-  const route = useRouter();
+  const redirect = useGetQueryCallbackUrl();
   const pathname = usePathname();
   const [showModal, setShowModal] = useState(false);
-
-  const handleCloseModal = () => {
-    route.push(Routes.MAIN);
-  };
 
   useEffect(() => {
     if (pathname === Routes.FORGOT) {
@@ -23,8 +20,8 @@ export const ForgotModalComponent = () => {
   }, [pathname]);
 
   return (
-    <Modal isOpen={showModal} onClose={handleCloseModal}>
-      <ForgotModal onClose={handleCloseModal} />
+    <Modal isOpen={showModal} onClose={redirect}>
+      <ForgotModal onClose={redirect} />
     </Modal>
   );
 };

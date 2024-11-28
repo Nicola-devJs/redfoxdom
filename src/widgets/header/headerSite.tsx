@@ -23,7 +23,7 @@ export const HeaderSite = async ({ theme }: IProps) => {
         <HeaderMenu />
         <div className="ml-auto flex items-center gap-4 max-phone:ml-[13%] max-phone:w-full max-phone:justify-between">
           <HeaderPerson userSession={session} />
-          <HeaderProperty />
+          <HeaderProperty userSession={session} />
           <ThemeMode theme={theme} />
         </div>
       </div>
