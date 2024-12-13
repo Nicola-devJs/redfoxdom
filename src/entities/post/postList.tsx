@@ -1,7 +1,7 @@
 import React from "react";
 import { mockTestImages } from "@/shared/constants/mockData";
-import { List } from "@/shared/ui/list";
-import { Post } from "./ui/post";
+import { List } from "@/shared/ui/index";
+import { Post } from "./ui/index";
 
 const mockPosts = [
   {

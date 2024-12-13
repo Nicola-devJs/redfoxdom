@@ -1,6 +1,6 @@
 "use client";
 import { menuNavigation } from "@/shared/constants/menu";
-import { MenuIcon } from "@/shared/icons/menu";
+import { MenuIcon } from "@/shared/icons";
 import { cn } from "@/shared/helpers/cn";
 
 import Link from "next/link";

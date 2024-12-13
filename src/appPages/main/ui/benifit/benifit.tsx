@@ -1,13 +1,8 @@
-import { HeadingSection } from "@/shared/ui/headingSection";
+import { HeadingSection, NextImage } from "@/shared/ui/index";
 import { mockTestImages } from "@/shared/constants/mockData";
-import { PropertyIcon } from "@/shared/icons";
-import { KeyIcon } from "@/shared/icons/key";
-import { LocationIcon } from "@/shared/icons/location";
-import Image from "next/image";
+import { PropertyIcon, KeyIcon, LocationIcon } from "@/shared/icons";
 import React from "react";
-import { BenifitDesctiptionItem } from "./benifitDescriptionItem";
-import { BenifitTag } from "./benifitTag";
-import { NextImage } from "@/shared/ui/nextImage";
+import { BenifitDesctiptionItem, BenifitTag } from "./ui/index";
 
 export const Benifit = () => {
   return (

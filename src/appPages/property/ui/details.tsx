@@ -1,4 +1,3 @@
-import { List } from "@/shared/ui/list";
 import React from "react";
 
 interface IProps {

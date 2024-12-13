@@ -1,9 +1,5 @@
-import { FacebookIcon } from "@/shared/icons/facebook";
-import { GoogleIcon } from "@/shared/icons/google";
-import { NextImage } from "@/shared/ui/nextImage";
-import { CloseIcon } from "@/shared/icons/close";
-import { SocialButton } from "@/shared/ui/button";
-
+import { FacebookBlueIcon, GoogleIcon, CloseIcon } from "@/shared/icons/index";
+import { NextImage, SocialButton } from "@/shared/ui/index";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import React, { ReactNode } from "react";
@@ -71,7 +67,7 @@ export const AuthModal = ({
             className="dark:border-dark dark:bg-dark"
             onClick={handleLoginWithFacebookProvider}
           >
-            <FacebookIcon className="size-6" />
+            <FacebookBlueIcon className="size-6" />
             <span>Facebook</span>
           </SocialButton>
         </div>

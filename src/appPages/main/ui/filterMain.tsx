@@ -1,13 +1,9 @@
 "use client";
-import { SearchIcon } from "@/shared/icons/search";
-import { SettingsIcon } from "@/shared/icons/settings";
+import { SearchIcon, SettingsIcon } from "@/shared/icons";
 import { OptionType } from "@/shared/types/ui";
-import { Button } from "@/shared/ui/button";
-import { Input } from "@/shared/ui/input";
-import { Select } from "@/shared/ui/select";
+import { Button, Input, Select, PropertyTag } from "@/shared/ui/index";
 import { cn } from "@/shared/helpers/cn";
 import React, { useState } from "react";
-import { PropertyTag } from "@/shared/ui/propertyTag";
 
 // TODO Temp mock options
 const mockOptions: OptionType[] = [

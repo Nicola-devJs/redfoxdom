@@ -1,6 +1,6 @@
 "use client";
 import { Routes } from "@/shared/constants/routes";
-import { Modal } from "@/shared/ui/modal/modal";
+import { Modal } from "@/shared/ui/index";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { ForgotModal } from "../modalAuth/forgot";

@@ -1,10 +1,8 @@
 "use client";
 import Image from "next/image";
 import { IPropertyCard } from "@/shared/types/property";
-import { Marker } from "@/shared/ui/marker";
-import { LocationIcon } from "@/shared/icons/location";
-import { PropertyParametr } from "@/shared/ui/propertyParametr";
-import { PropertyTag } from "@/shared/ui/propertyTag";
+import { Marker, PropertyParametr, PropertyTag } from "@/shared/ui/index";
+import { LocationIcon } from "@/shared/icons";
 import { useRouter } from "next/navigation";
 
 export const PropertyCard = ({

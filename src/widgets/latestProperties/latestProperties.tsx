@@ -1,7 +1,6 @@
 import React from "react";
-import { NextImage } from "../../shared/ui/nextImage";
+import { NextImage, PropertyParametr } from "../../shared/ui/index";
 import { mockPropertyCards } from "../../shared/constants/mockData";
-import { PropertyParametr } from "../../shared/ui/propertyParametr";
 
 export const LatestProperties = () => {
   return (

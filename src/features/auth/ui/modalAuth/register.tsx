@@ -1,11 +1,8 @@
 import { mockTestImages } from "@/shared/constants/mockData";
 import React from "react";
 import { AuthModal } from ".";
-import { InputUserIcon } from "@/shared/icons/inputUser";
-import { Input } from "@/shared/ui/input";
-import { LockIcon } from "@/shared/icons/lock";
-import { Button } from "@/shared/ui/button";
-import { MailIcon } from "@/shared/icons/mail";
+import { InputUserIcon, LockIcon, MailIcon } from "@/shared/icons";
+import { Button, Input } from "@/shared/ui/index";
 import { Routes } from "@/shared/constants/routes";
 import { registerWithCredentials } from "../../model/actions/registerAction";
 

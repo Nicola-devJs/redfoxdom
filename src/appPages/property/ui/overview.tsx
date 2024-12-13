@@ -1,7 +1,5 @@
-import { EntityWrapper } from "@/shared/ui/entityWrapper";
-import { BathIcon } from "@/shared/icons/property/bath";
-import { BedIcon } from "@/shared/icons/property/bed";
-import { SqftIcon } from "@/shared/icons/property/sqft";
+import { EntityWrapper } from "@/shared/ui/index";
+import { BathIcon, BedIcon, SqftIcon } from "@/shared/icons/index";
 import { PropertyParamsType } from "@/shared/types/property";
 import React from "react";
 

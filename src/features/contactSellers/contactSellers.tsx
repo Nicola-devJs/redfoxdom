@@ -1,10 +1,8 @@
-import { ContentSubstrate } from "@/shared/ui/contentSubstrate";
-import { NextImage } from "@/shared/ui/nextImage";
+import { ContentSubstrate, NextImage } from "@/shared/ui/index";
 import { mockTestImages } from "@/shared/constants/mockData";
-import { MailIcon } from "@/shared/icons/mail";
-import { PhoneIcon } from "@/shared/icons/phone";
+import { MailIcon, PhoneIcon } from "@/shared/icons";
 import React from "react";
-import { ContactSellersForm } from "./ui/contactSellersForm";
+import { ContactSellersForm } from "./ui/index";
 
 interface IProps {
   onCloseSidebar: () => void;

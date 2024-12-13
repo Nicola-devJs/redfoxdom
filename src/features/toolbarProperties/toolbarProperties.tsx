@@ -1,8 +1,6 @@
-import { EntityWrapper } from "@/shared/ui/entityWrapper";
-import { GridIcon } from "@/shared/icons/property/grid";
-import { ListIcon } from "@/shared/icons/property/list";
+import { EntityWrapper, Select } from "@/shared/ui/index";
+import { GridIcon, ListIcon } from "@/shared/icons/index";
 import { OptionType } from "@/shared/types/ui";
-import { Select } from "@/shared/ui/select";
 import React from "react";
 
 // TODO Temp mock options

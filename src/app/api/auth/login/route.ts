@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { UserLoginRequest, UserResponse } from "../types";
 import { query } from "@/lib/db";
-import { verifyPassword } from "@/features/auth/model/helpers";
+import { verifyPassword } from "@/features/auth/lib/transformPassword";
 
 export const POST = async (req: Request) => {
   const body: UserLoginRequest = await req.json();
@@ -18,6 +18,7 @@ export const POST = async (req: Request) => {
     const result = await query("SELECT * FROM users WHERE email = $1", [
       body.email,
     ]);
+
     const user: UserResponse | undefined = result.rows[0];
 
     if (user) {

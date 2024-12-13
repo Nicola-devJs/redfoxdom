@@ -1,7 +1,7 @@
 import { getTheme } from "@/shared/helpers/theme";
 import React, { ReactNode } from "react";
-import { HeaderSite } from "@/widgets/header/headerSite";
-import { Footer } from "@/widgets/footer/footer";
+import { HeaderSite, Footer } from "@/widgets/index";
+import { auth } from "@/features/auth/model/config";
 
 export default async function SiteLayout({
   children,
@@ -15,9 +15,10 @@ export default async function SiteLayout({
   forgotModal: React.ReactNode;
 }>) {
   const theme = getTheme();
+  const session = await auth();
   return (
     <>
-      <HeaderSite theme={theme} />
+      <HeaderSite theme={theme} session={session} />
       <main className="flex-grow">{children}</main>
       <Footer />
       <div className="max-md:h-[81px]"></div>

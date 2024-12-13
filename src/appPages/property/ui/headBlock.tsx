@@ -1,8 +1,5 @@
-import { PropertyParametr } from "@/shared/ui/propertyParametr";
-import { EntityWrapper } from "@/shared/ui/entityWrapper";
-import { HeartEmptyIcon } from "@/shared/icons/heart/heartEmpty";
-import { LocationIcon } from "@/shared/icons/location";
-import { ShareIcon } from "@/shared/icons/share";
+import { PropertyParametr, EntityWrapper } from "@/shared/ui/index";
+import { HeartEmptyIcon, LocationIcon, ShareIcon } from "@/shared/icons/index";
 import { PropertyParamsType } from "@/shared/types/property";
 import React from "react";
 

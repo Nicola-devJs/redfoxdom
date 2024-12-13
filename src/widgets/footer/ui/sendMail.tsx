@@ -1,6 +1,6 @@
 "use client";
-import { SendMailIcon } from "@/shared/icons/sendMail";
-import { Input } from "@/shared/ui/input";
+import { SendMailIcon } from "@/shared/icons";
+import { Input } from "@/shared/ui/index";
 import React from "react";
 
 export const SendMail = () => {

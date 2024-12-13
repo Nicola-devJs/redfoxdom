@@ -1,5 +1,6 @@
+"use client";
 import React, { useState } from "react";
-import { CheckIcon } from "../icons/check";
+import { CheckIcon } from "@/shared/icons";
 import { cn } from "../helpers/cn";
 
 interface IProps {

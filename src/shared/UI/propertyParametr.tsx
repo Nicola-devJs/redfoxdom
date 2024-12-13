@@ -1,8 +1,6 @@
 import React from "react";
-import { PropertyParamsType } from "../types/property";
-import { BedIcon } from "../icons/property/bed";
-import { BathIcon } from "../icons/property/bath";
-import { SqftIcon } from "../icons/property/sqft";
+import { PropertyParamsType } from "@/shared/types/property";
+import { BathIcon, BedIcon, SqftIcon } from "@/shared/icons/index";
 import { cn } from "../helpers/cn";
 
 const mockPropertyParametrIcons: Record<

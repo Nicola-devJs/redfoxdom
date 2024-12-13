@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Modal } from "@/shared/ui/modal/modal";
+import { Modal } from "@/shared/ui/index";
 import { Routes } from "@/shared/constants/routes";
 import { usePathname } from "next/navigation";
 import { RegisterModal } from "../modalAuth/register";

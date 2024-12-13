@@ -1,12 +1,14 @@
 import React from "react";
-import { Logo } from "@/shared/ui/logo";
-import { FacebookIcon } from "@/shared/icons/social/facebook";
-import { InstagramIcon } from "@/shared/icons/social/instagram";
+import { Logo } from "@/shared/ui/index";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LocationIcon,
+  PhoneIcon,
+  MailIcon,
+} from "@/shared/icons/index";
 import Link from "next/link";
-import { LocationIcon } from "@/shared/icons/location";
-import { PhoneIcon } from "@/shared/icons/phone";
-import { MailIcon } from "@/shared/icons/mail";
-import { SendMail } from "./ui/sendMail";
+import { SendMail } from "./ui/index";
 
 export const Footer = () => {
   return (

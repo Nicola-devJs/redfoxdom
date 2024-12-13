@@ -1,9 +1,8 @@
 import React from "react";
 import { mockPropertyCards } from "@/shared/constants/mockData";
-import { List } from "@/shared/ui/list";
+import { List } from "@/shared/ui/index";
 import { cn } from "@/shared/helpers/cn";
-import { PropertyCard } from "./ui/property";
-import { PropertyCardRow } from "./ui/propertyRow";
+import { PropertyCard, PropertyCardRow } from "./ui/index";
 
 interface IProps {
   className?: string;

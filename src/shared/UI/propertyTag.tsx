@@ -1,7 +1,9 @@
-import { ApartmentIcon } from "@/shared/icons/tags/apartment";
-import { HouseIcon } from "@/shared/icons/tags/house";
-import { OfficeIcon } from "@/shared/icons/tags/office";
-import { VillaIcon } from "@/shared/icons/tags/villa";
+import {
+  ApartmentIcon,
+  HouseIcon,
+  OfficeIcon,
+  VillaIcon,
+} from "@/shared/icons/index";
 import React from "react";
 import { cn } from "../helpers/cn";
 import { PropertyType } from "../types/property";

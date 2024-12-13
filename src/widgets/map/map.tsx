@@ -8,7 +8,7 @@ import {
 } from "@react-google-maps/api";
 import React, { useCallback, useRef, useState } from "react";
 import { IPropertyCard } from "@/shared/types/property";
-import { MapInfoBlock } from "./mapInfoBlock";
+import { MapInfoBlock } from "./ui/index";
 import marker from "@/shared/assets/map/marker.png";
 import cluster from "@/shared/assets/map/cluster.png";
 import { cn } from "@/shared/helpers/cn";

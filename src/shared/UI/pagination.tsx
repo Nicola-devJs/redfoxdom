@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
-import { EntityWrapper } from "./entityWrapper";
+import { EntityWrapper } from "./index";
 import { cn } from "../helpers/cn";
-import { DownIcon } from "../icons/down";
+import { DownIcon } from "@/shared/icons";
 
 interface IPropsItem {
   children: ReactNode;

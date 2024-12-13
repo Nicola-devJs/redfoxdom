@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import { Marker } from "@/shared/ui/marker";
+import { Marker } from "@/shared/ui/index";
 
 interface IProps {
   date: string;

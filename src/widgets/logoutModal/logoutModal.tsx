@@ -1,7 +1,6 @@
 import { Routes } from "@/shared/constants/routes";
-import { CloseIcon } from "@/shared/icons/close";
-import { Button } from "@/shared/ui/button";
-import { Modal } from "@/shared/ui/modal/modal";
+import { CloseIcon } from "@/shared/icons";
+import { Button, Modal } from "@/shared/ui/index";
 import { signOut, SignOutParams } from "next-auth/react";
 import React from "react";
 

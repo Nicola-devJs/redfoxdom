@@ -1,6 +1,6 @@
 "use client";
 import React, { ReactNode, useState } from "react";
-import { DownIcon } from "../../../shared/icons/down";
+import { DownIcon } from "../../../shared/icons";
 import { cn } from "@/shared/helpers/cn";
 
 interface IProps {

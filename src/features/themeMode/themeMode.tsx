@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { LightModeIcon } from "@/shared/icons/lightMode";
-import { DarkModeIcon } from "@/shared/icons/darkMode";
-import { Button } from "@/shared/ui/button";
+import { LightModeIcon, DarkModeIcon } from "@/shared/icons";
+import { Button } from "@/shared/ui/index";
 import { setCookie } from "@/shared/helpers/cookies";
 import { THEME } from "@/shared/constants/mockData";
 

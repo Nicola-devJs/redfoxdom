@@ -1,10 +1,12 @@
 import React from "react";
-import { QuoteIcon } from "@/shared/icons/quote";
+import {
+  QuoteIcon,
+  FullStarIcon,
+  PartStarIcon,
+  EmptyStarIcon,
+} from "@/shared/icons/index";
 import { mockTestImages } from "@/shared/constants/mockData";
-import { FullStarIcon } from "@/shared/icons/stars/fullStar";
-import { PartStarIcon } from "@/shared/icons/stars/partStar";
-import { EmptyStarIcon } from "@/shared/icons/stars/emptyStar";
-import { NextImage } from "@/shared/ui/nextImage";
+import { NextImage } from "@/shared/ui/index";
 
 interface IProps {
   author: string;

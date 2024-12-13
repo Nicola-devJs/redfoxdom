@@ -1,11 +1,9 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
-
 import Link from "next/link";
-import { ArrowRightIcon } from "@/shared/icons/arrowRight";
+import { ArrowRightIcon } from "@/shared/icons";
 import { mockTestImages } from "@/shared/constants/mockData";
-import { List } from "@/shared/ui/list";
-import { NextImage } from "@/shared/ui/nextImage";
+import { List, NextImage } from "@/shared/ui/index";
 
 // TODO temp mock data
 

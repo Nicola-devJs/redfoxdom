@@ -1,6 +1,6 @@
 import React from "react";
-import ListPropertiesPage from "@/appPages/list-properties";
+import PropertiesListPage from "@/appPages/properties-list/propertiesList";
 
-export default function ListProperties() {
-  return <ListPropertiesPage />;
+export default function PropertiesList() {
+  return <PropertiesListPage />;
 }

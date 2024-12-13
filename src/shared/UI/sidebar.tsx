@@ -1,7 +1,7 @@
 "use client";
 import React, { ReactNode } from "react";
 import { cn } from "@/shared/helpers/cn";
-import { CloseIcon } from "@/shared/icons/close";
+import { CloseIcon } from "@/shared/icons";
 import { useHideScrollWindow } from "@/shared/hooks/useHideScrollWindow";
 
 interface IProps {

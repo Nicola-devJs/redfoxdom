@@ -1,10 +1,10 @@
 "use client";
 import { FilterProperties } from "@/features/filterProperties/filterProperties";
-import { LatestProperties } from "@/widgets/latestProperties/latestProperties";
+import { LatestProperties } from "@/widgets/index";
 import React, { useState } from "react";
 import { ContactSellers } from "../../../features/contactSellers/contactSellers";
-import { Sidebar } from "@/shared/ui/sidebar";
-import { MenuIcon } from "@/shared/icons/menu";
+import { Sidebar } from "@/shared/ui/index";
+import { MenuIcon } from "@/shared/icons";
 
 interface IProps {
   className?: string;

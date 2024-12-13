@@ -2,8 +2,8 @@
 import React from "react";
 import SlickSlider, { Settings } from "react-slick";
 import { mockTestImages } from "../../constants/mockData";
-import { NextImage } from "../nextImage";
-import { DownIcon } from "@/shared/icons/down";
+import { NextImage } from "../index";
+import { DownIcon } from "@/shared/icons";
 import "./slider.style.css";
 
 interface IProps {}

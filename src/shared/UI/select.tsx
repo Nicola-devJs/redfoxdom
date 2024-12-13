@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { DownIcon } from "../icons/down";
+import { DownIcon } from "@/shared/icons";
 import { cn } from "../helpers/cn";
 import { OptionType } from "../types/ui";
 

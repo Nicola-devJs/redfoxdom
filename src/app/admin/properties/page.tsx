@@ -1,11 +1,5 @@
-import React from "react";
-import { Input } from "@/shared/ui/input";
-import { ContentSubstrate } from "@/shared/ui/contentSubstrate";
+import AdminPropertiesForm from "@/appPages/admin/properties/form";
 
 export default function AdminPropertiesPage() {
-  return (
-    <ContentSubstrate title="Information">
-      <Input label="Title" required />
-    </ContentSubstrate>
-  );
+  return <AdminPropertiesForm />;
 }

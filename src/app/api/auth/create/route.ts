@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { UserCreateRequest, UserResponse } from "../types";
 import { query } from "@/lib/db";
-import { hashPassword } from "@/features/auth/model/helpers";
+import { hashPassword } from "@/features/auth/lib/transformPassword";
 
 export const POST = async (req: Request) => {
   const body: UserCreateRequest = await req.json();

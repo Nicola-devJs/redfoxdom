@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
-import { ContentSubstrate } from "../../shared/ui/contentSubstrate";
-import { FilterTab } from "./filterTab";
-import { MoreButton } from "@/shared/ui/button";
-import { Select } from "@/shared/ui/select";
-import { LocationCrossIcon } from "@/shared/icons/locationCross";
-import { Checkbox } from "@/shared/ui/checkbox";
-import { InputRange } from "@/shared/ui/range/range";
+import { FilterTab } from "./ui";
+import { LocationCrossIcon } from "@/shared/icons";
+import {
+  Checkbox,
+  InputRange,
+  Select,
+  MoreButton,
+  ContentSubstrate,
+} from "@/shared/ui/index";
 
 interface IProps {
   onCloseSidebar: () => void;

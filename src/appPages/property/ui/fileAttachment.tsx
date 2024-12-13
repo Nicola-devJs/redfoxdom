@@ -3,7 +3,7 @@ import { DownloadIcon } from "../icons/download";
 import pdfFile from "../icons/files/pdf.png";
 import docFile from "../icons/files/doc.png";
 import txtFile from "../icons/files/txt.png";
-import { NextImage } from "@/shared/ui/nextImage";
+import { NextImage } from "@/shared/ui/index";
 
 interface IProps {
   name: string;

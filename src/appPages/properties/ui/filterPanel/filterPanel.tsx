@@ -1,12 +1,14 @@
 "use client";
-import { DownIcon } from "@/shared/icons/down";
-import { SearchIcon } from "@/shared/icons/search";
-import { SettingsIcon } from "@/shared/icons/settings";
-import { Button } from "@/shared/ui/button";
+import {
+  DownIcon,
+  SearchIcon,
+  SettingsIcon,
+  LocationCrossIcon,
+} from "@/shared/icons";
+import { Button } from "@/shared/ui/index";
 import React from "react";
-import { FilterSelect } from "./filterSelect";
+import { FilterSelect } from "./ui/index";
 import { OptionType } from "@/shared/types/ui";
-import { LocationCrossIcon } from "@/shared/icons/locationCross";
 
 const mockOptionsSort: OptionType[] = [
   { value: "default", label: "Default" },

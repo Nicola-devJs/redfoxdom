@@ -12,8 +12,6 @@ export const handleForgotUser = async (
       JSON.stringify(credetials),
     );
 
-    console.log(user);
-
     return { id: user.id.toString(), email: user.email, name: user.name };
   } catch (error) {
     throw error;

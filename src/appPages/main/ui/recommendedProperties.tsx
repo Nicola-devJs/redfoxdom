@@ -1,7 +1,7 @@
 "use client";
 import { PropertyList } from "@/entities/property/propertyList";
 import { OptionType } from "@/shared/types/ui";
-import { Button } from "@/shared/ui/button";
+import { Button } from "@/shared/ui/index";
 import React, { useState } from "react";
 
 const mockTabsRecommended: OptionType[] = [

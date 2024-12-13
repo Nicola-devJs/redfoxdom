@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { IPropertyCard } from "@/shared/types/property";
-import { Marker } from "@/shared/ui/marker";
-import { PropertyParametr } from "@/shared/ui/propertyParametr";
-import { LocationIcon } from "@/shared/icons/location";
-import { PropertyTag } from "@/shared/ui/propertyTag";
+import { Marker, PropertyParametr, PropertyTag } from "@/shared/ui/index";
+import { LocationIcon } from "@/shared/icons";
 
 export const PropertyCardRow = ({
   img,

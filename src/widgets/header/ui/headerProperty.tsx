@@ -2,7 +2,7 @@
 import { Routes } from "@/shared/constants/routes";
 import { generateCallbackUrl } from "@/shared/helpers/generateCallbackUrl";
 import { PropertyIcon } from "@/shared/icons";
-import { Button } from "@/shared/ui/button";
+import { Button } from "@/shared/ui/index";
 import { Session } from "next-auth";
 import { useRouter } from "next/navigation";
 import React from "react";

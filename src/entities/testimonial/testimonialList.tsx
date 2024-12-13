@@ -1,5 +1,5 @@
-import { List } from "@/shared/ui/list";
-import { Testimonial } from "./ui/testimonial";
+import { List } from "@/shared/ui/index";
+import { Testimonial } from "./ui/index";
 
 const mockListTestimonials = [
   {

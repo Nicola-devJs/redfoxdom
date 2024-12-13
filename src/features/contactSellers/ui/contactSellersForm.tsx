@@ -1,6 +1,4 @@
-import { MoreButton } from "@/shared/ui/button";
-import { Input } from "@/shared/ui/input";
-import { Textarea } from "@/shared/ui/textarea";
+import { MoreButton, Input, Textarea } from "@/shared/ui/index";
 import React from "react";
 
 interface IProps {

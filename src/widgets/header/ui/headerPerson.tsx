@@ -1,16 +1,13 @@
 "use client";
-import { PersonIcon } from "@/shared/icons";
-import { Button } from "@/shared/ui/button";
+import { PersonIcon, DownIcon } from "@/shared/icons";
+import { Button, Person, Select } from "@/shared/ui/index";
 import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Routes } from "@/shared/constants/routes";
 import type { Session } from "next-auth";
-import { Select } from "@/shared/ui/select";
-import { DownIcon } from "@/shared/icons/down";
 import { cn } from "@/shared/helpers/cn";
-import { Person } from "@/shared/ui/person";
 import { LOGOUT, menuAdminNavigation } from "@/shared/constants/menu";
-import { LogoutModal } from "@/widgets/logoutModal/logoutModal";
+import { LogoutModal } from "@/widgets/index";
 import Link from "next/link";
 import { generateCallbackUrl } from "@/shared/helpers/generateCallbackUrl";
 interface IProps {
