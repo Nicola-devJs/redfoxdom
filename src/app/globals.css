@@ -10,6 +10,18 @@ body.fixed-window {
   overflow: hidden;
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media (max-width: 1024px) {
   body.fixed-window {
     margin-right: 0px !important;

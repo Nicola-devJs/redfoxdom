@@ -7,7 +7,7 @@ import { Routes } from "@/shared/constants/routes";
 import type { Session } from "next-auth";
 import { cn } from "@/shared/helpers/cn";
 import { LOGOUT, menuAdminNavigation } from "@/shared/constants/menu";
-import { LogoutModal } from "@/widgets/index";
+import { LogoutModal } from "@/widgets/logoutModal";
 import Link from "next/link";
 import { generateCallbackUrl } from "@/shared/helpers/generateCallbackUrl";
 interface IProps {
@@ -58,14 +58,14 @@ export const HeaderPerson = ({ userSession }: IProps) => {
             variant="secondary"
             options={personOptions}
             isDropMenu
-            handleSelectOptions={(option) => {
+            onSelectOption={(option) => {
               if (option.value === LOGOUT) {
                 setShowModal(true);
               } else {
                 route.push(option.value as string);
               }
             }}
-            onShowOptions={setInvertedArrow}
+            onAfterShowOptions={setInvertedArrow}
             renderCustomInput={() => (
               <div className="flex items-center gap-2">
                 <span className="text-sm font-semibold">

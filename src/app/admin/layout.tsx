@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
-import { HeaderAdmin, AdminNavigatePanel } from "@/widgets/index";
+import { HeaderAdmin } from "@/widgets/header";
+import { AdminNavigatePanel } from "@/widgets/adminNavigatePanel";
 import { getTheme } from "@/shared/helpers/theme";
 import { auth } from "@/features/auth/model/config";
 

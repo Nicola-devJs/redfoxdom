@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .overlay-drag {
+    @apply outline outline-2 outline-offset-2 outline-primary;
+  }
+
+  .drop-zone-active {
+    @apply border-primary;
+  }
+}

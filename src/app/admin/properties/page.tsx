@@ -1,5 +1,5 @@
-import AdminPropertiesForm from "@/appPages/admin/properties/form";
+import { PropertyForm } from "@/widgets/properties";
 
 export default function AdminPropertiesPage() {
-  return <AdminPropertiesForm />;
+  return <PropertyForm />;
 }

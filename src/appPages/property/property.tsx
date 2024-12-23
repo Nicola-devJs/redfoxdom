@@ -14,7 +14,7 @@ import {
   SidebarProperty,
 } from "./ui/index";
 
-import { Map } from "@/widgets/index";
+import { Map } from "@/widgets/map";
 
 export default function PropertyPage() {
   const { location, name, params, price } = mockPropertyCards[0];

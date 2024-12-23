@@ -20,11 +20,11 @@ export const Input = ({
   ...props
 }: IProps) => {
   return (
-    <>
+    <div>
       {label && (
         <label
           htmlFor={props.id}
-          className="mb-2 inline-block text-sm font-semibold"
+          className="mb-2 inline-block text-sm font-semibold capitalize"
         >
           {label + (required ? "*" : "")}
         </label>
@@ -60,6 +60,6 @@ export const Input = ({
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Modal } from "@/shared/ui/index";
 import { Routes } from "@/shared/constants/routes";
 import { usePathname } from "next/navigation";
-import { RegisterModal } from "../modalAuth/register";
+import { RegisterModal } from "../modal/register";
 import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 
 export const RegisterModalComponent = () => {

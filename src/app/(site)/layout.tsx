@@ -1,6 +1,7 @@
 import { getTheme } from "@/shared/helpers/theme";
 import React, { ReactNode } from "react";
-import { HeaderSite, Footer } from "@/widgets/index";
+import { HeaderSite } from "@/widgets/header";
+import { Footer } from "@/widgets/footer";
 import { auth } from "@/features/auth/model/config";
 
 export default async function SiteLayout({

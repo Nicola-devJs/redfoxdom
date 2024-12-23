@@ -4,17 +4,18 @@ import { CheckIcon } from "@/shared/icons";
 import { cn } from "../helpers/cn";
 
 interface IProps {
-  value: { value: string; label: string };
+  label?: string;
+  name: string;
 }
 
-export const Checkbox = ({ value }: IProps) => {
+export const Checkbox = ({ name, label }: IProps) => {
   const [check, setCheck] = useState(false);
 
   return (
     <div>
-      <input type="checkbox" className="hidden" id={value.value} />
+      <input type="checkbox" name={name} id={name} className="hidden" />
       <label
-        htmlFor={value.value}
+        htmlFor={name}
         className="inline-flex w-max cursor-pointer items-center"
         onClick={() => setCheck(!check)}
       >
@@ -30,7 +31,7 @@ export const Checkbox = ({ value }: IProps) => {
             })}
           />
         </span>
-        <span>{value.label}</span>
+        <span className="text-sm">{label}</span>
       </label>
     </div>
   );

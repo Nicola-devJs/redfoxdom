@@ -1,6 +1,6 @@
 "use client";
 import { FilterProperties } from "@/features/filterProperties/filterProperties";
-import { LatestProperties } from "@/widgets/index";
+import { LatestProperties } from "@/widgets/latestProperties/latestProperties";
 import React, { useState } from "react";
 import { ContactSellers } from "../../../features/contactSellers/contactSellers";
 import { Sidebar } from "@/shared/ui/index";

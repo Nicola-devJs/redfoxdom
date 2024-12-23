@@ -3,7 +3,7 @@ import { Routes } from "@/shared/constants/routes";
 import { Modal } from "@/shared/ui/index";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { ForgotModal } from "../modalAuth/forgot";
+import { ForgotModal } from "../modal/forgot";
 import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 
 export const ForgotModalComponent = () => {

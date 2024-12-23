@@ -1,0 +1,1 @@
+export { LatestProperties } from "./latestProperties";

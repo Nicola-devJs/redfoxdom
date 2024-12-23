@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import { Routes } from "@/shared/constants/routes";
-import { LoginModal } from "../modalAuth/login";
-import { RegisterModal } from "../modalAuth/register";
-import { ForgotModal } from "../modalAuth/forgot";
+import { LoginModal } from "../modal/login";
+import { RegisterModal } from "../modal/register";
+import { ForgotModal } from "../modal/forgot";
 import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 
 interface IProps {

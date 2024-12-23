@@ -1,6 +1,6 @@
 "use client";
 import { FilterProperties } from "@/features/filterProperties/filterProperties";
-import { LatestProperties } from "@/widgets/index";
+import { LatestProperties } from "@/widgets/latestProperties";
 import { Button, Sidebar } from "@/shared/ui/index";
 import React, { useState } from "react";
 

@@ -74,7 +74,7 @@ export const FilterSelect = ({
       >
         <input
           type="text"
-          className="w-full bg-transparent font-semibold focus:outline-none"
+          className="w-full bg-transparent font-semibold text-dark focus:outline-none dark:text-white"
           value={selectedFilter.label}
           onChange={handleChangeSelected}
         />

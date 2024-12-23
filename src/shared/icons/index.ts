@@ -41,3 +41,5 @@ export { SearchIcon } from "./search";
 export { SendMailIcon } from "./sendMail";
 export { SettingsIcon } from "./settings";
 export { ShareIcon } from "./share";
+export { CopyIcon } from "./copy";
+export { DeleteIcon } from "./delete";

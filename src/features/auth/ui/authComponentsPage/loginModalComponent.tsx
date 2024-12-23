@@ -3,7 +3,7 @@ import { Routes } from "@/shared/constants/routes";
 import { Modal } from "@/shared/ui/index";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { LoginModal } from "../modalAuth/login";
+import { LoginModal } from "../modal/login";
 import { useGetQueryCallbackUrl } from "@/shared/hooks/useGetQueryCallbackUrl";
 
 export const LoginModalComponent = () => {

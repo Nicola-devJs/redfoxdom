@@ -1,18 +1,18 @@
-import { FilterPanel } from "@/appPages/properties/ui/index";
-import { Map } from "@/widgets/index";
+import { Map, MapConfig } from "@/widgets/map";
 import { PropertyList } from "@/entities/property/propertyList";
 import { ToolbarProperties } from "@/features/toolbarProperties/toolbarProperties";
 import { mockPropertyCards } from "@/shared/constants/mockData";
-import { Pagination } from "@/shared/ui/index";
+import { Pagination } from "@/shared/ui";
+import { FilterPanelProperties } from "./ui";
 
 export default function PropertiesPage() {
   return (
     <div>
       <Map
-        defaultCenter={{ lat: 42.503701480508234, lng: 27.470214576721176 }}
+        defaultCenter={MapConfig.defaultCoords}
         initialMarkerProperties={mockPropertyCards}
       />
-      <FilterPanel />
+      <FilterPanelProperties />
       <div className="container-block">
         <ToolbarProperties />
         <PropertyList />

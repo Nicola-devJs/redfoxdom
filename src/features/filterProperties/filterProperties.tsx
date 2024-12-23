@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import { FilterTab } from "./ui";
-import { LocationCrossIcon } from "@/shared/icons";
 import {
   Checkbox,
   InputRange,
   Select,
   MoreButton,
   ContentSubstrate,
+  SelectAutocomplete,
 } from "@/shared/ui/index";
 
 interface IProps {
@@ -19,6 +19,10 @@ export const FilterProperties = ({ onCloseSidebar }: IProps) => {
     onCloseSidebar();
   };
 
+  const handleSearchLocations = (value: string) => {
+    console.log(value);
+  };
+
   return (
     <ContentSubstrate isBorder>
       <form
@@ -28,11 +32,10 @@ export const FilterProperties = ({ onCloseSidebar }: IProps) => {
       >
         <FilterTab />
         <Select options={[]} placeholder="Type keywords..." CustomIcon={null} />
-        <Select
+        <SelectAutocomplete
           options={[]}
           placeholder="Location"
-          CustomIcon={LocationCrossIcon}
-          classNameIcon="size-4"
+          onFilterOptions={handleSearchLocations}
         />
         <Select options={[]} placeholder="Property type" />
         <Select options={[]} placeholder="Rooms" />
@@ -53,9 +56,9 @@ export const FilterProperties = ({ onCloseSidebar }: IProps) => {
         />
         <div className="flex flex-col gap-3">
           <span className="mb-1 inline-block font-semibold">Amentities</span>
-          <Checkbox value={{ value: "test", label: "Testing one" }} />
-          <Checkbox value={{ value: "test", label: "Testing two" }} />
-          <Checkbox value={{ value: "test", label: "Testing three" }} />
+          <Checkbox name="test_1" label="Testing one" />
+          <Checkbox name="test_2" label="Testing two" />
+          <Checkbox name="test_3" label="Testing tree" />
         </div>
 
         <MoreButton onClick={handleSubmit} className="mt-3 w-full">

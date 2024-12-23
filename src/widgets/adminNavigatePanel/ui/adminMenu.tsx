@@ -1,7 +1,7 @@
 "use client";
 import { LOGOUT, menuAdminNavigation } from "@/shared/constants/menu";
 import { cn } from "@/shared/helpers/cn";
-import { LogoutModal } from "@/widgets/index";
+import { LogoutModal } from "@/widgets/logoutModal";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
