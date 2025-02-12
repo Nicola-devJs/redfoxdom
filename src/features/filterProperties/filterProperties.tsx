@@ -31,16 +31,44 @@ export const FilterProperties = ({ onCloseSidebar }: IProps) => {
         onSubmit={(e) => e.preventDefault()}
       >
         <FilterTab />
-        <Select options={[]} placeholder="Type keywords..." CustomIcon={null} />
+        <Select
+          options={[]}
+          placeholder="Type keywords..."
+          onChangeSelectedValue={console.log}
+          selectedValue={""}
+          CustomIcon={null}
+        />
         <SelectAutocomplete
           options={[]}
+          onChangeSelectedValue={console.log}
+          selectedValue={""}
           placeholder="Location"
           onFilterOptions={handleSearchLocations}
         />
-        <Select options={[]} placeholder="Property type" />
-        <Select options={[]} placeholder="Rooms" />
-        <Select options={[]} placeholder="Bathrooms" />
-        <Select options={[]} placeholder="Bedrooms" />
+        <Select
+          options={[]}
+          onChangeSelectedValue={console.log}
+          selectedValue={""}
+          placeholder="Property type"
+        />
+        <Select
+          options={[]}
+          onChangeSelectedValue={console.log}
+          selectedValue={""}
+          placeholder="Rooms"
+        />
+        <Select
+          options={[]}
+          onChangeSelectedValue={console.log}
+          selectedValue={""}
+          placeholder="Bathrooms"
+        />
+        <Select
+          options={[]}
+          onChangeSelectedValue={console.log}
+          selectedValue={""}
+          placeholder="Bedrooms"
+        />
         <InputRange
           max={10000}
           rangeInfo="Price"

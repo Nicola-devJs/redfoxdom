@@ -21,8 +21,8 @@ export const ControlledSelectAutocomplete = <T extends FieldValues>({
     <SelectAutocomplete
       {...props}
       {...otherFields}
-      selectValue={value}
-      setSelectValue={onChange}
+      // selectValue={""}
+      // setSelectValue={onChange}
       errorMessage={error?.message}
     />
   );

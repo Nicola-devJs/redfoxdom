@@ -58,13 +58,15 @@ export const HeaderPerson = ({ userSession }: IProps) => {
             variant="secondary"
             options={personOptions}
             isDropMenu
-            onSelectOption={(option) => {
-              if (option.value === LOGOUT) {
-                setShowModal(true);
-              } else {
-                route.push(option.value as string);
-              }
-            }}
+            onChangeSelectedValue={console.log}
+            selectedValue={""}
+            // onSelectOption={(option) => {
+            //   if (option.value === LOGOUT) {
+            //     setShowModal(true);
+            //   } else {
+            //     route.push(option.value as string);
+            //   }
+            // }}
             onAfterShowOptions={setInvertedArrow}
             renderCustomInput={() => (
               <div className="flex items-center gap-2">

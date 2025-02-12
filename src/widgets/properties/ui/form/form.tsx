@@ -28,6 +28,7 @@ export const PropertyForm = () => {
           buttonText="Select photos"
           id="photos"
           name="photos"
+          onChangeImages={console.log}
           multiple
         />
       </FormBody>

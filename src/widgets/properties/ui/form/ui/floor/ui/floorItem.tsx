@@ -24,6 +24,8 @@ export const FloorItem = ({ onDelete, order }: IProps) => {
             label="Floor Name"
             name={`floorName_${order}`}
             id={`floorName_${order}`}
+            onChangeSelectedValue={console.log}
+            selectedValue={""}
             className="bg-white dark:bg-dark-second"
           />
           <Select
@@ -31,6 +33,8 @@ export const FloorItem = ({ onDelete, order }: IProps) => {
             label="Floor Name"
             name={`floorName_${order}`}
             id={`floorName_${order}`}
+            onChangeSelectedValue={console.log}
+            selectedValue={""}
             className="bg-white dark:bg-dark-second"
           />
           <Input
@@ -53,6 +57,7 @@ export const FloorItem = ({ onDelete, order }: IProps) => {
             label="Floor image"
             buttonIcon={PictureIcon}
             id={`floorImage_${order}`}
+            onChangeImages={console.log}
             name={`floorImage_${order}`}
             className="h-[160px] bg-white p-6 dark:bg-dark-second"
           />

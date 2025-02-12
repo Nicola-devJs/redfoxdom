@@ -1,3 +1,4 @@
+"use client";
 import { EntityWrapper, Select } from "@/shared/ui/index";
 import { GridIcon, ListIcon } from "@/shared/icons/index";
 import { OptionType } from "@/shared/types/ui";
@@ -36,14 +37,16 @@ export const ToolbarProperties = () => {
         </EntityWrapper>
         <Select
           options={mockOptionsShow}
-          defaultValue={mockOptionsShow[0]}
+          onChangeSelectedValue={console.log}
+          selectedValue={""}
           variant="secondary"
           prefix="Show: "
           className="z-[2] max-w-[180px] max-md:max-w-full"
         />
         <Select
           options={mockOptionsSort}
-          defaultValue={mockOptionsSort[0]}
+          onChangeSelectedValue={console.log}
+          selectedValue={""}
           variant="secondary"
           prefix="Sort by ("
           postfix=")"

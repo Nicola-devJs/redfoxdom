@@ -24,7 +24,8 @@ export const FormLocation = () => {
         name="location"
         id="location"
         onFilterOptions={setSearchLocation}
-        onSelectOption={setSelectedLocationToMap}
+        onChangeSelectedValue={console.log}
+        selectedValue={""}
         value={selectedLocationToMap}
       />
       <Map
