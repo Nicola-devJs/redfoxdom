@@ -22,37 +22,45 @@ export const FloorItem = ({ onDelete, order }: IProps) => {
           <Select
             options={[]}
             label="Floor Name"
-            name="floorName"
-            id="floorName"
+            name={`floorName_${order}`}
+            id={`floorName_${order}`}
             className="bg-white dark:bg-dark-second"
-            classNameContainer="col-span-2"
+          />
+          <Select
+            options={[]}
+            label="Floor Name"
+            name={`floorName_${order}`}
+            id={`floorName_${order}`}
+            className="bg-white dark:bg-dark-second"
           />
           <Input
             label="Size (SqFt)"
             required
             type="number"
-            id="sqft"
-            name="sqft"
+            id={`floorSqft_${order}`}
+            name={`floorSqft_${order}`}
             className="bg-white dark:bg-dark-second"
           />
           <Input
             label="Floor size"
             required
             type="number"
-            id="floor_size"
-            name="floor_size"
+            id={`floorSize_${order}`}
+            name={`floorSize_${order}`}
             className="bg-white dark:bg-dark-second"
           />
           <Upload
             label="Floor image"
             buttonIcon={PictureIcon}
+            id={`floorImage_${order}`}
+            name={`floorImage_${order}`}
             className="h-[160px] bg-white p-6 dark:bg-dark-second"
           />
           <Textarea
             className="h-[160px] bg-white dark:bg-dark-second"
             label="Description"
-            name="description"
-            id="description"
+            name={`floorDescription_${order}`}
+            id={`floorDescription_${order}`}
           />
         </div>
       </div>

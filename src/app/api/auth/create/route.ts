@@ -1,45 +1,39 @@
-import { NextResponse } from "next/server";
-import { UserCreateRequest, UserResponse } from "../types";
-import { query } from "@/lib/db";
+import { UserCreateRequest, UserResponse } from "@/app/types/auth";
 import { hashPassword } from "@/features/auth/lib/transformPassword";
+import { generateResponseIcorrectCredentials } from "@/app/lib/auth";
+import { generateResponse } from "@/app/lib/generateResponse";
+import { query } from "@/lib/db";
 
 export const POST = async (req: Request) => {
-  const body: UserCreateRequest = await req.json();
+  const body: Partial<UserCreateRequest> = await req.json();
 
-  if (!body.email) {
-    return NextResponse.json({ error: "Email is invalid" }, { status: 400 });
-  }
-
-  if (!body.password) {
-    return NextResponse.json({ error: "Password is invalid" }, { status: 400 });
-  }
-
-  const user = await query("SELECT * FROM users WHERE email = $1", [
-    body.email,
-  ]);
-
-  if (user.rows[0]) {
-    return NextResponse.json(
-      { error: "User with this email already exists" },
-      { status: 409 },
-    );
+  if (!body.email || !body.password) {
+    return generateResponseIcorrectCredentials();
   }
 
   const hashedPassword = await hashPassword(body.password);
 
+  // const {
+  //   status,
+  //   error,
+  //   data: createdProfile,
+  // } = await supabase
+  //   .from("profiles")
+  //   .insert([{ email: body.email, name: body.name, password: hashedPassword }])
+  //   .select("id, email, name, created_at")
+  //   .returns<UserResponse[]>()
+  //   .single();
+
   try {
-    const result = await query(
-      "INSERT INTO users (name, email, password) values ($1, $2, $3) RETURNING *",
-      [body.name, body.email, hashedPassword],
+    const response = await query(
+      "INSERT INTO profiles (name, email, password) values ($1, $2, $3) RETURNING *",
+      [body.name || "", body.email, hashedPassword],
     );
 
-    const { password, ...createdUser }: UserResponse = result.rows[0];
+    const [createdProfile] = response.rows;
 
-    return NextResponse.json(createdUser, { status: 200 });
+    return generateResponse(createdProfile);
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failde to create a user" },
-      { status: 500 },
-    );
+    return generateResponse(null, 500, error as string);
   }
 };

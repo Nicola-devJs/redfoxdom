@@ -65,8 +65,9 @@ export const RegisterModal = ({ onClose }: IProps) => {
             name="password_confirm"
           />
         </div>
-
-        <Button className="w-full">Register</Button>
+        <Button type="submit" className="w-full">
+          Register
+        </Button>
       </form>
     </AuthModal>
   );

@@ -1,13 +1,11 @@
 import { Pool } from "pg";
 
-const DEFAULT_PORT = 5432;
-
 const pool = new Pool({
-  //   password: process.env.DATABASE_PASSWORD || undefined,
-  user: process.env.DATABASE_USER,
-  port: process.env.DATABASE_PORT ? +process.env.DATABASE_PORT : DEFAULT_PORT,
-  host: process.env.DATABASE_HOST,
-  database: process.env.DATABASE_NAME,
+  password: "x4qKSfMAyi-pnK7",
+  user: "postgres.ydonholjrkulddslfwwj",
+  port: 6543,
+  host: "aws-0-eu-central-1.pooler.supabase.com",
+  database: "postgres",
 });
 
 export const query = async (

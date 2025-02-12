@@ -1,11 +1,11 @@
 import { mockTestImages } from "@/shared/constants/mockData";
 import React from "react";
 import { AuthModal } from ".";
-import { InputUserIcon, LockIcon } from "@/shared/icons";
-import { Button, Input } from "@/shared/ui/index";
 import { Routes } from "@/shared/constants/routes";
 import { forgotWithCredentials } from "../../model/actions/forgotAction";
 import { useRouter } from "next/navigation";
+import { InputUserIcon, LockIcon } from "@/shared/icons";
+import { Button, Input } from "@/shared/ui";
 
 interface IProps {
   onClose: () => void;
@@ -59,7 +59,9 @@ export const ForgotModal = ({ onClose }: IProps) => {
             name="password_confirm"
           />
         </div>
-        <Button className="w-full">Change password</Button>
+        <Button type="submit" className="w-full">
+          Change password
+        </Button>
       </form>
     </AuthModal>
   );

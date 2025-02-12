@@ -6,10 +6,8 @@ export interface SelectProps
     InputHTMLAttributes<HTMLInputElement>,
     "defaultValue" | "value"
   > {
-  defaultValue?: OptionType;
   placeholder?: string;
   options: OptionType[];
-  onSelectOption?: (option: OptionType) => void;
   onSearch?: (value: string) => void;
   hideSelectOption?: boolean;
   className?: string;
@@ -26,5 +24,11 @@ export interface SelectProps
   label?: string;
   required?: boolean;
   showEmpty?: boolean;
-  classNameContainer?: string;
+  errorMessage?: string;
+  selectedValue: string | number;
+  onChangeSelectedValue: (value: string | number) => void;
+}
+
+export interface SelectAutocompleteProps extends SelectProps {
+  onFilterOptions: (value: string) => void;
 }

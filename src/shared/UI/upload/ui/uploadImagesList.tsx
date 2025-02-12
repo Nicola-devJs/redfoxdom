@@ -69,7 +69,7 @@ export const UploadImagesList = ({
           index={id}
           onDelete={() => onDeleteImg(img)}
           imgUrl={img.url}
-          name={img.file.name}
+          name={img.fileName}
           key={img.id}
         />
       ))}

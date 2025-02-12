@@ -2,12 +2,8 @@
 import React, { useState } from "react";
 import { Select } from "./select";
 import { LocationCrossIcon } from "@/shared/icons";
-import { SelectProps } from "../types";
+import { SelectAutocompleteProps, SelectProps } from "../model/types";
 import { useDebounce } from "@/shared/hooks/useDebounce";
-
-interface SelectAutocompleteProps extends SelectProps {
-  onFilterOptions: (value: string) => void;
-}
 
 export const SelectAutocomplete = ({
   onFilterOptions,

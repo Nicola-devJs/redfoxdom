@@ -3,6 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import Facebook from "next-auth/providers/facebook";
 import { handleAuthUser } from "./api/authUser";
+import { UserLoginRequest } from "@/app/types/auth";
 
 export const {
   handlers,
@@ -46,12 +47,9 @@ export const {
         password: { label: "password", type: "password", required: true },
       },
 
-      authorize: async (credentials) => {
-        if (credentials.email && credentials.password) {
-          return await handleAuthUser({
-            email: credentials.email as string,
-            password: credentials.password as string,
-          });
+      authorize: async ({ email, password }) => {
+        if (typeof email === "string" && typeof password === "string") {
+          return await handleAuthUser({ email, password });
         }
 
         return null;

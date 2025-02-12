@@ -1,24 +1,55 @@
+"use client";
 import React from "react";
-import { Form, Input, Select, Textarea, Upload } from "@/shared/ui/index";
-import { propertyCreateAction } from "../../model/actions/propertyCreateAction";
+import {
+  Button,
+  ControlledInput,
+  Input,
+  ControlledTextarea,
+  ControlledUpload,
+} from "@/shared/ui/index";
 import { FormAmenities, FormBody, FormFloor, FormLocation } from "./ui";
+import { useForm } from "react-hook-form";
+import { PropertyFormFields, schema } from "../../model/config";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const PropertyForm = () => {
+  const { control, handleSubmit } = useForm<PropertyFormFields>({
+    mode: "all",
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data: PropertyFormFields) => {};
+
   return (
-    <Form serverAction={propertyCreateAction} className="flex flex-col gap-y-5">
+    <form className="flex flex-col gap-y-5">
       <FormBody title="Upload media">
-        <Upload buttonText="Select photos" multiple />
+        <ControlledUpload
+          control={control}
+          buttonText="Select photos"
+          id="photos"
+          name="photos"
+          multiple
+        />
       </FormBody>
 
       <FormBody title="Information">
-        <Input label="Title" required id="title" name="title" />
-        <Textarea
+        <ControlledInput
+          control={control}
+          name="title"
+          label="Title"
+          required
+          id="title"
+        />
+
+        <ControlledTextarea
+          control={control}
+          name="description"
           label="Description"
           id="descriptrion"
-          name="description"
           className="h-[120px]"
           placeholder="Description property..."
         />
+
         <div className="grid grid-cols-3 items-end gap-5">
           <Input
             label="Full address"
@@ -27,14 +58,15 @@ export const PropertyForm = () => {
             name="full_address"
           />
           <Input label="Zip code" required id="code" name="zip_code" />
-          <Select
+          {/* <ControlledSelect
             label="Country"
             required
             options={[{ value: "country", label: "mock country" }]}
-            name="country"
+            name=""
             id="country"
             className="z-[2]"
-          />
+            control={control}
+          /> */}
         </div>
 
         <FormLocation />
@@ -71,6 +103,15 @@ export const PropertyForm = () => {
       <FormBody title="Floors">
         <FormFloor />
       </FormBody>
-    </Form>
+      <div className="flex justify-center gap-4">
+        <Button
+          type="submit"
+          onClick={handleSubmit(onSubmit)}
+          className="px-[60px]"
+        >
+          Save
+        </Button>
+      </div>
+    </form>
   );
 };

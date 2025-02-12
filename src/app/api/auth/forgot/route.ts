@@ -1,40 +1,41 @@
-import { NextRequest, NextResponse } from "next/server";
-import { UserLoginRequest, UserResponse } from "../types";
-import { query } from "@/lib/db";
+import { NextRequest } from "next/server";
+import { UserLoginRequest } from "@/app/types/auth";
 import { hashPassword } from "@/features/auth/lib/transformPassword";
+import { generateResponseIcorrectCredentials } from "@/app/lib/auth";
+import { generateResponse } from "@/app/lib/generateResponse";
+import { query } from "@/lib/db";
 
 export const PUT = async (req: NextRequest) => {
-  const body: UserLoginRequest = await req.json();
+  const body: Partial<UserLoginRequest> = await req.json();
 
-  if (!body.email) {
-    return NextResponse.json({ error: "Email is invalid" }, { status: 400 });
-  }
-
-  if (!body.password) {
-    return NextResponse.json({ error: "Password is invalid" }, { status: 400 });
+  if (!body.email || !body.password) {
+    return generateResponseIcorrectCredentials();
   }
 
   const hashedPassword = await hashPassword(body.password);
 
+  // const {
+  //   error,
+  //   status,
+  //   data: updatedProfile,
+  // } = await supabase
+  //   .from("profiles")
+  //   .update({ password: hashedPassword })
+  //   .eq("email", body.email)
+  //   .select("id, email, name, created_at")
+  //   .returns<UserResponse[]>()
+  //   .maybeSingle();
+
   try {
-    const result = await query(
-      "UPDATE users SET password = $1 WHERE email = $2 RETURNING *",
+    const response = await query(
+      "UPDATE profiles SET password = $1 WHERE email = $2 RETURNING *",
       [hashedPassword, body.email],
     );
 
-    const user: UserResponse | undefined = result.rows[0];
+    const [updatedProfile] = response.rows;
 
-    if (user) {
-      const { password, ...foundedUser } = user;
-
-      return NextResponse.json(foundedUser, { status: 200 });
-    } else {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
-    }
+    return generateResponse(updatedProfile);
   } catch (error) {
-    return NextResponse.json(
-      { error: "User not found, problem is server" },
-      { status: 500 },
-    );
+    return generateResponse(null, 500, error as string);
   }
 };

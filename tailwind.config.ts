@@ -39,6 +39,9 @@ const config: Config = {
           DEFAULT: "rgb(244, 247, 254)",
           second: "rgb(247, 247, 247)",
         },
+        error: {
+          DEFAULT: "rgb(223 21 32)",
+        },
       },
       borderWidth: {
         "1": "1px",

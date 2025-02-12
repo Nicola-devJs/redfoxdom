@@ -1,11 +1,15 @@
+"use client";
 import React, { ReactNode } from "react";
 import { cn } from "../helpers/cn";
 import { ArrowRightIcon } from "@/shared/icons";
+import { Loader } from "./loader";
+import { useFormStatus } from "react-dom";
 
 interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: "outlined" | "primary" | "secondary";
   isCircle?: boolean;
+  loading?: boolean;
 }
 
 export const Button = ({
@@ -13,8 +17,10 @@ export const Button = ({
   variant = "primary",
   isCircle,
   className,
+  loading,
   ...props
 }: IProps) => {
+  const { pending } = useFormStatus();
   const isPrimary = variant === "primary";
   const isSecondary = variant === "secondary";
 
@@ -36,7 +42,10 @@ export const Button = ({
       )}
       {...props}
     >
-      {children}
+      {children}{" "}
+      {props.type === "submit" && (loading || pending) && (
+        <Loader color="white" className="size-10" />
+      )}
     </button>
   );
 };

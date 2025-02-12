@@ -3,7 +3,7 @@ import { CloseIcon } from "@/shared/icons";
 import { Radio } from "@/shared/ui";
 import React, { useState } from "react";
 import { FloorItem } from "./ui/floorItem";
-import { generateUUID } from "@/shared/helpers/generateUUID";
+import { generateUUID } from "@/shared/helpers/generateIDs";
 import { floorOptions, FloorState } from "@/widgets/properties/model/consts";
 
 const initialFloorState = { id: generateUUID() };
@@ -45,7 +45,9 @@ export const FormFloor = () => {
           radios={floorOptions}
           variant="vertical"
           value={floorState}
-          onChange={handleChangeEnableFloor}
+          onChange={(event) =>
+            handleChangeEnableFloor(event.target.value as FloorState)
+          }
         />
       </div>
       {floors.map((floor, index) => (

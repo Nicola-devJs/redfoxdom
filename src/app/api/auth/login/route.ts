@@ -1,49 +1,47 @@
-import { NextResponse } from "next/server";
-import { UserLoginRequest, UserResponse } from "../types";
-import { query } from "@/lib/db";
+import { UserLoginRequest, UserResponseWithPassword } from "@/app/types/auth";
 import { verifyPassword } from "@/features/auth/lib/transformPassword";
+import { createClient } from "@/lib/supabase/server";
+import {
+  generateResponseIcorrectCredentials,
+  generateResponseNotFoundProfile,
+} from "@/app/lib/auth";
+import { generateResponse } from "@/app/lib/generateResponse";
 
 export const POST = async (req: Request) => {
-  const body: UserLoginRequest = await req.json();
+  const body: Partial<UserLoginRequest> = await req.json();
+  const supabase = await createClient();
 
-  if (!body.email) {
-    return NextResponse.json({ error: "Email is invalid" }, { status: 400 });
+  if (!body.email || !body.password) {
+    return generateResponseIcorrectCredentials();
   }
 
-  if (!body.password) {
-    return NextResponse.json({ error: "Password is invalid" }, { status: 400 });
-  }
+  const {
+    error,
+    status,
+    data: selectedProfile,
+  } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("email", body.email)
+    .returns<UserResponseWithPassword[]>()
+    .maybeSingle();
 
-  try {
-    const result = await query("SELECT * FROM users WHERE email = $1", [
-      body.email,
-    ]);
-
-    const user: UserResponse | undefined = result.rows[0];
-
-    if (user) {
-      const isVerifyPassword = await verifyPassword(
-        body.password,
-        user.password,
-      );
-
-      if (!isVerifyPassword) {
-        return NextResponse.json(
-          { error: "Password is invalid" },
-          { status: 400 },
-        );
-      }
-
-      const { password, ...foundedUser } = user;
-
-      return NextResponse.json(foundedUser, { status: 200 });
-    } else {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
-    }
-  } catch (error) {
-    return NextResponse.json(
-      { error: "User not found, problem is server" },
-      { status: 500 },
+  if (selectedProfile) {
+    const isVerifyPassword = await verifyPassword(
+      body.password,
+      selectedProfile.password,
     );
+
+    if (!isVerifyPassword) {
+      return generateResponseIcorrectCredentials();
+    }
+
+    const { password, ...preparedResponseProfile } = selectedProfile;
+
+    return generateResponse(preparedResponseProfile, status);
+  } else if (error) {
+    return generateResponse(null, status, error?.message);
+  } else {
+    return generateResponseNotFoundProfile();
   }
 };

@@ -9,10 +9,12 @@ export type UserLoginRequest = {
   password: string;
 };
 
-export type UserResponse = {
+export type UserResponseWithPassword = {
   id: string;
   name: string;
   email: string;
   created_at: string;
   password: string;
 };
+
+export type UserResponse = Omit<UserResponseWithPassword, "password">;

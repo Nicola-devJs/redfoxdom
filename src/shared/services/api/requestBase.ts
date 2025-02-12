@@ -1,3 +1,5 @@
+import { ResponseBodyType } from "@/shared/types/response";
+
 class RequestBaseApi {
   private BASE_URL = process.env.AUTH_URL;
 
@@ -24,7 +26,10 @@ class RequestBaseApi {
     }
   }
 
-  async get<T>(requestUrl: string, requestParams?: RequestInit): Promise<T> {
+  async get<T>(
+    requestUrl: string,
+    requestParams?: RequestInit,
+  ): Promise<ResponseBodyType<T>> {
     try {
       const response = await this.request(
         requestUrl,
@@ -32,7 +37,7 @@ class RequestBaseApi {
         undefined,
         requestParams,
       );
-      return response.json() as T;
+      return response.json();
     } catch (error) {
       throw error;
     }
@@ -42,7 +47,7 @@ class RequestBaseApi {
     requestUrl: string,
     body: BodyInit,
     requestParams?: RequestInit,
-  ): Promise<T> {
+  ): Promise<ResponseBodyType<T>> {
     try {
       const response = await this.request(
         requestUrl,
@@ -50,7 +55,7 @@ class RequestBaseApi {
         body,
         requestParams,
       );
-      return response.json() as T;
+      return response.json();
     } catch (error) {
       throw error;
     }
@@ -60,7 +65,7 @@ class RequestBaseApi {
     requestUrl: string,
     body: BodyInit,
     requestParams?: RequestInit,
-  ): Promise<T> {
+  ): Promise<ResponseBodyType<T>> {
     try {
       const response = await this.request(
         requestUrl,
@@ -68,12 +73,15 @@ class RequestBaseApi {
         body,
         requestParams,
       );
-      return response.json() as T;
+      return response.json();
     } catch (error) {
       throw error;
     }
   }
-  async delete<T>(requestUrl: string, requestParams?: RequestInit): Promise<T> {
+  async delete<T>(
+    requestUrl: string,
+    requestParams?: RequestInit,
+  ): Promise<ResponseBodyType<T>> {
     try {
       const response = await this.request(
         requestUrl,
@@ -81,7 +89,7 @@ class RequestBaseApi {
         undefined,
         requestParams,
       );
-      return response.json() as T;
+      return response.json();
     } catch (error) {
       throw error;
     }
