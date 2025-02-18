@@ -17,7 +17,7 @@ export const HeadingSection = ({
   className,
 }: IProps) => {
   return (
-    <section className={cn("container-block mt-[80px]", className)}>
+    <section className={cn("container-block mt-s-80", className)}>
       <h3
         className={cn(
           "mb-2 text-center text-sm font-medium uppercase text-primary",

@@ -6,9 +6,9 @@ import { BenifitDesctiptionItem, BenifitTag } from "./ui/index";
 
 export const Benifit = () => {
   return (
-    <div className="bg-light py-[80px] dark:bg-dark-second">
+    <div className="py-s-80 bg-light dark:bg-dark-second">
       <div className="container-block-large flex max-xl:flex-col-reverse">
-        <div className="relative mr-[80px] flex w-[60%] items-center justify-center pb-[80px] pt-[120px] max-xl:mx-auto max-xl:w-full max-xl:max-w-[780px] max-phone:hidden">
+        <div className="mr-s-80 pb-s-80 relative flex w-[60%] items-center justify-center pt-[120px] max-xl:mx-auto max-xl:w-full max-xl:max-w-[780px] max-phone:hidden">
           <BenifitTag
             text="costomized solutions"
             className="left-[40px] top-[260px] max-md:left-[5.208vw] max-md:top-[33.854vw]"
@@ -47,7 +47,7 @@ export const Benifit = () => {
         <HeadingSection
           supTitle="our benifit"
           title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-          className="mb-[80px] mt-0 w-[40%] max-w-none max-xl:w-full max-md:mb-[40px] max-phone:mb-0"
+          className="mb-s-80 mt-0 w-[40%] max-w-none max-xl:w-full max-md:mb-[40px] max-phone:mb-0"
           align="left"
         >
           <div className="-mt-6">

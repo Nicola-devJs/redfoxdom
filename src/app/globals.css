@@ -2,29 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-white text-dark dark:bg-dark dark:text-white;
-}
+@layer base {
+  body {
+    @apply bg-white text-dark dark:bg-dark dark:text-white;
+  }
 
-body.fixed-window {
-  overflow: hidden;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-@media (max-width: 1024px) {
   body.fixed-window {
-    margin-right: 0px !important;
+    overflow: hidden;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    body.fixed-window {
+      margin-right: 0px !important;
+    }
   }
 }
 

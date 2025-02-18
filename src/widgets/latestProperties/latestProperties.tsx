@@ -16,7 +16,7 @@ export const LatestProperties = () => {
           <NextImage
             src={prop.img}
             alt="test"
-            className="h-[80px] w-[100px] rounded-md"
+            className="h-s-80 w-[100px] rounded-md"
           />
           <div className="">
             <span className="mb-1 inline-block font-semibold">{prop.name}</span>

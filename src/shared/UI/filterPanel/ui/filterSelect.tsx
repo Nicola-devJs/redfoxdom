@@ -92,7 +92,7 @@ export const FilterSelect = ({
       </div>
       <ul
         className={cn(
-          "pointer-events-none absolute -left-2 right-0 top-[80px] min-w-full translate-y-4 overflow-hidden rounded-lg border-1 border-gray bg-white text-sm text-dark opacity-0 shadow-lg transition dark:border-dark dark:bg-dark-second dark:text-white",
+          "top-s-80 pointer-events-none absolute -left-2 right-0 min-w-full translate-y-4 overflow-hidden rounded-lg border-1 border-gray bg-white text-sm text-dark opacity-0 shadow-lg transition dark:border-dark dark:bg-dark-second dark:text-white",
           { "opacity-1 pointer-events-auto translate-y-0": showOptions },
         )}
       >

@@ -26,7 +26,7 @@ export default function MainPage() {
         <RecommendedProperties />
         <MoreButton className="mx-auto mt-8">View all properties</MoreButton>
       </HeadingSection>
-      <div className="mt-[80px] bg-light pb-[80px] pt-1 dark:bg-dark-second">
+      <div className="mt-s-80 pb-s-80 bg-light pt-1 dark:bg-dark-second">
         <HeadingSection supTitle="latest new" title="from our blog">
           <PostList />
         </HeadingSection>

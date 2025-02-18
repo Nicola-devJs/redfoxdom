@@ -12,6 +12,9 @@ const config: Config = {
       },
     }),
     extend: {
+      spacing: {
+        "s-80": "80px",
+      },
       screens: {
         phone: "450px",
       },

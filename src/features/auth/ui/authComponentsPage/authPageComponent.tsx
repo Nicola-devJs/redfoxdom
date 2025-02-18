@@ -25,7 +25,7 @@ export const AuthPageComponent = ({ authPage }: IProps) => {
   };
 
   return (
-    <div className="mt-[80px] grid w-full place-items-center">
+    <div className="mt-s-80 grid w-full place-items-center">
       {renderAuthChildren()}
     </div>
   );
